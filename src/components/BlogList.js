@@ -67,7 +67,7 @@ const BlogList = () => {
       <VStack spacing={8} align="stretch">
         <Box textAlign="center" mb={8}>
           <Heading as="h1" size="2xl" mb={4}>
-            Blog
+            Orhan G. Biler
           </Heading>
           <Text fontSize="lg" color="gray.600">
             Thoughts, ideas, and experiences in technology and development
