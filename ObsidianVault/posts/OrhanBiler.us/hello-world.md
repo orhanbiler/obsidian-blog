@@ -1,7 +1,9 @@
 ---
 title: Hello World - My First Blog Post
 date: 2024-01-19
-tags: [blog, introduction]
+tags:
+  - blog
+  - introduction
 excerpt: Starting my journey of blogging with Obsidian integration
 draft: false
 ---
@@ -27,3 +29,6 @@ I plan to write about:
 - Learning experiences
 
 Stay tuned for more content! 
+
+## Test Sync
+This is a test line to verify that sync is working properly.

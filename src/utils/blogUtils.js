@@ -2,7 +2,8 @@ import frontMatter from 'front-matter';
 
 export async function getAllPosts() {
   try {
-    const response = await fetch('/posts/index.json', {
+    const timestamp = new Date().getTime();
+    const response = await fetch(`/posts/index.json?t=${timestamp}`, {
       cache: 'no-store' // Disable caching
     });
     const data = await response.json();
@@ -15,7 +16,8 @@ export async function getAllPosts() {
 
 export async function getPostBySlug(slug) {
   try {
-    const response = await fetch(`/posts/${slug}.md`, {
+    const timestamp = new Date().getTime();
+    const response = await fetch(`/posts/${slug}.md?t=${timestamp}`, {
       cache: 'no-store' // Disable caching
     });
     const markdown = await response.text();
@@ -30,7 +32,7 @@ export async function getPostBySlug(slug) {
       content: body
     };
   } catch (error) {
-    console.error(`Error loading post ${slug}:`, error);
+    console.error('Error loading post:', error);
     return null;
   }
-} 
+}

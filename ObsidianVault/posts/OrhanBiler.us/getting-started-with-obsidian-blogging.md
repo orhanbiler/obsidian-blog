@@ -1,7 +1,10 @@
 ---
-title: Getting Started with Obsidian Blogging
+title: Getting Started with Obsidian Bloggings
 date: 2024-01-19
-tags: [obsidian, blogging, markdown]
+tags:
+  - obsidian
+  - blogging
+  - markdown
 excerpt: Learn how to use Obsidian as a powerful blogging platform with automatic syncing to your website.
 draft: false
 ---
@@ -105,3 +108,5 @@ To create a new post:
 console.log('Hello world');
 
 ```
+
+Thanks!
