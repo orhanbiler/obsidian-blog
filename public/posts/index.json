@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "title": "Hi There",
+      "date": "2025-01-19T00:00:00.000Z",
+      "slug": "hi-there",
+      "excerpt": "Starting my journey of blogging with Obsidian integration",
+      "tags": [
+        "blog",
+        "blogging",
+        "introduction",
+        "markdown",
+        "obsidian"
+      ]
+    },
+    {
+      "title": "Getting Started with Obsidian Blogging",
+      "date": "2024-01-19T00:00:00.000Z",
+      "slug": "getting-started-with-obsidian-blogging",
+      "excerpt": "Learn how to use Obsidian as a powerful blogging platform with automatic syncing to your website.",
+      "tags": [
+        "obsidian",
+        "blogging",
+        "markdown"
+      ]
+    },
+    {
+      "title": "Hello World - My First Blog Post",
+      "date": "2024-01-19T00:00:00.000Z",
+      "slug": "hello-world-my-first-blog-post",
+      "excerpt": "Starting my journey of blogging with Obsidian integration",
+      "tags": [
+        "blog",
+        "introduction"
+      ]
+    }
+  ]
+}
