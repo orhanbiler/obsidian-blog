@@ -167,7 +167,8 @@ function syncPosts() {
       date: data.date || new Date().toISOString().split('T')[0],
       slug,
       excerpt: data.excerpt || '',
-      tags: data.tags || []
+      tags: data.tags || [],
+      author: data.author || 'Orhan Biler'
     });
   });
 

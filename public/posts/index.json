@@ -4,12 +4,13 @@
       "title": "Amerika Birleşik Devletleri'ne Nasıl Geldim",
       "date": "2025-01-20T00:00:00.000Z",
       "slug": "amerika-birle-ik-devletleri-ne-nas-l-geldim",
-      "excerpt": "Amerika Birleşik Devletleri'ne Nasıl Geldiğimi Anlatıyorum",
+      "excerpt": "Amerika Birleşik Devletleri'ne Nasıl Geldiğimi Anlatıyorum: Yolculuğumun Detayları ve Deneyimlerim",
       "tags": [
         "America",
         "migrant",
         "göç"
-      ]
+      ],
+      "author": "Orhan Biler"
     },
     {
       "title": "How Playing Arma Reforger Has Changed My Perspective",
@@ -21,7 +22,8 @@
         "PCGaming",
         "BohemiaInteractive",
         "MilSim"
-      ]
+      ],
+      "author": "Orhan Biler"
     },
     {
       "title": "Getting Started with Obsidian Bloggings",
@@ -32,7 +34,8 @@
         "obsidian",
         "blogging",
         "markdown"
-      ]
+      ],
+      "author": "Orhan Biler"
     }
   ]
 }

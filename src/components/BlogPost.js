@@ -14,7 +14,9 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  Divider
+  Divider,
+  Avatar,
+  Flex
 } from '@chakra-ui/react';
 import { format } from 'date-fns';
 import { marked } from 'marked';
@@ -30,6 +32,14 @@ import 'prismjs/components/prism-javascript';
 // Additional languages
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
+
+const getAuthorImage = (author) => {
+  // Replace spaces with hyphens and ensure proper capitalization
+  const formattedName = author.split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('-');
+  return `/assets/authors/${formattedName}.png`;
+};
 
 const BlogPost = () => {
   const [post, setPost] = useState(null);
@@ -158,8 +168,31 @@ const BlogPost = () => {
           bg={bgColor}
         >
           <Heading as="h1" size="xl" mb={4}>{post.title}</Heading>
-          <HStack spacing={4} mb={4}>
-            <Text color="gray.500">{formattedDate}</Text>
+          <Flex 
+            direction={{ base: 'column', md: 'row' }}
+            align={{ base: 'flex-start', md: 'center' }}
+            justify="space-between"
+            mb={6}
+          >
+            <HStack spacing={4} mb={{ base: 4, md: 0 }}>
+              <Avatar 
+                size="sm" 
+                name={post.author || 'Orhan Biler'} 
+                src={getAuthorImage(post.author || 'Orhan Biler')}
+                bg="teal.500"
+                onError={(e) => {
+                  console.log('Failed to load author image:', e);
+                  e.target.onerror = null; // Prevent infinite loop
+                }}
+              />
+              <Box>
+                <Text fontWeight="bold">{post.author || 'Orhan Biler'}</Text>
+                <Text fontSize="sm" color="gray.500">
+                  {format(new Date(post.date), 'MMMM d, yyyy')}
+                </Text>
+              </Box>
+            </HStack>
+            
             <HStack spacing={2} flexWrap="wrap">
               {post.tags.map((tag, index) => (
                 <Tag
@@ -173,7 +206,7 @@ const BlogPost = () => {
                 </Tag>
               ))}
             </HStack>
-          </HStack>
+          </Flex>
           <Text fontSize="lg" color="gray.600">{post.excerpt}</Text>
         </Box>
 
