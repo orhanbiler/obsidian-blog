@@ -1,13 +1,15 @@
 {
   "posts": [
     {
-      "title": "Arma Reforger",
+      "title": "How Playing Arma Reforger Has Changed My Perspective",
       "date": "2025-01-19T00:00:00.000Z",
-      "slug": "arma-reforger",
-      "excerpt": "Starting my journey of blogging with Obsidian integration",
+      "slug": "how-playing-arma-reforger-has-changed-my-perspective",
+      "excerpt": "A personal reflection on how Arma Reforger has impacted the way I see games and conflict.",
       "tags": [
-        "blogging",
-        "introduction"
+        "ArmaReforger",
+        "PCGaming",
+        "BohemiaInteractive",
+        "MilSim"
       ]
     },
     {
