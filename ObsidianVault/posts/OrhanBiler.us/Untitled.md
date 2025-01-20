@@ -13,7 +13,7 @@ draft: false
 Another image for real
 
 Picture here
-
+![](assets/Screenshot%202025-01-06%20200239.png)
 ![](assets/Screenshot%202025-01-06%20201847%204.png)
 m
 
