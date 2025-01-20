@@ -22,16 +22,6 @@
         "blogging",
         "markdown"
       ]
-    },
-    {
-      "title": "Hello World - My First Blog Post",
-      "date": "2024-01-19T00:00:00.000Z",
-      "slug": "hello-world-my-first-blog-post",
-      "excerpt": "Starting my journey of blogging with Obsidian integration",
-      "tags": [
-        "blog",
-        "introduction"
-      ]
     }
   ]
 }
