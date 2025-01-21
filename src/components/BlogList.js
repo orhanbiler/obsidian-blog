@@ -25,7 +25,7 @@ import {
   SkeletonCircle,
   SkeletonText
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { SearchIcon } from '@chakra-ui/icons';
 import { getAllPosts } from '../utils/blogUtils';
@@ -96,11 +96,22 @@ const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [allTags, setAllTags] = useState([]);
+  const location = useLocation();
 
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const secondaryBg = useColorModeValue('gray.50', 'gray.700');
   const mutedText = useColorModeValue('gray.600', 'gray.400');
+
+  useEffect(() => {
+    // Reset search and tag filters when showLatest is true
+    if (location.state?.showLatest) {
+      setSearchTerm('');
+      setSelectedTag('');
+      // Clear the location state after handling it
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -130,7 +141,14 @@ const BlogList = () => {
     loadPosts();
   }, []);
 
-  const filteredPosts = posts.filter(post => {
+  // Always sort posts by date
+  const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  // Featured post is always the latest post
+  const featuredPost = sortedPosts[0];
+  
+  // Filter the remaining posts
+  const filteredPosts = sortedPosts.slice(1).filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.tags.some(tag => 
@@ -140,6 +158,19 @@ const BlogList = () => {
     const matchesTag = !selectedTag || post.tags.some(tag => tag.urlFriendly === selectedTag);
     return matchesSearch && matchesTag;
   });
+
+  // Create meta description from the latest posts
+  const getMetaDescription = () => {
+    if (posts.length === 0) return "Personal blog and articles about technology, programming, and more.";
+    const latestPosts = posts.slice(0, 3).map(post => post.title).join(', ');
+    return `Latest posts: ${latestPosts}. Read more articles about technology, programming, and personal experiences.`;
+  };
+
+  // Get all unique tags for keywords
+  const getMetaKeywords = () => {
+    const keywords = new Set(allTags.map(tag => tag.original));
+    return Array.from(keywords).join(', ');
+  };
 
   if (loading) {
     return (
@@ -159,23 +190,6 @@ const BlogList = () => {
       </Box>
     );
   }
-
-  // Get the latest post for the featured section
-  const featuredPost = filteredPosts[0];
-  const remainingPosts = filteredPosts.slice(1);
-
-  // Create meta description from the latest posts
-  const getMetaDescription = () => {
-    if (posts.length === 0) return "Personal blog and articles about technology, programming, and more.";
-    const latestPosts = posts.slice(0, 3).map(post => post.title).join(', ');
-    return `Latest posts: ${latestPosts}. Read more articles about technology, programming, and personal experiences.`;
-  };
-
-  // Get all unique tags for keywords
-  const getMetaKeywords = () => {
-    const keywords = new Set(allTags.map(tag => tag.original));
-    return Array.from(keywords).join(', ');
-  };
 
   return (
     <Box>
@@ -203,8 +217,8 @@ const BlogList = () => {
         <meta name="author" content="Orhan Biler" />
       </Helmet>
 
-      {/* Hero Section with Featured Post */}
-      {featuredPost && !searchTerm && !selectedTag && (
+      {/* Hero Section with Featured Post - Always visible */}
+      {featuredPost && (
         <Box bg={secondaryBg} py={16} mb={8}>
           <Container maxW="container.xl">
             <Grid templateColumns={{ base: '1fr', lg: '1.2fr 0.8fr' }} gap={8} alignItems="center">
@@ -272,10 +286,10 @@ const BlogList = () => {
                   as={Link}
                   to={`/blog/${featuredPost.slug}`}
                   colorScheme="teal"
-                  size="lg"
+                  size="md"
                   mt={4}
                 >
-                  Read more
+                  Read More
                 </Button>
               </VStack>
             </Grid>
@@ -284,44 +298,98 @@ const BlogList = () => {
       )}
 
       <Container maxW="container.xl" py={8}>
-        {/* Search and Filter */}
-        <Flex gap={4} direction={{ base: 'column', md: 'row' }} mb={8}>
-          <InputGroup>
-            <InputLeftElement pointerEvents="none">
-              <SearchIcon color="gray.400" />
-            </InputLeftElement>
-            <Input
-              placeholder="Search posts..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+        {/* Search and Filter Section */}
+        <Box mb={8}>
+          <Heading size="lg" mb={4}>
+            {searchTerm || selectedTag ? 'Search Results' : 'All Posts'}
+          </Heading>
+          <Flex gap={4} direction={{ base: 'column', md: 'row' }} mb={4}>
+            <InputGroup>
+              <InputLeftElement pointerEvents="none">
+                <SearchIcon color="gray.400" />
+              </InputLeftElement>
+              <Input
+                placeholder="Search posts..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                bg={bgColor}
+                size="lg"
+              />
+            </InputGroup>
+            <Select
+              placeholder="Filter by tag"
+              value={selectedTag}
+              onChange={(e) => setSelectedTag(e.target.value)}
               bg={bgColor}
+              maxW={{ base: "full", md: "200px" }}
               size="lg"
-            />
-          </InputGroup>
-          <Select
-            placeholder="Filter by tag"
-            value={selectedTag}
-            onChange={(e) => setSelectedTag(e.target.value)}
-            bg={bgColor}
-            maxW={{ base: "full", md: "200px" }}
-            size="lg"
-          >
-            {allTags.map(tag => (
-              <option key={tag.urlFriendly} value={tag.urlFriendly}>
-                #{tag.original}
-              </option>
-            ))}
-          </Select>
-        </Flex>
+            >
+              {allTags.map(tag => (
+                <option key={tag.urlFriendly} value={tag.urlFriendly}>
+                  #{tag.original}
+                </option>
+              ))}
+            </Select>
+          </Flex>
+          {(searchTerm || selectedTag) && (
+            <HStack spacing={2} mb={4}>
+              <Text color={mutedText}>
+                Found {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
+              </Text>
+              {selectedTag && (
+                <Tag
+                  size="md"
+                  variant="subtle"
+                  colorScheme="blue"
+                  cursor="pointer"
+                  onClick={() => setSelectedTag('')}
+                >
+                  #{allTags.find(t => t.urlFriendly === selectedTag)?.original}
+                  <Text ml={1} as="span" onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedTag('');
+                  }}>
+                    ×
+                  </Text>
+                </Tag>
+              )}
+              {(searchTerm || selectedTag) && (
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedTag('');
+                  }}
+                >
+                  Clear filters
+                </Button>
+              )}
+            </HStack>
+          )}
+        </Box>
 
         {/* Posts Grid */}
         {filteredPosts.length === 0 ? (
           <Center py={16}>
-            <Text>No posts found matching your criteria.</Text>
+            <VStack spacing={4}>
+              <Text>No posts found matching your criteria.</Text>
+              {(searchTerm || selectedTag) && (
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedTag('');
+                  }}
+                >
+                  Clear filters
+                </Button>
+              )}
+            </VStack>
           </Center>
         ) : (
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-            {(searchTerm || selectedTag ? filteredPosts : remainingPosts).map((post, index) => (
+            {filteredPosts.map((post, index) => (
               <Box
                 key={index}
                 borderWidth="1px"
