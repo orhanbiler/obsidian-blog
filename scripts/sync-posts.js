@@ -185,5 +185,12 @@ function syncPosts() {
 
 }
 
-// Run sync
-syncPosts(); 
+// Export the syncPosts function
+module.exports = {
+  syncPosts
+};
+
+// Run sync if called directly
+if (require.main === module) {
+  syncPosts();
+} 

@@ -1,0 +1,17 @@
+name: Sync Posts
+
+on:
+  push:
+    paths:
+      - 'ObsidianVault/**'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel API
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.SYNC_SECRET_TOKEN }}" \
+            ${{ secrets.VERCEL_SYNC_URL }}/api/sync 
