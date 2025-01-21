@@ -42,22 +42,18 @@ const getAuthorImage = (author) => {
 };
 
 const BlogPost = () => {
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
   const { slug } = useParams();
   const navigate = useNavigate();
-
-  // Color mode values
-  const bgColor = useColorModeValue('white', 'gray.800');
+  const [post, setPost] = useState(null);
+  const textColor = useColorModeValue('gray.800', 'gray.200');
+  const codeBgColor = useColorModeValue('gray.50', 'gray.800');
+  const codeTextColor = useColorModeValue('gray.800', 'gray.200');
+  const linkColor = useColorModeValue('blue.600', 'blue.400');
+  const linkHoverColor = useColorModeValue('blue.700', 'blue.300');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const codeBgColor = useColorModeValue('gray.50', 'gray.900');
-  const textColor = useColorModeValue('gray.800', 'gray.100');
-  const secondaryTextColor = useColorModeValue('gray.600', 'gray.400');
-  const codeTextColor = useColorModeValue('gray.800', 'gray.100');
-  const linkColor = useColorModeValue('teal.600', 'teal.300');
-  const linkHoverColor = useColorModeValue('teal.700', 'teal.200');
-  const blockquoteBgColor = useColorModeValue('gray.50', 'gray.700');
-  const blockquoteBorderColor = useColorModeValue('teal.500', 'teal.300');
+  const blockquoteBg = useColorModeValue('gray.50', 'gray.800');
+  const blockquoteBorder = useColorModeValue('gray.200', 'gray.700');
+  const subtitleColor = useColorModeValue('gray.600', 'gray.400');
 
   // Syntax highlighting colors
   const syntaxColors = {
@@ -73,6 +69,8 @@ const BlogPost = () => {
     list: '#6796e6',
     hr: '#6796e6'
   };
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -116,6 +114,31 @@ const BlogPost = () => {
     }
   }, [post]);
 
+  const formatDate = (dateString) => {
+    try {
+      if (!dateString) {
+        return 'No date';
+      }
+
+      // Handle YYYY-MM-DD format
+      if (typeof dateString === 'string' && dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        const [year, month, day] = dateString.split('-').map(Number);
+        const date = new Date(year, month - 1, day);
+        return format(date, 'MMMM d, yyyy');
+      }
+
+      // Try parsing as ISO string
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        return 'Invalid date';
+      }
+      return format(date, 'MMMM d, yyyy');
+    } catch (error) {
+      console.error('Error formatting date:', error, dateString);
+      return 'Invalid date';
+    }
+  };
+
   if (loading) {
     return (
       <Center h="50vh">
@@ -128,11 +151,11 @@ const BlogPost = () => {
     return null;
   }
 
-  const formattedDate = format(new Date(post.date), 'MMMM dd, yyyy');
-  const htmlContent = marked(post.content);
+  const formattedDate = formatDate(post.date);
+  const htmlContent = marked(post.content || '');
 
   return (
-    <Container maxW="container.md" py={8}>
+    <Container maxW="container.xl" py={8}>
       <VStack spacing={6} align="stretch">
         {/* Breadcrumb Navigation */}
         <Breadcrumb
@@ -160,35 +183,46 @@ const BlogPost = () => {
         </Button>
 
         {/* Post Header */}
-        <Box
-          p={6}
-          borderWidth="1px"
-          borderRadius="lg"
-          borderColor={borderColor}
-          bg={bgColor}
-        >
-          <Heading as="h1" size="xl" mb={4}>{post.title}</Heading>
+        <Box>
+          <Heading 
+            as="h1" 
+            size="2xl" 
+            mb={4}
+            lineHeight="1.2"
+          >
+            {post.title}
+          </Heading>
+          
+          {post.subtitle && (
+            <Text
+              fontSize="xl"
+              color={subtitleColor}
+              mb={6}
+              lineHeight="1.6"
+            >
+              {post.subtitle}
+            </Text>
+          )}
+
           <Flex 
             direction={{ base: 'column', md: 'row' }}
             align={{ base: 'flex-start', md: 'center' }}
             justify="space-between"
-            mb={6}
+            mb={8}
           >
             <HStack spacing={4} mb={{ base: 4, md: 0 }}>
               <Avatar 
-                size="sm" 
+                size="md"
                 name={post.author || 'Orhan Biler'} 
                 src={getAuthorImage(post.author || 'Orhan Biler')}
                 bg="teal.500"
-                onError={(e) => {
-                  console.log('Failed to load author image:', e);
-                  e.target.onerror = null; // Prevent infinite loop
-                }}
               />
               <Box>
-                <Text fontWeight="bold">{post.author || 'Orhan Biler'}</Text>
+                <Text fontWeight="bold" fontSize="md">
+                  {post.author || 'Orhan Biler'}
+                </Text>
                 <Text fontSize="sm" color="gray.500">
-                  {format(new Date(post.date), 'MMMM d, yyyy')}
+                  {formattedDate}
                 </Text>
               </Box>
             </HStack>
@@ -198,42 +232,71 @@ const BlogPost = () => {
                 <Tag
                   key={index}
                   colorScheme="teal"
-                  size="sm"
+                  variant="subtle"
+                  size="md"
+                  borderRadius="full"
                   cursor="pointer"
-                  onClick={() => navigate('/blog', { state: { selectedTag: tag } })}
+                  onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
+                  _hover={{
+                    transform: 'translateY(-1px)',
+                    shadow: 'sm'
+                  }}
+                  transition="all 0.2s"
                 >
-                  {tag}
+                  <Text as="span" color="teal.500" fontWeight="bold" mr={1}>
+                    #
+                  </Text>
+                  {tag.original}
                 </Tag>
               ))}
             </HStack>
           </Flex>
-          <Text fontSize="lg" color="gray.600">{post.excerpt}</Text>
         </Box>
 
-        <Divider />
+        {/* Banner Image */}
+        {post.banner && (
+          <Box
+            borderRadius="xl"
+            overflow="hidden"
+            mb={8}
+          >
+            <img 
+              src={post.banner} 
+              alt={post.title}
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '500px',
+                objectFit: 'cover'
+              }}
+              onError={(e) => {
+                console.error('Error loading banner image:', e);
+                e.target.style.display = 'none';
+              }}
+            />
+          </Box>
+        )}
 
         {/* Post Content */}
         <Box
           className="blog-content"
+          maxW="container.md"
+          mx="auto"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
           sx={{
             color: textColor,
             'h2': {
+              fontSize: '3xl',
+              fontWeight: 'bold',
+              mt: 12,
+              mb: 6,
+              lineHeight: 1.2
+            },
+            'h3': {
               fontSize: '2xl',
               fontWeight: 'bold',
               mt: 8,
-              mb: 4,
-              borderBottom: '1px solid',
-              borderColor: borderColor,
-              pb: 2,
-              color: textColor
-            },
-            'h3': {
-              fontSize: 'xl',
-              fontWeight: 'bold',
-              mt: 6,
-              mb: 3,
-              color: textColor
+              mb: 4
             },
             'h4': {
               fontSize: 'lg',
@@ -243,19 +306,18 @@ const BlogPost = () => {
               color: textColor
             },
             'p': {
-              mb: 4,
+              mb: 6,
               lineHeight: 1.8,
               fontSize: 'lg',
               color: textColor
             },
             'ul, ol': {
-              mb: 4,
+              mb: 6,
               pl: 6,
-              fontSize: 'lg',
-              color: textColor
+              fontSize: 'lg'
             },
             'li': {
-              mb: 2
+              mb: 3
             },
             'pre': {
               bg: codeBgColor,
@@ -305,16 +367,12 @@ const BlogPost = () => {
             },
             'blockquote': {
               borderLeft: '4px solid',
-              borderColor: blockquoteBorderColor,
-              bg: blockquoteBgColor,
-              pl: 4,
-              pr: 4,
-              py: 2,
-              ml: 4,
-              my: 4,
-              color: secondaryTextColor,
-              fontStyle: 'italic',
-              borderRadius: '0 md md 0'
+              borderColor: blockquoteBorder,
+              bg: blockquoteBg,
+              px: 6,
+              py: 4,
+              my: 8,
+              borderRadius: 'md'
             },
             'a': {
               color: linkColor,
@@ -324,10 +382,13 @@ const BlogPost = () => {
               }
             },
             'img': {
-              maxW: '100%',
-              h: 'auto',
-              borderRadius: 'md',
-              my: 4
+              borderRadius: 'xl',
+              my: 8,
+              display: 'block',
+              margin: '2rem auto',
+              maxWidth: '100%',
+              height: 'auto',
+              boxShadow: 'lg'
             }
           }}
         />

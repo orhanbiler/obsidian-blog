@@ -1,12 +1,16 @@
 ---
-title: {{title}}
+title: 
+subtitle: 
 date: {{date:YYYY-MM-DD}}
-tags: []
+tags:
+  - göç
+  - türkiye
+  - öğrenci
+  - yaşam
 excerpt: 
 author: Orhan Biler
+banner: /assets/default-banner.png
 draft: true
 ---
-
-# {{title}}
 
 [Your content here] 

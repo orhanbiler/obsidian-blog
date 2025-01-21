@@ -2,100 +2,56 @@ import React from 'react';
 import {
   Box,
   Flex,
-  HStack,
-  IconButton,
-  Button,
-  useDisclosure,
-  useColorModeValue,
-  useColorMode,
-  Stack,
   Container,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+  Heading,
+  HStack,
   Link as ChakraLink
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-const NavLink = ({ children, to }) => (
-  <ChakraLink
-    as={RouterLink}
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    to={to}
-  >
-    {children}
-  </ChakraLink>
-);
-
-const Links = [
-  { name: 'Home', path: '/' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'About', path: '/about' },
-];
-
-export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('white', 'gray.800');
+  const bg = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
   return (
     <Box
-      bg={bgColor}
-      px={4}
+      as="nav"
       position="sticky"
       top={0}
-      zIndex={1000}
-      borderBottom={1}
-      borderStyle={'solid'}
+      zIndex={100}
+      bg={bg}
+      borderBottom="1px"
       borderColor={borderColor}
+      shadow="sm"
     >
-      <Container maxW={'6xl'}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <IconButton
-            size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          
-          <HStack spacing={8} alignItems={'center'}>
-            <Box fontWeight="bold" fontSize="lg">
-              <NavLink to="/">Orhan Biler</NavLink>
-            </Box>
-            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link.path} to={link.path}>
-                  {link.name}
-                </NavLink>
-              ))}
-            </HStack>
+      <Container maxW="container.xl" py={4}>
+        <Flex justify="space-between" align="center">
+          <Link to="/blog">
+            <Heading size="md" cursor="pointer">
+              Orhan Biler
+            </Heading>
+          </Link>
+
+          <HStack spacing={8}>
+            <ChakraLink as={Link} to="/blog" fontWeight="medium">
+              Blog
+            </ChakraLink>
+            <IconButton
+              icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              onClick={toggleColorMode}
+              variant="ghost"
+              aria-label="Toggle color mode"
+            />
           </HStack>
-
-          <Flex alignItems={'center'}>
-            <Button onClick={toggleColorMode} mr={4}>
-              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button>
-          </Flex>
         </Flex>
-
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link.path} to={link.path}>
-                  {link.name}
-                </NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null}
       </Container>
     </Box>
   );
-} 
+};
+
+export default Navbar; 

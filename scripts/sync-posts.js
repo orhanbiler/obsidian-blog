@@ -164,11 +164,13 @@ function syncPosts() {
     // Add to posts list
     posts.push({
       title: data.title || path.basename(file, '.md'),
+      subtitle: data.subtitle || '',
       date: data.date || new Date().toISOString().split('T')[0],
       slug,
       excerpt: data.excerpt || '',
       tags: data.tags || [],
-      author: data.author || 'Orhan Biler'
+      author: data.author || 'Orhan Biler',
+      banner: data.banner || null
     });
   });
 
@@ -181,7 +183,6 @@ function syncPosts() {
     JSON.stringify({ posts }, null, 2)
   );
 
-  console.log(`Synced ${posts.length} posts`);
 }
 
 // Run sync
