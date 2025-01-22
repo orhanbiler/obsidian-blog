@@ -13,6 +13,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Deploy to Vercel
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run sync script
+        run: npm run sync-posts
+
+      - name: Commit changes
         run: |
-          curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }} 
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync blog posts" && git push)
+
+      - name: Deploy to Vercel
+        id: deploy
+        run: |
+          echo "Triggering Vercel deployment..."
+          DEPLOY_RESULT=$(curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }})
+          echo "Deployment triggered: $DEPLOY_RESULT"
+          
+          # Wait for deployment to start
+          sleep 15
+          
+          echo "Checking deployment status..."
+          curl -I ${{ secrets.VERCEL_SYNC_URL }} 
