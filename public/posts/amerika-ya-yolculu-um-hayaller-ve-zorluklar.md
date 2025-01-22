@@ -1,6 +1,6 @@
 ---
 title: "Amerika'ya Yolculuğum: Hayaller ve Zorluklar"
-subtitle: Yeni Dünyanın Renkli Yüzleri ve Unutulmaz Anılar
+subtitle: Yeni Dünyanın Renkli Yüzleri ve Unutulmaz Anılarim
 date: 2025-01-20
 tags:
   - AmericanDream
