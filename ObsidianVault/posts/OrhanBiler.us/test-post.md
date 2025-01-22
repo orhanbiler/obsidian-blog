@@ -9,4 +9,5 @@ tags: [test]
 This is a test post to verify the sync functionality is working correctly.  Hey there friend. Hi there!dsadadsada
 haha there
 ss
-Testing sync functionality - [Current time: 2024-01-22]Testing sync functionality - [Current time: 2024-01-22]
+Testing sync functionality - [Current time: 2024-01-22]
+Testing PowerShell workflow - [Current time: 2024-01-22 22:45]
