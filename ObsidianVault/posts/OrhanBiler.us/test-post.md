@@ -6,4 +6,4 @@ tags: [test]
 
 # Test Post
 
-This is a test post to verify the sync functionality is working correctly. 
+This is a test post to verify the sync functionality is working correctly. Hi there friend!
