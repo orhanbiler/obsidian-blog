@@ -16,26 +16,27 @@ jobs:
       - name: Trigger Vercel API
         shell: pwsh
         run: |
-          $uri = "${{ secrets.VERCEL_SYNC_URL }}"
-          if (!$uri.StartsWith("https://")) {
-            $uri = "https://" + $uri
+          $baseUrl = "${{ secrets.VERCEL_SYNC_URL }}"
+          $baseUrl = $baseUrl.Trim()
+          $baseUrl = $baseUrl -replace "^https?://", ""
+          $uri = "https://" + $baseUrl
+          
+          Write-Host "Base URL: $baseUrl"
+          Write-Host "Final URI: $uri/api/sync"
+          
+          try {
+            $response = Invoke-RestMethod `
+              -Method POST `
+              -Uri "$uri/api/sync" `
+              -Headers @{
+                "Authorization" = "Bearer ${{ secrets.SYNC_SECRET_TOKEN }}"
+              } `
+              -ErrorAction Stop
+            
+            Write-Host "Response: $response"
+            Write-Host "Sync successful!"
           }
-          $uri = $uri + "/api/sync"
-          
-          Write-Host "Calling URI: $uri"
-          
-          $response = Invoke-RestMethod -Method POST `
-            -Uri $uri `
-            -Headers @{
-              "Authorization" = "Bearer ${{ secrets.SYNC_SECRET_TOKEN }}"
-            } `
-            -ErrorVariable responseError `
-            -StatusCodeVariable statusCode
-          
-          Write-Host "Response: $response"
-          Write-Host "Status code: $statusCode"
-          
-          if ($statusCode -ne 200) {
-            Write-Error "Sync failed with status code: $statusCode"
+          catch {
+            Write-Error "Sync failed: $_"
             exit 1
           } 
