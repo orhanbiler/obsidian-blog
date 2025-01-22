@@ -13,6 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install Vercel CLI
+        run: npm i -g vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Trigger Vercel API
         shell: pwsh
         run: |
@@ -29,7 +35,7 @@ jobs:
               -Method POST `
               -Uri "$uri/api/sync" `
               -Headers @{
-                "Authorization" = "Bearer ${{ secrets.SYNC_SECRET_TOKEN }}"
+                "Authorization" = "Bearer ${{ secrets.VERCEL_TOKEN }}"
               } `
               -ErrorAction Stop
             
