@@ -8,41 +8,11 @@ on:
 
 jobs:
   sync:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install Vercel CLI
-        run: npm i -g vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Trigger Vercel API
-        shell: pwsh
+      - name: Deploy to Vercel
         run: |
-          $baseUrl = "${{ secrets.VERCEL_SYNC_URL }}"
-          $baseUrl = $baseUrl.Trim()
-          $baseUrl = $baseUrl -replace "^https?://", ""
-          $uri = "https://" + $baseUrl
-          
-          Write-Host "Base URL: $baseUrl"
-          Write-Host "Final URI: $uri/api/sync"
-          
-          try {
-            $response = Invoke-RestMethod `
-              -Method POST `
-              -Uri "$uri/api/sync" `
-              -Headers @{
-                "Authorization" = "Bearer ${{ secrets.VERCEL_TOKEN }}"
-              } `
-              -ErrorAction Stop
-            
-            Write-Host "Response: $response"
-            Write-Host "Sync successful!"
-          }
-          catch {
-            Write-Error "Sync failed: $_"
-            exit 1
-          } 
+          curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }} 
