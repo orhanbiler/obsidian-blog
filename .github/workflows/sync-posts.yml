@@ -16,8 +16,16 @@ jobs:
       - name: Trigger Vercel API
         shell: pwsh
         run: |
+          $uri = "${{ secrets.VERCEL_SYNC_URL }}"
+          if (!$uri.StartsWith("https://")) {
+            $uri = "https://" + $uri
+          }
+          $uri = $uri + "/api/sync"
+          
+          Write-Host "Calling URI: $uri"
+          
           $response = Invoke-RestMethod -Method POST `
-            -Uri "${{ secrets.VERCEL_SYNC_URL }}/api/sync" `
+            -Uri $uri `
             -Headers @{
               "Authorization" = "Bearer ${{ secrets.SYNC_SECRET_TOKEN }}"
             } `
