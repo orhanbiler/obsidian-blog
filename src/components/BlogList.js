@@ -23,7 +23,8 @@ import {
   Grid,
   Skeleton,
   SkeletonCircle,
-  SkeletonText
+  SkeletonText,
+  ButtonGroup
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -96,6 +97,8 @@ const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [allTags, setAllTags] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
   const location = useLocation();
 
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -158,6 +161,22 @@ const BlogList = () => {
     const matchesTag = !selectedTag || post.tags.some(tag => tag.urlFriendly === selectedTag);
     return matchesSearch && matchesTag;
   });
+
+  // Calculate pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedTag]);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Create meta description from the latest posts
   const getMetaDescription = () => {
@@ -369,90 +388,104 @@ const BlogList = () => {
           )}
         </Box>
 
-        {/* Posts Grid */}
-        {filteredPosts.length === 0 ? (
-          <Center py={16}>
-            <VStack spacing={4}>
-              <Text>No posts found matching your criteria.</Text>
-              {(searchTerm || selectedTag) && (
-                <Button
-                  variant="ghost"
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedTag('');
-                  }}
-                >
-                  Clear filters
-                </Button>
-              )}
-            </VStack>
-          </Center>
-        ) : (
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-            {filteredPosts.map((post, index) => (
-              <Box
-                key={index}
-                borderWidth="1px"
-                borderRadius="lg"
-                borderColor={borderColor}
-                bg={bgColor}
-                overflow="hidden"
-                _hover={{
-                  transform: 'translateY(-4px)',
-                  boxShadow: 'xl',
-                }}
-                transition="all 0.2s"
-              >
-                {post.banner && (
-                  <Box h="200px" overflow="hidden">
-                    <img
-                      src={post.banner}
-                      alt={post.title}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
-                    />
-                  </Box>
-                )}
-                <Box p={6}>
-                  <HStack spacing={2} flexWrap="wrap" mb={3}>
-                    {post.tags.map((tag, tagIndex) => (
-                      <Tag
-                        key={tagIndex}
-                        size="md"
-                        variant="subtle"
-                        colorScheme="blue"
-                        cursor="pointer"
-                        onClick={() => setSelectedTag(tag.urlFriendly)}
-                      >
-                        #{tag.original}
-                      </Tag>
-                    ))}
-                  </HStack>
-                  <Link to={`/blog/${post.slug}`}>
-                    <Heading as="h3" size="md" mb={2} _hover={{ color: 'teal.500' }}>
-                      {post.title}
-                    </Heading>
-                  </Link>
-                  <Text noOfLines={2} mb={4} color={mutedText}>
-                    {post.excerpt}
-                  </Text>
-                  <HStack spacing={3}>
-                    <Avatar
-                      size="sm"
-                      name={post.author}
-                      src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
-                    />
-                    <Text fontSize="sm" color={mutedText}>
-                      {format(new Date(post.date), 'MMMM d, yyyy')}
-                    </Text>
-                  </HStack>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} mb={8}>
+          {currentPosts.map((post, index) => (
+            <Box
+              key={index}
+              borderWidth="1px"
+              borderRadius="lg"
+              borderColor={borderColor}
+              bg={bgColor}
+              overflow="hidden"
+              _hover={{
+                transform: 'translateY(-4px)',
+                boxShadow: 'xl',
+              }}
+              transition="all 0.2s"
+            >
+              {post.banner && (
+                <Box h="200px" overflow="hidden">
+                  <img
+                    src={post.banner}
+                    alt={post.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </Box>
+              )}
+              <Box p={6}>
+                <HStack spacing={2} flexWrap="wrap" mb={3}>
+                  {post.tags.map((tag, tagIndex) => (
+                    <Tag
+                      key={tagIndex}
+                      size="md"
+                      variant="subtle"
+                      colorScheme="blue"
+                      cursor="pointer"
+                      onClick={() => setSelectedTag(tag.urlFriendly)}
+                    >
+                      #{tag.original}
+                    </Tag>
+                  ))}
+                </HStack>
+                <Link to={`/blog/${post.slug}`}>
+                  <Heading as="h3" size="md" mb={2} _hover={{ color: 'teal.500' }}>
+                    {post.title}
+                  </Heading>
+                </Link>
+                <Text noOfLines={2} mb={4} color={mutedText}>
+                  {post.excerpt}
+                </Text>
+                <HStack spacing={3}>
+                  <Avatar
+                    size="sm"
+                    name={post.author}
+                    src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
+                  />
+                  <Text fontSize="sm" color={mutedText}>
+                    {format(new Date(post.date), 'MMMM d, yyyy')}
+                  </Text>
+                </HStack>
               </Box>
-            ))}
-          </SimpleGrid>
+            </Box>
+          ))}
+        </SimpleGrid>
+
+        {/* Pagination Controls */}
+        {filteredPosts.length > postsPerPage && (
+          <Center mt={8}>
+            <ButtonGroup spacing={2}>
+              <Button
+                onClick={() => handlePageChange(currentPage - 1)}
+                isDisabled={currentPage === 1}
+                colorScheme="teal"
+                variant="outline"
+              >
+                Previous
+              </Button>
+              {[...Array(totalPages)].map((_, index) => (
+                <Button
+                  key={index + 1}
+                  onClick={() => handlePageChange(index + 1)}
+                  colorScheme="teal"
+                  variant={currentPage === index + 1 ? "solid" : "outline"}
+                >
+                  {index + 1}
+                </Button>
+              ))}
+              <Button
+                onClick={() => handlePageChange(currentPage + 1)}
+                isDisabled={currentPage === totalPages}
+                colorScheme="teal"
+                variant="outline"
+              >
+                Next
+              </Button>
+            </ButtonGroup>
+          </Center>
         )}
       </Container>
     </Box>
