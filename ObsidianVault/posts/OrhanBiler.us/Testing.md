@@ -19,3 +19,4 @@ Testing the blog post system. This post verifies that:
 8. 
 9. another test number 8
 TESTING AGAIN
+Hi there friend
