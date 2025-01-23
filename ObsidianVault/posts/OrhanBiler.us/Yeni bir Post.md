@@ -9,7 +9,7 @@ banner: /assets/your-image.jpg
 draft: true
 language: en
 translations: {}
-series: ""
+series: 
 seriesOrder: 1
 relatedPosts: 
 lastModified: 2025-01-23
