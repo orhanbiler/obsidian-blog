@@ -31,10 +31,11 @@
   },
   "scripts": {
     "start": "npm run sync-posts && react-app-rewired start",
-    "build": "npm run generate-favicons && react-app-rewired build",
+    "build": "npm run ensure-posts && npm run generate-favicons && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "sync-posts": "node scripts/sync-posts.js",
+    "ensure-posts": "node scripts/ensure-posts.js",
     "watch-posts": "nodemon --watch ObsidianVault/posts -e md scripts/sync-posts.js",
     "generate-favicons": "node scripts/generate-favicons.js"
   },
