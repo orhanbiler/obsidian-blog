@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'ObsidianVault/posts/**'
-      - 'ObsidianVault/posts/OrhanBiler.us/**'
   workflow_dispatch:
 
 permissions:
@@ -39,26 +38,29 @@ jobs:
       - name: Sync posts
         run: |
           node scripts/sync-posts.js
-        
-      - name: Check for changes
-        id: check_changes
+          
+      - name: Debug directory contents
         run: |
-          git status --porcelain public/posts/ | wc -l | xargs -I {} echo "changes={}" >> $GITHUB_OUTPUT
+          echo "Contents of public/posts:"
+          ls -la public/posts/
+          echo "Contents of ObsidianVault/posts:"
+          ls -la ObsidianVault/posts/OrhanBiler.us/
         
       - name: Commit and push if changed
-        if: steps.check_changes.outputs.changes != '0'
         run: |
           git add public/posts/
-          git commit -m "Sync posts from Obsidian [skip ci]"
+          git status
+          git commit -m "Sync posts from Obsidian" || echo "No changes to commit"
           git push origin main
           
       - name: Deploy to Vercel
-        if: success()
         env:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
             curl -X POST "$VERCEL_DEPLOY_HOOK"
+            echo "Triggered Vercel deployment"
           else
             echo "No Vercel deploy hook configured"
+            echo "Please add VERCEL_DEPLOY_HOOK secret in repository settings"
           fi 
