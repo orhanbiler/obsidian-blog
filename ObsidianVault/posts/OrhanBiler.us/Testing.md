@@ -1,21 +1,14 @@
 ---
-title: Your Post Title
-date: 2025-01-23
-tags: 
-excerpt: A brief summary of your post (150-160 characters recommended)
-subtitle: Optional secondary title
-author: Orhan Biler
-banner: /assets/newyork.jpg
+title: "Testing Blog Post"
+date: 2024-01-23
+tags: ["test"]
+excerpt: "This is a test blog post to verify the blogging system is working correctly."
+author: "Orhan Biler"
 draft: false
 language: en
-translations: {}
-series: ""
-seriesOrder: 1
-relatedPosts: 
-lastModified: 2025-01-23
-canonical: ""
-keywords: 
-socialImage: /assets/social/your-image.jpg
-twitterCard: summary_large_image
 ---
-tESTING BIG DAWG
+
+Testing the blog post system. This post verifies that:
+1. Posts are properly synced from Obsidian
+2. The website displays them correctly
+3. All metadata is handled properly

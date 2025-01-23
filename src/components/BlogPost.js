@@ -190,12 +190,13 @@ const BlogPost = () => {
 
   const formattedDate = formatDate(post.date);
   const htmlContent = marked(post.content || '');
+  const pageTitle = post.title ? `${post.title} - Orhan Biler` : 'Orhan Biler';
 
   return (
     <Container maxW="container.xl" py={8}>
       <Helmet>
-        <title>{post.title} - Orhan Biler</title>
-        <meta name="description" content={post.excerpt} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={post.excerpt || ''} />
         <meta name="keywords" content={post.keywords ? post.keywords.join(', ') : ''} />
         
         {/* Language */}
@@ -205,22 +206,22 @@ const BlogPost = () => {
         {post.canonical && <link rel="canonical" href={post.canonical} />}
         
         {/* Open Graph */}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:title" content={post.title || ''} />
+        <meta property="og:description" content={post.excerpt || ''} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={post.socialImage || post.banner} />
+        <meta property="og:image" content={post.socialImage || post.banner || ''} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content={post.twitterCard || 'summary_large_image'} />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.socialImage || post.banner} />
+        <meta name="twitter:title" content={post.title || ''} />
+        <meta name="twitter:description" content={post.excerpt || ''} />
+        <meta name="twitter:image" content={post.socialImage || post.banner || ''} />
         
         {/* Article Metadata */}
-        <meta property="article:published_time" content={post.date} />
+        {post.date && <meta property="article:published_time" content={post.date} />}
         {post.lastModified && <meta property="article:modified_time" content={post.lastModified} />}
-        {post.tags.map(tag => (
-          <meta property="article:tag" content={tag.original} key={tag.urlFriendly} />
+        {post.tags && post.tags.map(tag => (
+          <meta property="article:tag" content={tag.original || tag} key={tag.urlFriendly || tag} />
         ))}
       </Helmet>
 
