@@ -1,14 +1,14 @@
 {
   "posts": [
     {
-      "title": "Your Post Title",
+      "title": "New Post",
       "subtitle": "Optional secondary title",
       "date": "2025-01-23T00:00:00.000Z",
-      "slug": "your-post-title",
+      "slug": "new-post",
       "excerpt": "A brief summary of your post (150-160 characters recommended)",
       "tags": [],
       "author": "Orhan Biler",
-      "banner": "/assets/your-image.jpg"
+      "banner": "/assets/newyork.jpg"
     },
     {
       "title": "Amerika'ya Yolculuğum: Hayaller ve Zorluklar",
