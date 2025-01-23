@@ -6,7 +6,7 @@ excerpt: A brief summary of your post (150-160 characters recommended)
 subtitle: Optional secondary title
 author: Orhan Biler
 banner: /assets/your-image.jpg
-draft: true
+draft: false
 language: en
 translations: {}
 series: 
