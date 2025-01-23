@@ -1,14 +1,16 @@
 {
   "posts": [
     {
-      "title": "hello",
-      "subtitle": "",
-      "date": "2025-01-23",
-      "slug": "hello",
-      "excerpt": "",
-      "tags": [],
+      "title": "Your Post Title",
+      "subtitle": "Optional secondary title",
+      "date": "2025-01-23T00:00:00.000Z",
+      "slug": "your-post-title",
+      "excerpt": "A brief summary of your post (150-160 characters recommended)",
+      "tags": [
+        "#Amerikada-Hayat"
+      ],
       "author": "Orhan Biler",
-      "banner": null
+      "banner": "/assets/your-image.jpg"
     },
     {
       "title": "Amerika'ya Yolculuğum: Hayaller ve Zorluklar",
