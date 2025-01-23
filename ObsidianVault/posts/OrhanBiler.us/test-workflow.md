@@ -12,3 +12,6 @@ Another test here!
 
 Hi there friend! Testing live from the obsifian app?
 let;s test aniother one auto commit.
+
+Hi there good friend
+
