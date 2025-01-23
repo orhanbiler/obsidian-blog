@@ -16,3 +16,4 @@ Testing the blog post system. This post verifies that:
 5. Another change to test!
 6. Another test
 7. another test number 7
+8. another test number 8
