@@ -69,25 +69,36 @@ export async function getAllPosts() {
     const data = await response.json();
     
     // Format and enhance the posts
-    const formattedPosts = (data.posts || []).map(post => {
-      // Ensure date is in correct format
-      const date = new Date(post.date);
-      const formattedDate = isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
-      
-      return {
-        ...post,
-        date: formattedDate,
-        tags: post.tags.map(formatTag),
-        readingTime: calculateReadingTime(post.excerpt || ''),
-        publishedAt: formattedDate,
-        lastModified: post.lastModified ? new Date(post.lastModified).toISOString() : null,
-        // Ensure banner path is correct
-        banner: post.banner || null
-      };
-    });
+    const formattedPosts = (data.posts || [])
+      // Filter out template posts and drafts
+      .filter(post => 
+        post.title !== "Your Post Title" && 
+        post.title !== "Tag Sample" &&
+        !post.draft
+      )
+      .map(post => {
+        // Ensure date is in correct format
+        const date = new Date(post.date);
+        const formattedDate = isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
+        
+        return {
+          ...post,
+          date: formattedDate,
+          tags: post.tags.map(formatTag),
+          readingTime: calculateReadingTime(post.excerpt || ''),
+          publishedAt: formattedDate,
+          lastModified: post.lastModified ? new Date(post.lastModified).toISOString() : null,
+          // Ensure banner path is correct and exists
+          banner: post.banner && !post.banner.includes('your-image.jpg') ? post.banner : null
+        };
+      });
 
     // Sort posts by date before caching
-    const sortedPosts = formattedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const sortedPosts = formattedPosts.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB.getTime() - dateA.getTime();
+    });
     
     // Update cache
     postsCache = {

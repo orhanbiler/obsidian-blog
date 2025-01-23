@@ -1,12 +1,12 @@
 ---
 title: Your Post Title
 date: 2025-01-23
-tags: []
+tags: 
 excerpt: A brief summary of your post (150-160 characters recommended)
 subtitle: Optional secondary title
 author: Orhan Biler
 banner: /assets/your-image.jpg
-draft: false
+draft: true
 language: en
 translations: {}
 series: ""
@@ -74,4 +74,5 @@ Writing Tips:
 - Group related posts in series
 - Update lastModified when you make significant changes
 -->
-testiong
+
+[Your content here] 
