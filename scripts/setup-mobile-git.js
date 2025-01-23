@@ -6,7 +6,7 @@ const gitConfigContent = `[core]
     autocrlf = input
 [user]
     name = Orhan Biler
-    email = your.email@example.com
+    email = bilergunes@gmail.com
 [credential]
     helper = store
 [init]
