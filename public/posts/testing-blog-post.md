@@ -15,3 +15,4 @@ Testing the blog post system. This post verifies that:
 4.  testing something
 5. Another change to test!
 6. Another test
+7. another test number 7
