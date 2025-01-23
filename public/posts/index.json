@@ -8,7 +8,12 @@
       "excerpt": "Amerika ve Otesi",
       "tags": [],
       "author": "Orhan Biler",
-      "banner": "/assets/newyork.jpg"
+      "banner": "/assets/newyork.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-23T00:00:00.000Z"
     },
     {
       "title": "How Playing Arma Reforger Has Changed My Perspective",
@@ -23,7 +28,12 @@
         "MilSim"
       ],
       "author": "Orhan Biler",
-      "banner": null
+      "banner": null,
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 0,
+      "lastModified": "2025-01-23"
     },
     {
       "title": "Getting Started with Obsidian Bloggings",
@@ -37,7 +47,12 @@
         "markdown"
       ],
       "author": "Orhan Biler",
-      "banner": null
+      "banner": null,
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 0,
+      "lastModified": "2025-01-23"
     }
   ]
 }
