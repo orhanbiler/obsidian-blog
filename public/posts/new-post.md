@@ -19,7 +19,12 @@ socialImage: /assets/social/your-image.jpg
 twitterCard: summary_large_image
 ---
 thanks for everything. Testing it out...
+
+
+testing again
 <!--
+
+
 Quick Reference Guide:
 
 1. Required Fields:
