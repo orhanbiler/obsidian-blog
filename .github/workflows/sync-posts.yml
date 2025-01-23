@@ -27,6 +27,10 @@ jobs:
       - name: Install dependencies
         run: npm install
         
+      - name: Pull latest changes
+        run: |
+          git pull origin main --rebase
+          
       - name: Sync posts
         run: npm run sync-posts
         
@@ -36,7 +40,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add public/posts/
           git commit -m "Sync posts from Obsidian" || echo "No changes to commit"
-          git push
+          git push origin main --force
           
       - name: Deploy to Vercel
         if: success()
