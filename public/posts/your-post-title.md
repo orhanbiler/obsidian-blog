@@ -18,7 +18,7 @@ keywords:
 socialImage: /assets/social/your-image.jpg
 twitterCard: summary_large_image
 ---
-
+thanks for everything.
 <!--
 Quick Reference Guide:
 
