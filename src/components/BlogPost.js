@@ -16,13 +16,14 @@ import {
   BreadcrumbLink,
   Divider,
   Avatar,
-  Flex
+  Flex,
+  SimpleGrid
 } from '@chakra-ui/react';
 import { format } from 'date-fns';
 import { marked } from 'marked';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronRightIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import { getPostBySlug } from '../utils/blogUtils';
+import { getPostBySlug, getRelatedPosts } from '../utils/blogUtils';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 // Core languages
@@ -32,6 +33,7 @@ import 'prismjs/components/prism-javascript';
 // Additional languages
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
+import { Helmet } from 'react-helmet-async';
 
 const getAuthorImage = (author) => {
   // Replace spaces with hyphens and ensure proper capitalization
@@ -45,6 +47,7 @@ const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
   const textColor = useColorModeValue('gray.800', 'gray.200');
   const codeBgColor = useColorModeValue('gray.50', 'gray.800');
   const codeTextColor = useColorModeValue('gray.800', 'gray.200');
@@ -80,6 +83,13 @@ const BlogPost = () => {
         return;
       }
       setPost(fetchedPost);
+      
+      // Fetch related posts
+      if (fetchedPost) {
+        const related = await getRelatedPosts(fetchedPost);
+        setRelatedPosts(related);
+      }
+      
       setLoading(false);
     };
     fetchPost();
@@ -156,6 +166,37 @@ const BlogPost = () => {
 
   return (
     <Container maxW="container.xl" py={8}>
+      <Helmet>
+        <title>{post.title} - Orhan Biler</title>
+        <meta name="description" content={post.excerpt} />
+        <meta name="keywords" content={post.keywords ? post.keywords.join(', ') : ''} />
+        
+        {/* Language */}
+        <html lang={post.language || 'en'} />
+        
+        {/* Canonical URL */}
+        {post.canonical && <link rel="canonical" href={post.canonical} />}
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={post.socialImage || post.banner} />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content={post.twitterCard || 'summary_large_image'} />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.socialImage || post.banner} />
+        
+        {/* Article Metadata */}
+        <meta property="article:published_time" content={post.date} />
+        {post.lastModified && <meta property="article:modified_time" content={post.lastModified} />}
+        {post.tags.map(tag => (
+          <meta property="article:tag" content={tag.original} key={tag.urlFriendly} />
+        ))}
+      </Helmet>
+
       <VStack spacing={6} align="stretch">
         {/* Breadcrumb Navigation */}
         <Breadcrumb
@@ -277,6 +318,32 @@ const BlogPost = () => {
           </Box>
         )}
 
+        {/* Language Selector if translations exist */}
+        {post.translations && Object.keys(post.translations).length > 0 && (
+          <HStack spacing={2} mb={4}>
+            <Text fontSize="sm" color={subtitleColor}>Available in:</Text>
+            {Object.entries(post.translations).map(([lang, path]) => (
+              <Link key={lang} to={path}>
+                <Tag size="sm" variant="outline" colorScheme="teal">
+                  {lang.toUpperCase()}
+                </Tag>
+              </Link>
+            ))}
+          </HStack>
+        )}
+
+        {/* Series Information */}
+        {post.series && (
+          <Box p={4} bg={blockquoteBg} borderRadius="md" mb={4}>
+            <Text fontWeight="bold" mb={2}>Part of series: {post.series}</Text>
+            {post.seriesOrder && (
+              <Text fontSize="sm" color={subtitleColor}>
+                Part {post.seriesOrder}
+              </Text>
+            )}
+          </Box>
+        )}
+
         {/* Post Content */}
         <Box
           className="blog-content"
@@ -392,6 +459,41 @@ const BlogPost = () => {
             }
           }}
         />
+
+        {/* Reading Time and Last Modified */}
+        <HStack spacing={4} color={subtitleColor} fontSize="sm" mt={4}>
+          {post.readingTime && (
+            <Text>{post.readingTime} min read</Text>
+          )}
+          {post.lastModified && (
+            <Text>Updated: {formatDate(post.lastModified)}</Text>
+          )}
+        </HStack>
+
+        {/* Related Posts */}
+        {relatedPosts.length > 0 && (
+          <Box mt={8}>
+            <Heading as="h3" size="lg" mb={4}>Related Posts</Heading>
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4}>
+              {relatedPosts.map(relatedPost => (
+                <Box
+                  key={relatedPost.slug}
+                  p={4}
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  _hover={{ shadow: 'md' }}
+                >
+                  <Link to={`/blog/${relatedPost.slug}`}>
+                    <Heading size="sm" mb={2}>{relatedPost.title}</Heading>
+                    <Text fontSize="sm" color={subtitleColor} noOfLines={2}>
+                      {relatedPost.excerpt}
+                    </Text>
+                  </Link>
+                </Box>
+              ))}
+            </SimpleGrid>
+          </Box>
+        )}
 
         {/* Navigation Footer */}
         <Divider mt={8} />

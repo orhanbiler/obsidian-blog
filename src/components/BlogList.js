@@ -458,6 +458,29 @@ const BlogList = () => {
                 </Box>
               )}
               <Box p={6}>
+                {/* Language indicator if not English */}
+                {post.language && post.language !== 'en' && (
+                  <Tag
+                    size="sm"
+                    colorScheme="purple"
+                    mb={2}
+                  >
+                    {post.language.toUpperCase()}
+                  </Tag>
+                )}
+
+                {/* Series indicator */}
+                {post.series && (
+                  <Tag
+                    size="sm"
+                    colorScheme="orange"
+                    mb={2}
+                    ml={post.language !== 'en' ? 2 : 0}
+                  >
+                    {post.series} #{post.seriesOrder}
+                  </Tag>
+                )}
+
                 <HStack spacing={2} flexWrap="wrap" mb={3}>
                   {post.tags.map((tag, tagIndex) => (
                     <Tag
@@ -472,34 +495,65 @@ const BlogList = () => {
                     </Tag>
                   ))}
                 </HStack>
+
                 <Link to={`/blog/${post.slug}`}>
                   <Heading as="h3" size="md" mb={2} _hover={{ color: 'teal.500' }}>
                     {post.title}
                   </Heading>
                 </Link>
+
+                {post.subtitle && (
+                  <Text fontSize="sm" color={mutedText} mb={2}>
+                    {post.subtitle}
+                  </Text>
+                )}
+
                 <Text noOfLines={2} mb={4} color={mutedText}>
                   {post.excerpt}
                 </Text>
-                <HStack spacing={2} mt={2} color={mutedText}>
-                  <Text fontSize="sm">
-                    {post.readingTime} min read
-                  </Text>
-                  {post.lastModified && (
+
+                <VStack spacing={2} align="stretch">
+                  <HStack spacing={2} color={mutedText}>
                     <Text fontSize="sm">
-                      • Updated {format(new Date(post.lastModified), 'MMM d, yyyy')}
+                      {post.readingTime} min read
                     </Text>
-                  )}
-                </HStack>
-                <HStack spacing={3}>
-                  <Avatar
-                    size="sm"
-                    name={post.author}
-                    src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
-                  />
-                  <Text fontSize="sm" color={mutedText}>
-                    {format(new Date(post.date), 'MMMM d, yyyy')}
-                  </Text>
-                </HStack>
+                    {post.lastModified && (
+                      <Text fontSize="sm">
+                        • Updated {format(new Date(post.lastModified), 'MMM d, yyyy')}
+                      </Text>
+                    )}
+                  </HStack>
+
+                  <HStack spacing={3} justify="space-between">
+                    <HStack>
+                      <Avatar
+                        size="sm"
+                        name={post.author}
+                        src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
+                      />
+                      <Text fontSize="sm" color={mutedText}>
+                        {format(new Date(post.date), 'MMMM d, yyyy')}
+                      </Text>
+                    </HStack>
+
+                    {/* Translations available indicator */}
+                    {post.translations && Object.keys(post.translations).length > 0 && (
+                      <HStack>
+                        <Text fontSize="xs" color={mutedText}>Also in:</Text>
+                        {Object.keys(post.translations).map(lang => (
+                          <Tag
+                            key={lang}
+                            size="xs"
+                            variant="outline"
+                            colorScheme="teal"
+                          >
+                            {lang.toUpperCase()}
+                          </Tag>
+                        ))}
+                      </HStack>
+                    )}
+                  </HStack>
+                </VStack>
               </Box>
             </Box>
           ))}
