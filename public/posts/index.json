@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "title": "Amerika'ya Yolculuğum: Hayaller ve Zorluklar",
+      "subtitle": "Optional secondary title",
+      "date": "2025-01-23T00:00:00.000Z",
+      "slug": "amerika-ya-yolculu-um-hayaller-ve-zorluklar",
+      "excerpt": "A brief summary of your post (150-160 characters recommended)",
+      "tags": [
+        "Amerikada-Hayat",
+        "AmericanDream",
+        "blogging"
+      ],
+      "author": "Orhan Biler",
+      "banner": "/assets/newyork.jpg"
+    },
+    {
       "title": "New Post",
       "subtitle": "Optional secondary title",
       "date": "2025-01-23T00:00:00.000Z",
