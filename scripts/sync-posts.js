@@ -139,7 +139,9 @@ function syncPosts() {
     const existingFiles = fs.readdirSync(PUBLIC_DIR)
       .filter(file => file.endsWith('.md'));
     existingFiles.forEach(file => {
-      fs.unlinkSync(path.join(PUBLIC_DIR, file));
+      if (file !== 'index.json') {
+        fs.unlinkSync(path.join(PUBLIC_DIR, file));
+      }
     });
   }
 
@@ -148,7 +150,7 @@ function syncPosts() {
 
   // Read all markdown files from Obsidian directory
   const files = fs.readdirSync(OBSIDIAN_DIR)
-    .filter(file => file.endsWith('.md') && !file.includes('template'));
+    .filter(file => file.endsWith('.md') && !file.toLowerCase().includes('template'));
 
   const posts = [];
 
@@ -158,21 +160,35 @@ function syncPosts() {
     const { data, content: markdown } = matter(content);
     
     // Skip drafts and templates
-    if (data.draft || file.toLowerCase().includes('template')) return;
+    if (data.draft === true || file.toLowerCase().includes('template')) return;
 
-    // Generate slug consistently from title
-    const slug = data.slug || (data.title ? slugify(data.title) : slugify(path.basename(file, '.md')));
+    // Generate slug consistently from title or filename
+    let slug;
+    if (data.slug) {
+      // Use explicit slug if provided
+      slug = slugify(data.slug);
+    } else if (data.title) {
+      // Generate from title
+      slug = slugify(data.title);
+    } else {
+      // Generate from filename
+      const filename = path.basename(file, '.md');
+      slug = slugify(filename);
+    }
+
+    // Ensure the slug has no spaces
+    slug = slug.replace(/\s+/g, '-');
     
     // Process the content
     const updatedContent = processMarkdownContent(content);
 
-    // Copy file to public directory
+    // Copy file to public directory with proper slug
     fs.writeFileSync(
       path.join(PUBLIC_DIR, `${slug}.md`),
       updatedContent
     );
 
-    // Add to posts list
+    // Add to posts list with consistent metadata
     posts.push({
       title: data.title || path.basename(file, '.md'),
       subtitle: data.subtitle || '',
@@ -181,7 +197,12 @@ function syncPosts() {
       excerpt: data.excerpt || '',
       tags: data.tags || [],
       author: data.author || 'Orhan Biler',
-      banner: data.banner || null
+      banner: data.banner || null,
+      language: data.language || 'en',
+      translations: data.translations || {},
+      series: data.series || '',
+      seriesOrder: data.seriesOrder || 0,
+      lastModified: data.lastModified || new Date().toISOString().split('T')[0]
     });
   });
 
@@ -193,6 +214,11 @@ function syncPosts() {
     path.join(PUBLIC_DIR, 'index.json'),
     JSON.stringify({ posts }, null, 2)
   );
+
+  console.log(`Synced ${posts.length} posts to ${PUBLIC_DIR}`);
+  posts.forEach(post => {
+    console.log(`- ${post.slug}`);
+  });
 }
 
 // Export the syncPosts function
