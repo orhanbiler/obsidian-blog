@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "title": "Testing again",
+      "subtitle": "Optional secondary title",
+      "date": "2025-01-23T00:00:00.000Z",
+      "slug": "testing-again",
+      "excerpt": "A brief summary of your post (150-160 characters recommended)",
+      "tags": [],
+      "author": "Orhan Biler",
+      "banner": "/assets/your-image.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-23T00:00:00.000Z"
+    },
+    {
       "title": "How Playing Arma Reforger Has Changed My Perspective",
       "subtitle": "",
       "date": "2025-01-19T00:00:00.000Z",
@@ -11,23 +26,6 @@
         "PCGaming",
         "BohemiaInteractive",
         "MilSim"
-      ],
-      "author": "Orhan Biler",
-      "banner": null,
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 0,
-      "lastModified": "2025-01-23"
-    },
-    {
-      "title": "Testing Blog Post",
-      "subtitle": "",
-      "date": "2024-01-23T00:00:00.000Z",
-      "slug": "testing-blog-post",
-      "excerpt": "This is a test blog post to verify the blogging system is working correctly.",
-      "tags": [
-        "test"
       ],
       "author": "Orhan Biler",
       "banner": null,
