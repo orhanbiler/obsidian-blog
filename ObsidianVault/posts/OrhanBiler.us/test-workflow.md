@@ -5,3 +5,5 @@ tags: [test]
 ---
 
 # This is a test post to verify my automated blog workflow.
+
+Another one thanks my friend
