@@ -1,15 +1,36 @@
 {
   "short_name": "Orhan Biler",
-  "name": "Orhan Biler's Personal Website and Blog",
+  "name": "Orhan Biler's Personal Blog",
+  "description": "Exploring technology, software development, and sharing knowledge through detailed articles and tutorials.",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#319795",
+  "background_color": "#ffffff",
+  "categories": ["blog", "technology", "programming"],
+  "orientation": "any",
+  "prefer_related_applications": false
 } 
