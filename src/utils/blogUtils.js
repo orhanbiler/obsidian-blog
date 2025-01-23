@@ -28,8 +28,8 @@ const formatTag = (tag) => {
 };
 
 // Cache management
-const CACHE_VERSION = 'v1';
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_VERSION = 'v2';
+const CACHE_DURATION = 1 * 60 * 1000; // 1 minute cache
 let postsCache = {
   data: null,
   timestamp: 0,
@@ -54,11 +54,13 @@ export async function getAllPosts() {
       return postsCache.data;
     }
 
-    const timestamp = new Date().getTime();
-    const response = await fetch(`/posts/index.json?t=${timestamp}`, {
+    const timestamp = Date.now();
+    const response = await fetch(`/posts/index.json?v=${CACHE_VERSION}&t=${timestamp}`, {
       headers: {
         'Accept': 'application/json',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
       }
     });
 
@@ -126,11 +128,13 @@ function calculateReadingTime(content) {
 // Enhanced post retrieval with better error handling and caching
 export async function getPostBySlug(slug) {
   try {
-    const timestamp = new Date().getTime();
-    const response = await fetch(`/posts/${slug}.md?t=${timestamp}`, {
+    const timestamp = Date.now();
+    const response = await fetch(`/posts/${slug}.md?v=${CACHE_VERSION}&t=${timestamp}`, {
       headers: {
         'Accept': 'text/markdown, text/plain',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
       }
     });
 
