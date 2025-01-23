@@ -1,11 +1,11 @@
 ---
-title: Your Post Title
+title: New Post
 date: 2025-01-23
-tags: []
+tags: 
 excerpt: A brief summary of your post (150-160 characters recommended)
 subtitle: Optional secondary title
 author: Orhan Biler
-banner: /assets/your-image.jpg
+banner: /assets/newyork.jpg
 draft: false
 language: en
 translations: {}
@@ -18,7 +18,7 @@ keywords:
 socialImage: /assets/social/your-image.jpg
 twitterCard: summary_large_image
 ---
-thanks for everything.
+thanks for everything. Testing it out...
 <!--
 Quick Reference Guide:
 
