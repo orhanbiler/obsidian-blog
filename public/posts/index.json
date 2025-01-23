@@ -1,6 +1,16 @@
 {
   "posts": [
     {
+      "title": "test-workflow",
+      "subtitle": "",
+      "date": "2025-01-23",
+      "slug": "test-workflow",
+      "excerpt": "",
+      "tags": [],
+      "author": "Orhan Biler",
+      "banner": null
+    },
+    {
       "title": "Amerika'ya Yolculuğum: Hayaller ve Zorluklar",
       "subtitle": "Yeni Dünyanın Renkli Yüzleri ve Unutulmaz Anılarim..",
       "date": "2025-01-20T00:00:00.000Z",
