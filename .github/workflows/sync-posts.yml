@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'ObsidianVault/posts/**'
+  workflow_dispatch:  # Allows manual triggering if needed
 
 permissions:
   contents: write
@@ -15,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for proper sync
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -33,4 +36,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add public/posts/
           git commit -m "Sync posts from Obsidian" || echo "No changes to commit"
-          git push 
+          git push
+          
+      - name: Deploy to Vercel
+        if: success()
+        run: |
+          curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_qTDmVvZwQWTkd35j89cYQMbYmV0Y/QO4NBCxluB" 
