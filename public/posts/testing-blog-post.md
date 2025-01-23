@@ -20,3 +20,9 @@ Testing the blog post system. This post verifies that:
 9. another test number 8
 TESTING AGAIN
 Hi there friend. Final test
+
+
+Lets test on thenphone now
+
+Testing again
+
