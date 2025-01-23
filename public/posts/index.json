@@ -15,32 +15,6 @@
       "banner": "/assets/newyork.jpg"
     },
     {
-      "title": "New Post",
-      "subtitle": "Optional secondary title",
-      "date": "2025-01-23T00:00:00.000Z",
-      "slug": "new-post",
-      "excerpt": "A brief summary of your post (150-160 characters recommended)",
-      "tags": [],
-      "author": "Orhan Biler",
-      "banner": "/assets/newyork.jpg"
-    },
-    {
-      "title": "Amerika'ya Yolculuğum: Hayaller ve Zorluklar",
-      "subtitle": "Yeni Dünyanın Renkli Yüzleri ve Unutulmaz Anılarim",
-      "date": "2025-01-20T00:00:00.000Z",
-      "slug": "amerika-ya-yolculu-um-hayaller-ve-zorluklar",
-      "excerpt": "Amerika Birleşik Devletleri'ne Nasıl Geldiğimi Anlatıyorum: Yolculuğumun Detayları ve Deneyimlerim",
-      "tags": [
-        "AmericanDream",
-        "Türk-Göçmeni",
-        "Kültürel-Adaptasyon",
-        "Amerikada-Hayat",
-        "Göçmenlik-Hikayesi"
-      ],
-      "author": "Orhan Biler",
-      "banner": "/assets/newyork.jpg"
-    },
-    {
       "title": "How Playing Arma Reforger Has Changed My Perspective",
       "subtitle": "",
       "date": "2025-01-19T00:00:00.000Z",
