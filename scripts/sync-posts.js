@@ -23,8 +23,10 @@ const MEDIA_EXTENSIONS = [
 function slugify(text) {
   return text
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)+/g, '');
+    .normalize('NFD') // Normalize accented characters
+    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+    .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric with hyphens
+    .replace(/(^-|-$)+/g, ''); // Remove leading/trailing hyphens
 }
 
 function isMediaFile(filename) {
@@ -132,6 +134,15 @@ function syncPosts() {
     }
   });
 
+  // Clean up public directory first (only .md files)
+  if (fs.existsSync(PUBLIC_DIR)) {
+    const existingFiles = fs.readdirSync(PUBLIC_DIR)
+      .filter(file => file.endsWith('.md'));
+    existingFiles.forEach(file => {
+      fs.unlinkSync(path.join(PUBLIC_DIR, file));
+    });
+  }
+
   // Sync assets first
   syncAssets();
 
@@ -149,8 +160,8 @@ function syncPosts() {
     // Skip drafts and templates
     if (data.draft || file.toLowerCase().includes('template')) return;
 
-    // Generate slug from filename or title
-    const slug = data.slug || slugify(data.title || path.basename(file, '.md'));
+    // Generate slug consistently from title
+    const slug = data.slug || (data.title ? slugify(data.title) : slugify(path.basename(file, '.md')));
     
     // Process the content
     const updatedContent = processMarkdownContent(content);
@@ -182,7 +193,6 @@ function syncPosts() {
     path.join(PUBLIC_DIR, 'index.json'),
     JSON.stringify({ posts }, null, 2)
   );
-
 }
 
 // Export the syncPosts function
