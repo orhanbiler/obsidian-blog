@@ -6,7 +6,8 @@ on:
       - main
     paths:
       - 'ObsidianVault/posts/**'
-  workflow_dispatch:  # Allows manual triggering if needed
+      - 'ObsidianVault/posts/OrhanBiler.us/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,32 +18,47 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for proper sync
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm'
           
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         
       - name: Pull latest changes
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git pull origin main --rebase
           
       - name: Sync posts
-        run: npm run sync-posts
-        
-      - name: Commit changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          node scripts/sync-posts.js
+        
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git status --porcelain public/posts/ | wc -l | xargs -I {} echo "changes={}" >> $GITHUB_OUTPUT
+        
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changes != '0'
+        run: |
           git add public/posts/
-          git commit -m "Sync posts from Obsidian" || echo "No changes to commit"
-          git push origin main --force
+          git commit -m "Sync posts from Obsidian [skip ci]"
+          git push origin main
           
       - name: Deploy to Vercel
         if: success()
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
-          curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_qTDmVvZwQWTkd35j89cYQMbYmV0Y/QO4NBCxluB" 
+          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
+            curl -X POST "$VERCEL_DEPLOY_HOOK"
+          else
+            echo "No Vercel deploy hook configured"
+          fi 
