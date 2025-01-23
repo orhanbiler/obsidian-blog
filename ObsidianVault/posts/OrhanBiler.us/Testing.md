@@ -14,3 +14,4 @@ Testing the blog post system. This post verifies that:
 3. All metadata is handled properly
 4.  testing something
 5. Another change to test!
+6. Another test
