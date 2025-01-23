@@ -9,21 +9,56 @@ const TARGET = path.resolve(__dirname, '../public');
 
 const configuration = {
   path: '/', // Path for overriding default icons path
-  appName: "Orhan Biler's Blog", // Your application's name
-  appShortName: 'Orhan Biler', // Your application's short name
+  appName: "Orhan Biler's Blog",
+  appShortName: 'Orhan Biler',
   appDescription: 'Exploring technology, software development, and sharing knowledge through detailed articles and tutorials.',
-  background: '#ffffff', // Background colour for flattened icons
-  theme_color: '#319795', // Theme color for browser chrome
-  lang: 'en-US', // Primary language for name and short_name
+  background: '#ffffff',
+  theme_color: '#319795',
+  lang: 'en-US',
+  loadManifestWithCredentials: false,
+  manifestRelativePaths: true,
   icons: {
     // Platform-specific icons
-    android: true,
-    appleIcon: true,
+    android: {
+      manifestRelativePaths: true,
+      background: '#FFFFFF'
+    },
+    appleIcon: {
+      background: '#FFFFFF'
+    },
     appleStartup: true,
-    favicons: true,
-    windows: true,
+    favicons: {
+      manifestRelativePaths: true,
+      background: '#FFFFFF'
+    },
+    windows: {
+      manifestRelativePaths: true,
+      background: '#FFFFFF'
+    },
     yandex: false,
   },
+  files: {
+    android: {
+      manifestFileName: 'manifest.json',
+      manifestRelativePaths: true
+    },
+    favicons: true,
+    windows: true
+  },
+  shortcuts: [],
+  pixel_art: false,
+  manifest: {
+    name: "Orhan Biler's Blog",
+    short_name: 'Orhan Biler',
+    description: 'Exploring technology, software development, and sharing knowledge through detailed articles and tutorials.',
+    theme_color: '#319795',
+    background_color: '#ffffff',
+    display: 'standalone',
+    orientation: 'any',
+    scope: '/',
+    start_url: '/',
+    prefer_related_applications: false
+  }
 };
 
 const generateFavicons = async () => {
@@ -33,10 +68,14 @@ const generateFavicons = async () => {
     // Read the SVG file
     const svgBuffer = await fs.readFile(SVG_SOURCE);
     
-    // Convert SVG to PNG
+    // Convert SVG to PNG with high quality
     await sharp(svgBuffer)
-      .resize(512, 512)
-      .png()
+      .resize(512, 512, {
+        kernel: sharp.kernel.lanczos3,
+        fit: 'contain',
+        background: { r: 255, g: 255, b: 255, alpha: 0 }
+      })
+      .png({ quality: 100 })
       .toFile(PNG_SOURCE);
     
     console.log('🎨 Generating favicons...');
