@@ -487,7 +487,7 @@ const BlogList = () => {
                       key={tagIndex}
                       size="md"
                       variant="subtle"
-                      colorScheme="blue"
+                      colorScheme="teal"
                       cursor="pointer"
                       onClick={() => setSelectedTag(tag.urlFriendly)}
                     >
@@ -512,48 +512,27 @@ const BlogList = () => {
                   {post.excerpt}
                 </Text>
 
-                <VStack spacing={2} align="stretch">
-                  <HStack spacing={2} color={mutedText}>
-                    <Text fontSize="sm">
-                      {post.readingTime} min read
+                <HStack spacing={3} align="center">
+                  <Avatar
+                    size="sm"
+                    name={post.author}
+                    src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
+                  />
+                  <Box>
+                    <Text fontWeight="medium" fontSize="sm">
+                      {post.author}
                     </Text>
-                    {post.lastModified && (
-                      <Text fontSize="sm">
-                        • Updated {format(new Date(post.lastModified), 'MMM d, yyyy')}
-                      </Text>
-                    )}
-                  </HStack>
-
-                  <HStack spacing={3} justify="space-between">
-                    <HStack>
-                      <Avatar
-                        size="sm"
-                        name={post.author}
-                        src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
-                      />
-                      <Text fontSize="sm" color={mutedText}>
-                        {format(new Date(post.date), 'MMMM d, yyyy')}
-                      </Text>
+                    <HStack spacing={2} color={mutedText} fontSize="sm">
+                      <Text>{format(new Date(post.date), 'MMM d, yyyy')}</Text>
+                      {post.readingTime && (
+                        <>
+                          <Text>•</Text>
+                          <Text>{post.readingTime} min read</Text>
+                        </>
+                      )}
                     </HStack>
-
-                    {/* Translations available indicator */}
-                    {post.translations && Object.keys(post.translations).length > 0 && (
-                      <HStack>
-                        <Text fontSize="xs" color={mutedText}>Also in:</Text>
-                        {Object.keys(post.translations).map(lang => (
-                          <Tag
-                            key={lang}
-                            size="xs"
-                            variant="outline"
-                            colorScheme="teal"
-                          >
-                            {lang.toUpperCase()}
-                          </Tag>
-                        ))}
-                      </HStack>
-                    )}
-                  </HStack>
-                </VStack>
+                  </Box>
+                </HStack>
               </Box>
             </Box>
           ))}

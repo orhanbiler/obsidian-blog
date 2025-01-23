@@ -262,9 +262,15 @@ const BlogPost = () => {
                 <Text fontWeight="bold" fontSize="md">
                   {post.author || 'Orhan Biler'}
                 </Text>
-                <Text fontSize="sm" color="gray.500">
-                  {formattedDate}
-                </Text>
+                <HStack spacing={2} color="gray.500" fontSize="sm">
+                  <Text>{formattedDate}</Text>
+                  {post.readingTime && (
+                    <>
+                      <Text>•</Text>
+                      <Text>{post.readingTime} min read</Text>
+                    </>
+                  )}
+                </HStack>
               </Box>
             </HStack>
             
@@ -459,16 +465,6 @@ const BlogPost = () => {
             }
           }}
         />
-
-        {/* Reading Time and Last Modified */}
-        <HStack spacing={4} color={subtitleColor} fontSize="sm" mt={4}>
-          {post.readingTime && (
-            <Text>{post.readingTime} min read</Text>
-          )}
-          {post.lastModified && (
-            <Text>Updated: {formatDate(post.lastModified)}</Text>
-          )}
-        </HStack>
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
