@@ -69,22 +69,34 @@ export async function getAllPosts() {
     const data = await response.json();
     
     // Format and enhance the posts
-    const formattedPosts = (data.posts || []).map(post => ({
-      ...post,
-      tags: post.tags.map(formatTag),
-      readingTime: calculateReadingTime(post.excerpt || ''),
-      publishedAt: new Date(post.date).toISOString(),
-      lastModified: post.lastModified ? new Date(post.lastModified).toISOString() : null
-    }));
+    const formattedPosts = (data.posts || []).map(post => {
+      // Ensure date is in correct format
+      const date = new Date(post.date);
+      const formattedDate = isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
+      
+      return {
+        ...post,
+        date: formattedDate,
+        tags: post.tags.map(formatTag),
+        readingTime: calculateReadingTime(post.excerpt || ''),
+        publishedAt: formattedDate,
+        lastModified: post.lastModified ? new Date(post.lastModified).toISOString() : null,
+        // Ensure banner path is correct
+        banner: post.banner || null
+      };
+    });
 
+    // Sort posts by date before caching
+    const sortedPosts = formattedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
     // Update cache
     postsCache = {
-      data: formattedPosts,
+      data: sortedPosts,
       timestamp: Date.now(),
       version: CACHE_VERSION
     };
     
-    return formattedPosts;
+    return sortedPosts;
   } catch (error) {
     console.error('Error loading posts:', error);
     // Return cached data if available, even if expired

@@ -24,7 +24,10 @@ import {
   Skeleton,
   SkeletonCircle,
   SkeletonText,
-  ButtonGroup
+  ButtonGroup,
+  Wrap,
+  WrapItem,
+  Tooltip
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -128,6 +131,7 @@ const BlogList = () => {
       setLoading(true); // Ensure loading is true before fetching
       try {
         const fetchedPosts = await getAllPosts();
+        console.log('Fetched Posts:', fetchedPosts.map(p => ({ title: p.title, date: p.date, banner: p.banner })));
         setPosts(fetchedPosts);
         
         const uniqueTags = [...new Set(fetchedPosts.flatMap(post => 
@@ -143,7 +147,6 @@ const BlogList = () => {
       } catch (error) {
         console.error('Error loading posts:', error);
       } finally {
-        // Add a small delay to ensure skeleton is visible
         setTimeout(() => setLoading(false), 1000);
       }
     };
@@ -151,11 +154,27 @@ const BlogList = () => {
     loadPosts();
   }, []);
 
-  // Always sort posts by date
-  const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Always sort posts by date, ensuring proper date comparison
+  const sortedPosts = [...posts].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    // Check if dates are valid
+    if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
+      console.error('Invalid date found:', { postA: a.title, dateA: a.date, postB: b.title, dateB: b.date });
+      return 0;
+    }
+    return dateB.getTime() - dateA.getTime();
+  });
   
   // Featured post is always the latest post
   const featuredPost = sortedPosts[0];
+  console.log('Sorted Posts:', sortedPosts.map(p => ({ title: p.title, date: p.date, banner: p.banner })));
+  console.log('Featured Post:', {
+    title: featuredPost?.title,
+    date: featuredPost?.date,
+    banner: featuredPost?.banner,
+    fullBannerPath: featuredPost?.banner ? process.env.PUBLIC_URL + featuredPost.banner : null
+  });
   
   // Filter the remaining posts
   const filteredPosts = sortedPosts.slice(1).filter(post => {
@@ -232,6 +251,57 @@ const BlogList = () => {
     return Array.from(keywords).join(', ');
   };
 
+  // Add tag count calculation
+  const getTagCount = (tag) => {
+    return posts.filter(post => 
+      post.tags.some(t => t.urlFriendly === tag.urlFriendly)
+    ).length;
+  };
+
+  // Add tag cloud component
+  const TagCloud = () => (
+    <Box mb={8}>
+      <Heading size="md" mb={4}>Popular Topics</Heading>
+      <Wrap spacing={2}>
+        {allTags
+          .map(tag => ({
+            ...tag,
+            count: getTagCount(tag)
+          }))
+          .sort((a, b) => b.count - a.count)
+          .map(tag => (
+            <WrapItem key={tag.urlFriendly}>
+              <Tooltip 
+                label={`${tag.count} ${tag.count === 1 ? 'post' : 'posts'}`}
+                hasArrow
+              >
+                <Tag
+                  size="md"
+                  variant={selectedTag === tag.urlFriendly ? "solid" : "subtle"}
+                  colorScheme="teal"
+                  cursor="pointer"
+                  onClick={() => setSelectedTag(tag.urlFriendly)}
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    shadow: 'md'
+                  }}
+                  transition="all 0.2s"
+                >
+                  <Text as="span" fontWeight="bold" mr={1}>
+                    #
+                  </Text>
+                  {tag.original}
+                  <Text as="span" ml={2} fontSize="xs" opacity={0.8}>
+                    {tag.count}
+                  </Text>
+                </Tag>
+              </Tooltip>
+            </WrapItem>
+          ))}
+      </Wrap>
+    </Box>
+  );
+
   if (loading) {
     return (
       <Box>
@@ -282,21 +352,40 @@ const BlogList = () => {
         <Box bg={secondaryBg} py={16} mb={8}>
           <Container maxW="container.xl">
             <Grid templateColumns={{ base: '1fr', lg: '1.2fr 0.8fr' }} gap={8} alignItems="center">
-              {featuredPost.banner && (
+              {featuredPost.banner ? (
                 <Box
                   borderRadius="xl"
                   overflow="hidden"
                   boxShadow="xl"
+                  position="relative"
+                  height="400px"
                 >
                   <img
-                    src={featuredPost.banner}
+                    src={process.env.PUBLIC_URL + featuredPost.banner}
                     alt={featuredPost.title}
                     style={{
                       width: '100%',
-                      height: '400px',
-                      objectFit: 'cover'
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                    onError={(e) => {
+                      console.error('Error loading banner image:', e);
+                      console.log('Failed banner path:', e.target.src);
+                      e.target.style.display = 'none';
                     }}
                   />
+                </Box>
+              ) : (
+                <Box
+                  borderRadius="xl"
+                  bg="gray.100"
+                  height="400px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Text color="gray.500">No banner image available</Text>
                 </Box>
               )}
               <VStack align="flex-start" spacing={4}>
@@ -358,6 +447,9 @@ const BlogList = () => {
       )}
 
       <Container maxW="container.xl" py={8}>
+        {/* Add Tag Cloud before search */}
+        <TagCloud />
+
         {/* Search and Filter Section */}
         <Box mb={8}>
           <Heading size="lg" mb={4}>
@@ -441,18 +533,27 @@ const BlogList = () => {
               _hover={{
                 transform: 'translateY(-4px)',
                 boxShadow: 'xl',
+                transition: 'all 0.2s ease-in-out'
               }}
-              transition="all 0.2s"
             >
               {post.banner && (
-                <Box h="200px" overflow="hidden">
+                <Box
+                  height="200px"
+                  overflow="hidden"
+                  position="relative"
+                >
                   <img
-                    src={post.banner}
+                    src={process.env.PUBLIC_URL + post.banner}
                     alt={post.title}
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover'
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                    onError={(e) => {
+                      console.error('Error loading banner image:', e);
+                      e.target.style.display = 'none';
                     }}
                   />
                 </Box>
