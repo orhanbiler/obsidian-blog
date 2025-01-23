@@ -1,7 +1,10 @@
 ---
 title: Your Post Title
 date: 2025-01-23
-tags: []
+tags:
+  - "#AI"
+  - AmericanDream
+  - Backend
 excerpt: A brief summary of your post (150-160 characters recommended)
 subtitle: Optional secondary title
 author: Orhan Biler
@@ -74,4 +77,5 @@ Writing Tips:
 - Group related posts in series
 - Update lastModified when you make significant changes
 -->
-testiong
+
+testing out this feature
