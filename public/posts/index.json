@@ -1,21 +1,6 @@
 {
   "posts": [
     {
-      "title": "Amerikaya Yolculuk",
-      "subtitle": "Optional secondary title",
-      "date": "2025-01-23T00:00:00.000Z",
-      "slug": "amerikaya-yolculuk",
-      "excerpt": "Amerika ve Otesi",
-      "tags": [],
-      "author": "Orhan Biler",
-      "banner": "/assets/newyork.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-23T00:00:00.000Z"
-    },
-    {
       "title": "How Playing Arma Reforger Has Changed My Perspective",
       "subtitle": "",
       "date": "2025-01-19T00:00:00.000Z",
