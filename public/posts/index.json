@@ -6,11 +6,40 @@
       "date": "2025-01-23T00:00:00.000Z",
       "slug": "your-post-title",
       "excerpt": "A brief summary of your post (150-160 characters recommended)",
-      "tags": [
-        "#Amerikada-Hayat"
-      ],
+      "tags": [],
       "author": "Orhan Biler",
       "banner": "/assets/your-image.jpg"
+    },
+    {
+      "title": "Tag Sample",
+      "subtitle": "",
+      "date": "2025-01-23",
+      "slug": "tag-sample",
+      "excerpt": "",
+      "tags": [
+        "React",
+        "JavaScript",
+        "TypeScript",
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "Full Stack",
+        "DevOps",
+        "Cloud",
+        "AWS",
+        "Turkish Culture",
+        "American Culture",
+        "Living Abroad",
+        "Immigration",
+        "Tech Industry",
+        "AI",
+        "Machine Learning",
+        "Finance",
+        "Career",
+        "Life in USA"
+      ],
+      "author": "Orhan Biler",
+      "banner": null
     },
     {
       "title": "Amerika'ya Yolculuğum: Hayaller ve Zorluklar",

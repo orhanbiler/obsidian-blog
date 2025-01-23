@@ -1,8 +1,7 @@
 ---
 title: Your Post Title
 date: 2025-01-23
-tags:
-  - "#Amerikada-Hayat"
+tags: []
 excerpt: A brief summary of your post (150-160 characters recommended)
 subtitle: Optional secondary title
 author: Orhan Biler
