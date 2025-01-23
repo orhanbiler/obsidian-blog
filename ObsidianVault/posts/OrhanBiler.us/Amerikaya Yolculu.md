@@ -5,7 +5,7 @@ tags:
 excerpt: Amerika ve Otesi
 subtitle: Optional secondary title
 author: Orhan Biler
-banner: /assets/banner.jpg
+banner: /assets/newyork.jpg
 draft: false
 language: en
 translations: {}
