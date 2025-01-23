@@ -29,7 +29,8 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { SearchIcon } from '@chakra-ui/icons';
-import { getAllPosts } from '../utils/blogUtils';
+import { getAllPosts, getPostsByTag } from '../utils/blogUtils';
+import { useInView } from 'react-intersection-observer';
 
 const BlogPostSkeleton = () => {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -100,6 +101,12 @@ const BlogList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   const location = useLocation();
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: false
+  });
 
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -173,9 +180,43 @@ const BlogList = () => {
     setCurrentPage(1);
   }, [searchTerm, selectedTag]);
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  useEffect(() => {
+    if (inView && hasMore && !isLoadingMore) {
+      loadMorePosts();
+    }
+  }, [inView]);
+
+  const loadMorePosts = async () => {
+    if (isLoadingMore || !hasMore) return;
+
+    setIsLoadingMore(true);
+    const nextPage = currentPage + 1;
+
+    try {
+      let newPosts;
+      if (selectedTag) {
+        const result = await getPostsByTag(selectedTag, nextPage, postsPerPage);
+        newPosts = result.posts;
+        setHasMore(nextPage < result.totalPages);
+      } else {
+        // Handle regular post loading
+        const startIndex = (nextPage - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        newPosts = filteredPosts.slice(startIndex, endIndex);
+        setHasMore(endIndex < filteredPosts.length);
+      }
+
+      if (newPosts.length > 0) {
+        setCurrentPage(nextPage);
+        setPosts(prev => [...prev, ...newPosts]);
+      } else {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error('Error loading more posts:', error);
+    } finally {
+      setIsLoadingMore(false);
+    }
   };
 
   // Create meta description from the latest posts
@@ -391,7 +432,7 @@ const BlogList = () => {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} mb={8}>
           {currentPosts.map((post, index) => (
             <Box
-              key={index}
+              key={post.slug}
               borderWidth="1px"
               borderRadius="lg"
               borderColor={borderColor}
@@ -439,6 +480,16 @@ const BlogList = () => {
                 <Text noOfLines={2} mb={4} color={mutedText}>
                   {post.excerpt}
                 </Text>
+                <HStack spacing={2} mt={2} color={mutedText}>
+                  <Text fontSize="sm">
+                    {post.readingTime} min read
+                  </Text>
+                  {post.lastModified && (
+                    <Text fontSize="sm">
+                      • Updated {format(new Date(post.lastModified), 'MMM d, yyyy')}
+                    </Text>
+                  )}
+                </HStack>
                 <HStack spacing={3}>
                   <Avatar
                     size="sm"
@@ -454,37 +505,21 @@ const BlogList = () => {
           ))}
         </SimpleGrid>
 
-        {/* Pagination Controls */}
-        {filteredPosts.length > postsPerPage && (
+        {/* Infinite Scroll Trigger */}
+        {hasMore && (
+          <Center ref={ref} h="100px" mt={4}>
+            {isLoadingMore ? (
+              <Spinner size="lg" color="teal.500" />
+            ) : (
+              <Text color={mutedText}>Scroll for more posts</Text>
+            )}
+          </Center>
+        )}
+
+        {/* No More Posts Indicator */}
+        {!hasMore && filteredPosts.length > 0 && (
           <Center mt={8}>
-            <ButtonGroup spacing={2}>
-              <Button
-                onClick={() => handlePageChange(currentPage - 1)}
-                isDisabled={currentPage === 1}
-                colorScheme="teal"
-                variant="outline"
-              >
-                Previous
-              </Button>
-              {[...Array(totalPages)].map((_, index) => (
-                <Button
-                  key={index + 1}
-                  onClick={() => handlePageChange(index + 1)}
-                  colorScheme="teal"
-                  variant={currentPage === index + 1 ? "solid" : "outline"}
-                >
-                  {index + 1}
-                </Button>
-              ))}
-              <Button
-                onClick={() => handlePageChange(currentPage + 1)}
-                isDisabled={currentPage === totalPages}
-                colorScheme="teal"
-                variant="outline"
-              >
-                Next
-              </Button>
-            </ButtonGroup>
+            <Text color={mutedText}>No more posts to load</Text>
           </Center>
         )}
       </Container>
