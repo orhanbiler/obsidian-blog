@@ -13,22 +13,19 @@ draft: true # Set to false when ready to publish
 
 # Language and Translation
 language: en # Available: en (English), tr (Turkish), es (Spanish), etc.
-translations:
-  # Add translations when available:
-  # tr: /turkish-version-slug # e.g., /react-ile-blog-yapimi
-  # es: /spanish-version-slug # e.g., /como-hacer-un-blog-con-react
+translations: {}
 
 # Series Information (optional)
-series: "Series Name" # e.g., "React Blog Tutorial"
+series: "" # e.g., "React Blog Tutorial"
 seriesOrder: 1 # Position in series: 1, 2, 3, etc.
-relatedPosts: # List related post slugs
+relatedPosts: [] # List related post slugs
   # - getting-started-with-react
   # - adding-mdx-support
   # - implementing-dark-mode
 
 # SEO and Metadata
 lastModified: {{date:YYYY-MM-DD}} # Auto-updates when you modify the post
-canonical: # e.g., "https://dev.to/yourusername/your-post" if cross-posted
+canonical: "" # e.g., "https://dev.to/yourusername/your-post" if cross-posted
 keywords: [] # e.g., ["React Tutorial", "Web Development", "JavaScript Framework"]
 
 # Social Media
