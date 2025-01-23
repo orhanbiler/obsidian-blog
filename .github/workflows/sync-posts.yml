@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'ObsidianVault/posts/**'  # Only trigger on changes to posts
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
@@ -16,72 +14,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Updated to v3
+        uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3  # Updated to v3
+        uses: actions/setup-node@v2
         with:
           node-version: '18'
-          cache: 'npm'  # Enable npm caching
 
       - name: Install dependencies
-        run: npm ci  # Use ci instead of install for cleaner installs
+        run: npm install
 
       - name: Run sync script
-        run: |
-          echo "Running sync script..."
-          npm run sync-posts
-          echo "Sync completed"
-
-      - name: Check for changes
-        id: check_changes
-        run: |
-          git status
-          git diff --quiet && git diff --staged --quiet && echo "::set-output name=changes::false" || echo "::set-output name=changes::true"
+        run: npm run sync-posts
 
       - name: Commit changes
-        if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          git commit -m "chore: sync blog posts [skip ci]"
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync blog posts" && git push)
 
       - name: Deploy to Vercel
-        if: success()
         id: deploy
         run: |
           echo "Triggering Vercel deployment..."
-          DEPLOY_RESULT=$(curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}" -H "Content-Type: application/json")
+          DEPLOY_RESULT=$(curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }})
           echo "Deployment triggered: $DEPLOY_RESULT"
           
-          # Extract deployment ID from response
-          DEPLOY_ID=$(echo $DEPLOY_RESULT | jq -r '.job.id')
-          echo "Deployment ID: $DEPLOY_ID"
+          # Wait for deployment to start
+          sleep 15
           
-          # Wait and check deployment status multiple times
-          MAX_ATTEMPTS=6
-          ATTEMPT=1
-          while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
-            echo "Checking deployment status (attempt $ATTEMPT of $MAX_ATTEMPTS)..."
-            sleep 30
-            
-            # Try to access the site
-            STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.VERCEL_SYNC_URL }}")
-            echo "Site status code: $STATUS_CODE"
-            
-            if [ "$STATUS_CODE" = "200" ]; then
-              echo "Site is accessible, deployment successful!"
-              exit 0
-            fi
-            
-            ATTEMPT=$((ATTEMPT + 1))
-          done
-          
-          echo "Warning: Could not verify deployment success after $MAX_ATTEMPTS attempts"
-          # Don't fail the workflow, just warn
-          exit 0 
+          echo "Checking deployment status..."
+          curl -I ${{ secrets.VERCEL_SYNC_URL }} 
