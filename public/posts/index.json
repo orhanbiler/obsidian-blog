@@ -19,25 +19,6 @@
       "series": "",
       "seriesOrder": 0,
       "lastModified": "2025-01-23"
-    },
-    {
-      "title": "Getting Started with Obsidian Bloggings",
-      "subtitle": "",
-      "date": "2024-01-19T00:00:00.000Z",
-      "slug": "getting-started-with-obsidian-bloggings",
-      "excerpt": "Learn how to use Obsidian as a powerful blogging platform with automatic syncing to your website.",
-      "tags": [
-        "obsidian",
-        "blogging",
-        "markdown"
-      ],
-      "author": "Orhan Biler",
-      "banner": null,
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 0,
-      "lastModified": "2025-01-23"
     }
   ]
 }
