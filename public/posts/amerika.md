@@ -4,8 +4,8 @@ date: 2025-01-23
 tags:
   - ArmaReforger
   - BohemiaInteractive
-excerpt: A brief summary of your post (150-160 characters recommended)
-subtitle: Optional secondary title
+excerpt: Amerikaya Nasil Geldim
+subtitle: Amerikadaki Anilarim
 author: Orhan Biler
 banner: /assets/newyork.jpg
 draft: false
