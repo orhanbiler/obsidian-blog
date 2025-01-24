@@ -128,16 +128,22 @@ function processMarkdownContent(content) {
 
 function syncAuthors() {
   const authorsDir = path.join(OBSIDIAN_DIR, 'authors');
-  const publicAuthorsDir = path.join(__dirname, '../public/authors');
+  const publicAuthorsDir = path.join(process.cwd(), 'public/authors');
+
+  console.log('Syncing authors from:', authorsDir);
+  console.log('To:', publicAuthorsDir);
 
   // Create public authors directory if it doesn't exist
   if (!fs.existsSync(publicAuthorsDir)) {
     fs.mkdirSync(publicAuthorsDir, { recursive: true });
+    console.log('Created public authors directory');
   }
 
   // Copy author directories if they exist
   if (fs.existsSync(authorsDir)) {
+    console.log('Found authors directory');
     const authors = fs.readdirSync(authorsDir);
+    console.log('Found authors:', authors);
     
     authors.forEach(authorDir => {
       const authorPath = path.join(authorsDir, authorDir);
@@ -146,10 +152,13 @@ function syncAuthors() {
       // Create author directory in public if it doesn't exist
       if (!fs.existsSync(publicAuthorPath)) {
         fs.mkdirSync(publicAuthorPath, { recursive: true });
+        console.log('Created directory for author:', authorDir);
       }
 
       // Copy all files from author directory
       const files = fs.readdirSync(authorPath);
+      console.log(`Files for ${authorDir}:`, files);
+      
       files.forEach(file => {
         const sourcePath = path.join(authorPath, file);
         const targetPath = path.join(publicAuthorPath, file);
@@ -159,6 +168,8 @@ function syncAuthors() {
         console.log(`Copied author file: ${file} to ${publicAuthorPath}`);
       });
     });
+  } else {
+    console.log('Authors directory not found at:', authorsDir);
   }
 }
 
