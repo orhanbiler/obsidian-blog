@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 draft: true
 ---
@@ -36,3 +37,6 @@ Example usage in frontmatter:
 ```yaml
 tags: [web-development, react, tutorial]
 ```
+=======
+ 
+>>>>>>> origin/main
