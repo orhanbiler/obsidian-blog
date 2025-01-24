@@ -219,21 +219,28 @@ const About = () => {
         }
         const data = await response.json();
         
-        // Process each author to include their About Me section
-        const processedAuthors = data.map(author => {
-          // Extract the About Me section from the bio content
-          const aboutMeMatch = author.bio?.match(/## About Me\n([\s\S]*?)(?=\n##|$)/);
-          const aboutMe = aboutMeMatch ? aboutMeMatch[1].trim() : '';
-          
-          // Format the name for the image path
-          const formattedName = author.name.replace(/\s+/g, '');
-          
-          return {
-            ...author,
-            aboutMe: aboutMe || author.bio?.split('\n')[0] || 'No bio available',
-            image: `/static/authors/${formattedName}/${formattedName}.png`
-          };
-        });
+        // Process each author to include their About Me section and sort by role
+        const processedAuthors = data
+          .map(author => {
+            // Extract the About Me section from the bio content
+            const aboutMeMatch = author.bio?.match(/## About Me\n([\s\S]*?)(?=\n##|$)/);
+            const aboutMe = aboutMeMatch ? aboutMeMatch[1].trim() : '';
+            
+            // Format the name for the image path
+            const formattedName = author.name.replace(/\s+/g, '');
+            
+            return {
+              ...author,
+              aboutMe: aboutMe || author.bio?.split('\n')[0] || 'No bio available',
+              image: `/static/authors/${formattedName}/${formattedName}.png`
+            };
+          })
+          .sort((a, b) => {
+            // Sort order: Owner first, then other roles alphabetically
+            if (a.role.toLowerCase().includes('owner')) return -1;
+            if (b.role.toLowerCase().includes('owner')) return 1;
+            return a.role.localeCompare(b.role);
+          });
 
         setAuthors(processedAuthors);
         setError(null);
