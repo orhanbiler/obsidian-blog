@@ -339,7 +339,7 @@ const BlogPost = () => {
                   size="md"
                   borderRadius="full"
                   cursor="pointer"
-                  onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
+                  onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
                   _hover={{
                     transform: 'translateY(-1px)',
                     shadow: 'sm'
@@ -397,12 +397,11 @@ const BlogPost = () => {
                       size="md"
                       borderRadius="full"
                       cursor="pointer"
-                      onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
+                      onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
                       _hover={{
                         transform: 'translateY(-1px)',
                         shadow: 'sm'
                       }}
-                      transition="all 0.2s"
                     >
                       <Text as="span" fontWeight="bold" mr={1}>
                         #
@@ -431,7 +430,7 @@ const BlogPost = () => {
                           size="md"
                           borderRadius="full"
                           cursor="pointer"
-                          onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
+                          onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
                           _hover={{
                             transform: 'translateY(-1px)',
                             shadow: 'sm'
