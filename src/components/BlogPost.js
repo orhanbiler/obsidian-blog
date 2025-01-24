@@ -39,10 +39,10 @@ import 'prismjs/components/prism-json';
 import { Helmet } from 'react-helmet-async';
 
 const getAuthorImage = (author) => {
-  // Format the author name for the path
+  // Format the author name for the path - remove spaces but don't add hyphens
   const formattedName = author.split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('-');
+    .join('');
   return `/static/authors/${formattedName}/${formattedName}.png`;
 };
 

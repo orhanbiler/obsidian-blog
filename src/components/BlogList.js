@@ -38,7 +38,7 @@ import { useInView } from 'react-intersection-observer';
 const getAuthorImage = (author) => {
   const formattedName = author.split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('-');
+    .join('');
   return `/static/authors/${formattedName}/${formattedName}.png`;
 };
 

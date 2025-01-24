@@ -161,7 +161,29 @@ function syncAuthors() {
             file.toLowerCase().endsWith('.jpeg')) {
           // Copy image files directly
           fs.copyFileSync(sourcePath, targetPath);
-          console.log(`Copied image: ${file} to ${publicAuthorPath}`);
+          console.log(`Copied author image: ${file} to ${publicAuthorPath}`);
+          
+          // Also copy to the author's name-based path for the profile image
+          const authorName = authorDir; // This is already in the correct format (e.g., OrhanBiler)
+          const ext = path.extname(file);
+          const newFileName = `${authorName}${ext}`;
+          const authorImagePath = path.join(publicAuthorPath, newFileName);
+          
+          // Only copy if the target file doesn't exist or is different
+          if (!fs.existsSync(authorImagePath) || 
+              !fs.readFileSync(sourcePath).equals(fs.readFileSync(authorImagePath))) {
+            fs.copyFileSync(sourcePath, authorImagePath);
+            console.log(`Copied author image as: ${newFileName} to ${publicAuthorPath}`);
+          }
+          
+          // Remove any old hyphenated versions if they exist
+          const hyphenatedName = authorDir.split(/(?=[A-Z])/).join('-');
+          const oldFileName = `${hyphenatedName}${ext}`;
+          const oldFilePath = path.join(publicAuthorPath, oldFileName);
+          if (fs.existsSync(oldFilePath)) {
+            fs.unlinkSync(oldFilePath);
+            console.log(`Removed old hyphenated author image: ${oldFileName}`);
+          }
         } else if (file.toLowerCase().endsWith('.md')) {
           // Process markdown files
           const content = fs.readFileSync(sourcePath, 'utf8');
