@@ -1,7 +1,7 @@
 ---
-title: Amerika
+title: Amerika Thasnk!
 date: 2025-01-23
-tags: []
+tags: 
 excerpt: Amerikaya Nasil Geldim
 subtitle: Amerikadaki Anilarim
 author: Orhan Biler
