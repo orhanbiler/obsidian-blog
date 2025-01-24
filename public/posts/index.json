@@ -34,6 +34,69 @@
       "series": "",
       "seriesOrder": 0,
       "lastModified": "2025-01-24"
+    },
+    {
+      "title": "Building the Ultimate Gaming Setup in 2024",
+      "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
+      "date": "2024-03-22T00:00:00.000Z",
+      "slug": "building-the-ultimate-gaming-setup-in-2024",
+      "excerpt": "A comprehensive guide to building your dream gaming setup, from hardware selection to ergonomic considerations.",
+      "tags": [
+        "gaming",
+        "pc-gaming",
+        "tech",
+        "how-to",
+        "review"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "Gaming Guides",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24"
+    },
+    {
+      "title": "Cryptocurrency Investment 101: A Beginner's Guide",
+      "subtitle": "Everything You Need to Know Before Your First Crypto Investment",
+      "date": "2024-03-21T00:00:00.000Z",
+      "slug": "cryptocurrency-investment-101-a-beginner-s-guide",
+      "excerpt": "A comprehensive guide for beginners looking to enter the cryptocurrency market safely and intelligently.",
+      "tags": [
+        "cryptocurrency",
+        "bitcoin",
+        "investing",
+        "tutorial",
+        "financial-planning"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "Crypto Investment Guide",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24"
+    },
+    {
+      "title": "From Police Badge to Keyboard: My Journey into Tech",
+      "subtitle": "A Police Officer's Guide to Breaking Into Tech",
+      "date": "2024-03-20T00:00:00.000Z",
+      "slug": "from-police-badge-to-keyboard-my-journey-into-tech",
+      "excerpt": "How I successfully transitioned from law enforcement to a career in technology, and the valuable skills that carried over.",
+      "tags": [
+        "career",
+        "police-work",
+        "tech",
+        "personal-growth",
+        "career-advice"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "Career Transition Stories",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24"
     }
   ]
 }
