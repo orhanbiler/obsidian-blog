@@ -46,7 +46,7 @@ Bu mesleğe yönelmemi sağlayan en büyük faktörlerden biri, çevremdeki insa
 Keşke test biraz daha zor olsaydı da daha kalifiye insanlar işe girseydi diye kendi kendime söylendim. Neyse ki 20 dakika sonra testi geçtiğimi öğrenerek işlemleri başlattım. O zamanlar New York'ta, Port Jefferson kasabasında bir hastanede temizlikçi olarak çalışıyordum. Önümüzdeki bir yıl boyunca Baltimore City'de bana atanmış dedektifle dosya getir götür işleri yaptım. Bir yılın sonunda, Perşembe günü telefon çaldı ve Baltimore City'den yillik $50,000 başlangıç ile iş teklifi aldım. O an yaşadığım mutluluğu asla unutamam; annemle birlikte bu habere sevinç gözyaşları dökmüştük. İlk defa memur olacaktım. Baltimore City, Perşembe günü aradı ve pazartesi günü akademinin başladığını, Baltimore'da hazır olmam gerektiğini söyledi. Gerçekten çok zor bir süreçti benim için; Baltimore'da kimseyi tanımıyordum ve cebimde sadece 600 dolarım vardı. Kısacası, arabaya her şeyi koyup Baltimore'a doğru yola çıktım. Bu arada farklı forumları dolaşıp kendime kiralık bir oda arıyordum. Şansıma bir tane buldum ve tuttum. Orada şu anda birlikte olduğum Catherine ile tanıştım.
 
 Catherine ile ilk tanıştığımız zamanlardan bir resmimi paylaşıyorum:  
-![[l2nx859j.bmp]]
+
   
 
 Catherine ile harika zaman geçiriyorduk ve çok mutluyduk. Gerçekten onun gibi birinin, akademinin üzerimde yarattığı yoğun baskı ve stresi hafiflettiğinin farkına vardım. Önümüzdeki 10 ay boyunca Baltimore City Polis Teşkilatı'nın akademisinde her türlü eğitimi aldım, cezalandırmalar da dahil. Mezun olduktan sonra Baltimore City'de sokak polisi olarak göreve başladım. Bir yıl sokakta çalıştıktan sonra Cheverly Polis Teşkilatı'na başvuruda bulundum.  
