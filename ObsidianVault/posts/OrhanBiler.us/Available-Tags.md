@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Available Tags
 
 ## Technical Tags
