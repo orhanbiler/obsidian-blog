@@ -2,7 +2,7 @@
 # Required fields
 title: "Your Post Title" # e.g., "How to Build a Blog with React"
 date: {{date:YYYY-MM-DD}}
-tags: [] # e.g., ["React", "JavaScript", "Web Development"]
+tags: [] # Type # to see available tags (e.g., [web-development, react, tutorial])
 excerpt: "A brief summary of your post (150-160 characters recommended)" # e.g., "Learn how to build a modern blog using React and Next.js with advanced features like MDX support and dynamic routing."
 
 # Optional fields
