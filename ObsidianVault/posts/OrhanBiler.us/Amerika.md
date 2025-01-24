@@ -24,7 +24,7 @@ twitterCard: summary_large_image
 
 Ablam ile Amerika'daki ilk resmimiz:  
 
-  
+![[ablam ve ben 1.jpg]]
 
   
 İlk kez başka bir ülkeye geliyorduk ve ilk kez uçağa binmiştik. Şu anda 31 yaşındayım. Son 6 yılımı Amerika'nın doğu kıyısında yer alan Maryland eyaletinde geçirdim. Ondan önceki 10 yılımı ise New York eyaletinde geçirmiştim.
@@ -32,7 +32,7 @@ Ablam ile Amerika'daki ilk resmimiz:
 Öncelikle, New York'ta geçirdiğim 10 yıldan bahsetmek istiyorum. 2010 yılında geldiğim New York'ta, 10. sınıftan liseye başladım. Genelde 17 yaşındaki öğrenciler, 17-18 yaşları arasında liseden mezun olurken, ben 10. sınıftan başladım.
 
 İlk lise yıllarımda da böyle görünüyordum:  
-
+![[lisede school bustayken.jpg]]
   
 
 Hayata biraz geç başlamış olsam da Amerika'nın fırsatlarla dolu bir ülke olduğunu bilerek yoluma devam ettim. İngilizce öğrendim, kültürel değişikliklere uyum sağladım, dil engelini aştım derken 3-5 yıl geçti ve bu zamanın nasıl geçtiğini anlamadım bile. Liseden mezun olduktan sonra birçok işte çalıştım. Benzin istasyonundan tutun, boya, badana, inşaat, araba mekaniği gibi birçok farklı işte deneyim kazandım. Bu işlerin hiçbirine kariyer olarak bakmadım.
