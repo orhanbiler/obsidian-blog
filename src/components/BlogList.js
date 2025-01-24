@@ -95,7 +95,7 @@ const FeaturedPostSkeleton = () => {
   );
 };
 
-const BlogPostCard = ({ post }) => {
+const BlogPostCard = ({ post, setSelectedTag }) => {
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const mutedText = useColorModeValue('gray.600', 'gray.400');
@@ -516,7 +516,10 @@ const BlogList = () => {
                       size="sm"
                       borderRadius="full"
                       cursor="pointer"
-                      onClick={() => setSelectedTag(tag.urlFriendly)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSelectedTag(tag.urlFriendly);
+                      }}
                     >
                       <Text as="span" color="teal.500" fontWeight="bold" mr={1}>
                         #
@@ -641,7 +644,11 @@ const BlogList = () => {
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} mb={8}>
           {currentPosts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
+            <BlogPostCard 
+              key={post.slug} 
+              post={post} 
+              setSelectedTag={setSelectedTag}
+            />
           ))}
         </SimpleGrid>
 
