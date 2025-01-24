@@ -497,8 +497,8 @@ const BlogList = () => {
         <meta name="author" content="Orhan Biler" />
       </Helmet>
 
-      {/* Hero Section with Featured Post - Always visible */}
-      {featuredPost && (
+      {/* Hero Section with Featured Post - Only show when no filters are active */}
+      {!searchTerm && !selectedTag && !selectedAuthor && featuredPost && (
         <Box bg={secondaryBg} py={16} mb={8}>
           <Container maxW="container.xl">
             <Grid templateColumns={{ base: '1fr', lg: '1.2fr 0.8fr' }} gap={8} alignItems="center">
