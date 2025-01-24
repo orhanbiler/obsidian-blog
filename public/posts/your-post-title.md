@@ -38,7 +38,7 @@ Ablam ile Amerika'daki ilk resmimiz:
 Hayata biraz geç başlamış olsam da Amerika'nın fırsatlarla dolu bir ülke olduğunu bilerek yoluma devam ettim. İngilizce öğrendim, kültürel değişikliklere uyum sağladım, dil engelini aştım derken 3-5 yıl geçti ve bu zamanın nasıl geçtiğini anlamadım bile. Liseden mezun olduktan sonra birçok işte çalıştım. Benzin istasyonundan tutun, boya, badana, inşaat, araba mekaniği gibi birçok farklı işte deneyim kazandım. Bu işlerin hiçbirine kariyer olarak bakmadım.
 
 Dediğim işlerden birini yaparken...  
-
+![h1rhqbfb.bmp](/posts/h1rhqbfb-bmp)
   
 
 New York'tan ayrılmadan 2 yıl önce polis olmaya karar verdim. Polis olma hayalim, zaten lisenin son yıllarında yavaş yavaş şekillenmeye başlamıştı. İnsanlara yardım etme ve problem çözme isteğim, bu mesleğe en iyi şekilde yönelmemi sağladı.
@@ -47,16 +47,16 @@ Bu mesleğe yönelmemi sağlayan en büyük faktörlerden biri, çevremdeki insa
 Keşke test biraz daha zor olsaydı da daha kalifiye insanlar işe girseydi diye kendi kendime söylendim. Neyse ki 20 dakika sonra testi geçtiğimi öğrenerek işlemleri başlattım. O zamanlar New York'ta, Port Jefferson kasabasında bir hastanede temizlikçi olarak çalışıyordum. Önümüzdeki bir yıl boyunca Baltimore City'de bana atanmış dedektifle dosya getir götür işleri yaptım. Bir yılın sonunda, Perşembe günü telefon çaldı ve Baltimore City'den yillik $50,000 başlangıç ile iş teklifi aldım. O an yaşadığım mutluluğu asla unutamam; annemle birlikte bu habere sevinç gözyaşları dökmüştük. İlk defa memur olacaktım. Baltimore City, Perşembe günü aradı ve pazartesi günü akademinin başladığını, Baltimore'da hazır olmam gerektiğini söyledi. Gerçekten çok zor bir süreçti benim için; Baltimore'da kimseyi tanımıyordum ve cebimde sadece 600 dolarım vardı. Kısacası, arabaya her şeyi koyup Baltimore'a doğru yola çıktım. Bu arada farklı forumları dolaşıp kendime kiralık bir oda arıyordum. Şansıma bir tane buldum ve tuttum. Orada şu anda birlikte olduğum Catherine ile tanıştım.
 
 Catherine ile ilk tanıştığımız zamanlardan bir resmimi paylaşıyorum:  
-
+![l2nx859j.bmp](/posts/l2nx859j-bmp)
   
 
 Catherine ile harika zaman geçiriyorduk ve çok mutluyduk. Gerçekten onun gibi birinin, akademinin üzerimde yarattığı yoğun baskı ve stresi hafiflettiğinin farkına vardım. Önümüzdeki 10 ay boyunca Baltimore City Polis Teşkilatı'nın akademisinde her türlü eğitimi aldım, cezalandırmalar da dahil. Mezun olduktan sonra Baltimore City'de sokak polisi olarak göreve başladım. Bir yıl sokakta çalıştıktan sonra Cheverly Polis Teşkilatı'na başvuruda bulundum.  
 Her zaman daha küçük bir polis teşkilatında çalışmak istemişimdir. Mesleğimin sadece polis raporu yazmaktan daha fazlası olduğunu düşündüm. Bu yüzden bu adımı attım. Chevrolet Polis Teşkilatı, 10-15 kişiden oluşan küçük bir kasaba teşkilatıydı ve Washington D.C.'ye çok yakındı. Orada göreve başladıktan sonra fark ettim ki gerçekten bir farklılık yaratmak istiyorsanız, sesinizin duyulabileceği kadar küçük bir polis teşkilatında çalışmanız gerekiyor. Benim için de bu böyle oldu. Orada iki yıl çalıştıktan sonra onbaşılığa terfi ettim. Onbaşı olduktan sonra bir iki yıl daha çalıştım ve sonrasında çavuş oldum.  
-
+![Pasted image 20250121004325 1.png](/posts/pasted-image-20250121004325-1-png)
   
 
 Şu anda çavuş olarak görevime devam ediyorum. Boş zamanlarımda ailemle ilgileniyor, ailemle olmadığım zamanlarda ise gündemdeki yapay zeka haberlerini takip ediyor ve bilgisayar oyunlarıyla ilgileniyorum.  
-
+![](/assets/Pasted%20image%2020250121010309.png)
   
 
 Son zamanlarda [Nvidia Jetson Nano Super](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/nano-super-developer-kit/) gibi gelişmiş cihazlarla ilgilenmeye başladım. Bu cihazla yapay zeka teknolojisini kullanarak, etkili bir kamera sistemi geliştirmeyi hedefliyorum. Bu kamera sistemi, yoldan geçen arabaların modellerini ve sayılarını sayacak ve insanları tanıması için eğiteceğim. Eğitimi tamamladıktan sonra, grup halinde dolaşan insanları tespit edip bana telefonla mesaj gönderecek bir uygulama geliştirmeyi planlıyorum.
