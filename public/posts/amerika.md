@@ -51,7 +51,7 @@ Catherine ile ilk tanıştığımız zamanlardan bir resmimi paylaşıyorum:
 
 Catherine ile harika zaman geçiriyorduk ve çok mutluyduk. Gerçekten onun gibi birinin, akademinin üzerimde yarattığı yoğun baskı ve stresi hafiflettiğinin farkına vardım. Önümüzdeki 10 ay boyunca Baltimore City Polis Teşkilatı'nın akademisinde her türlü eğitimi aldım, cezalandırmalar da dahil. Mezun olduktan sonra Baltimore City'de sokak polisi olarak göreve başladım. Bir yıl sokakta çalıştıktan sonra Cheverly Polis Teşkilatı'na başvuruda bulundum.  
 Her zaman daha küçük bir polis teşkilatında çalışmak istemişimdir. Mesleğimin sadece polis raporu yazmaktan daha fazlası olduğunu düşündüm. Bu yüzden bu adımı attım. Chevrolet Polis Teşkilatı, 10-15 kişiden oluşan küçük bir kasaba teşkilatıydı ve Washington D.C.'ye çok yakındı. Orada göreve başladıktan sonra fark ettim ki gerçekten bir farklılık yaratmak istiyorsanız, sesinizin duyulabileceği kadar küçük bir polis teşkilatında çalışmanız gerekiyor. Benim için de bu böyle oldu. Orada iki yıl çalıştıktan sonra onbaşılığa terfi ettim. Onbaşı olduktan sonra bir iki yıl daha çalıştım ve sonrasında çavuş oldum.  
-![Pasted image 20250121004325 1.png](/posts/pasted-image-20250121004325-1-png)
+
   
 
 Şu anda çavuş olarak görevime devam ediyorum. Boş zamanlarımda ailemle ilgileniyor, ailemle olmadığım zamanlarda ise gündemdeki yapay zeka haberlerini takip ediyor ve bilgisayar oyunlarıyla ilgileniyorum.  
