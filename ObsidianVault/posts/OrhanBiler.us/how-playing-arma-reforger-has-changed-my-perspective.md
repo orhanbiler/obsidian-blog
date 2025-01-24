@@ -7,7 +7,7 @@ tags:
   - BohemiaInteractive
   - MilSim
 excerpt: How Arma 3 and Arma Reforger changed online gaming for me
-draft: true
+draft: false
 subtitle: Optional secondary title
 author: Orhan Biler
 banner: assets/Pasted%20image%2020250119213747.png
