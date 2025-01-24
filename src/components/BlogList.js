@@ -35,6 +35,13 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { getAllPosts, getPostsByTag } from '../utils/blogUtils';
 import { useInView } from 'react-intersection-observer';
 
+const getAuthorImage = (author) => {
+  const formattedName = author.split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+  return `/authors/${formattedName}/profile.png`;
+};
+
 const BlogPostSkeleton = () => {
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -191,7 +198,7 @@ const BlogPostCard = ({ post, setSelectedTag }) => {
           <Avatar
             size="sm"
             name={post.author}
-            src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
+            src={getAuthorImage(post.author)}
           />
           <Box>
             <Text fontWeight="medium" fontSize="sm">
@@ -575,7 +582,7 @@ const BlogList = () => {
                   <Avatar
                     size="md"
                     name={featuredPost.author}
-                    src={`/assets/authors/${featuredPost.author.replace(' ', '-')}.png`}
+                    src={getAuthorImage(featuredPost.author)}
                   />
                   <Box>
                     <Text fontWeight="bold">{featuredPost.author}</Text>

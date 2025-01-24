@@ -127,24 +127,37 @@ function processMarkdownContent(content) {
 }
 
 function syncAuthors() {
-  const authorsFile = 'Available-Authors.md';
-  const sourcePath = path.join(OBSIDIAN_DIR, authorsFile);
-  const targetPath = path.join(PUBLIC_DIR, authorsFile);
+  const authorsDir = path.join(OBSIDIAN_DIR, 'authors');
+  const publicAuthorsDir = path.join(__dirname, '../public/authors');
 
-  if (fs.existsSync(sourcePath)) {
-    // Read and process the authors file
-    const content = fs.readFileSync(sourcePath, 'utf8');
-    const { data, content: markdown } = matter(content);
+  // Create public authors directory if it doesn't exist
+  if (!fs.existsSync(publicAuthorsDir)) {
+    fs.mkdirSync(publicAuthorsDir, { recursive: true });
+  }
+
+  // Copy author directories if they exist
+  if (fs.existsSync(authorsDir)) {
+    const authors = fs.readdirSync(authorsDir);
     
-    // Skip if it's marked as draft
-    if (data.draft === true) return;
+    authors.forEach(authorDir => {
+      const authorPath = path.join(authorsDir, authorDir);
+      const publicAuthorPath = path.join(publicAuthorsDir, authorDir);
+      
+      // Create author directory in public if it doesn't exist
+      if (!fs.existsSync(publicAuthorPath)) {
+        fs.mkdirSync(publicAuthorPath, { recursive: true });
+      }
 
-    // Process the content (handle image paths, etc.)
-    const updatedContent = processMarkdownContent(content);
-
-    // Write to public directory
-    fs.writeFileSync(targetPath, updatedContent);
-    console.log(`Synced ${authorsFile} to ${PUBLIC_DIR}`);
+      // Copy all files from author directory
+      const files = fs.readdirSync(authorPath);
+      files.forEach(file => {
+        const sourcePath = path.join(authorPath, file);
+        const targetPath = path.join(publicAuthorPath, file);
+        
+        // Copy the file
+        fs.copyFileSync(sourcePath, targetPath);
+      });
+    });
   }
 }
 
@@ -170,7 +183,7 @@ function syncPosts() {
   // Sync assets first
   syncAssets();
 
-  // Sync authors file
+  // Sync authors
   syncAuthors();
 
   // Read all markdown files from Obsidian directory

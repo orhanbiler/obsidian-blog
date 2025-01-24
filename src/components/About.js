@@ -7,67 +7,137 @@ import {
   VStack,
   Image,
   useColorModeValue,
-  Divider
+  Divider,
+  SimpleGrid,
+  Avatar,
+  HStack,
+  Icon,
+  Link
 } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet-async';
+import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+
+const AuthorCard = ({ author }) => {
+  const cardBg = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+
+  return (
+    <Box
+      bg={cardBg}
+      p={6}
+      borderRadius="lg"
+      borderWidth="1px"
+      borderColor={borderColor}
+      shadow="md"
+    >
+      <VStack spacing={4} align="center">
+        <Avatar
+          size="2xl"
+          name={author.name}
+          src={author.image}
+        />
+        <VStack spacing={2} align="center">
+          <Heading as="h3" size="md">
+            {author.name}
+          </Heading>
+          <Text color="gray.500" fontSize="sm">
+            {author.role}
+          </Text>
+        </VStack>
+        <Text textAlign="center" fontSize="sm">
+          {author.bio}
+        </Text>
+        <HStack spacing={4}>
+          {author.social.github && (
+            <Link href={`https://github.com/${author.social.github}`} isExternal>
+              <Icon as={FaGithub} boxSize={5} />
+            </Link>
+          )}
+          {author.social.twitter && (
+            <Link href={`https://twitter.com/${author.social.twitter}`} isExternal>
+              <Icon as={FaTwitter} boxSize={5} />
+            </Link>
+          )}
+          {author.social.linkedin && (
+            <Link href={`https://linkedin.com/in/${author.social.linkedin}`} isExternal>
+              <Icon as={FaLinkedin} boxSize={5} />
+            </Link>
+          )}
+        </HStack>
+      </VStack>
+    </Box>
+  );
+};
 
 const About = () => {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
   const textColor = useColorModeValue('gray.600', 'gray.400');
 
+  // For now, hardcode the authors. Later we can fetch this from the authors directory
+  const authors = [
+    {
+      name: 'Orhan Biler',
+      role: 'Owner & Main Author',
+      image: '/authors/OrhanBiler/profile.png',
+      bio: 'From law enforcement to technology, sharing experiences in programming, cryptocurrency, and gaming.',
+      social: {
+        github: 'orhanbiler',
+        twitter: 'orhanbiler',
+        linkedin: 'orhanbiler'
+      }
+    }
+  ];
+
   return (
     <Box bg={bgColor} minH="100vh" py={12}>
       <Helmet>
         <title>About - Orhan Biler</title>
-        <meta name="description" content="Learn more about Orhan Biler - From law enforcement to tech, sharing experiences in programming, cryptocurrency, and gaming." />
+        <meta name="description" content="Learn more about our team of writers sharing insights across technology, law enforcement, cryptocurrency, and gaming." />
       </Helmet>
 
-      <Container maxW="container.md">
-        <VStack spacing={8} align="start">
+      <Container maxW="container.lg">
+        <VStack spacing={12} align="start">
           <Image
             src="/assets/banner.jpg"
-            alt="Orhan Biler"
+            alt="Blog Banner"
             borderRadius="lg"
             w="100%"
             h="300px"
             objectFit="cover"
           />
 
-          <Heading as="h1" size="2xl">
-            About Me
-          </Heading>
-
-          <Text fontSize="xl" color={textColor}>
-            Hi, I'm Orhan Biler. I've had quite a journey - from serving in law enforcement to diving deep into the world of technology.
-          </Text>
-
-          <Divider />
-
-          <VStack spacing={6} align="start" w="100%">
-            <Heading as="h2" size="lg">
-              My Journey
+          <VStack spacing={8} align="start" w="100%">
+            <Heading as="h1" size="2xl">
+              About Us
             </Heading>
-            <Text color={textColor}>
-              My path has been anything but conventional. Starting in law enforcement, I developed strong problem-solving and analytical skills. Now, I channel that same dedication into technology, cryptocurrency, and gaming.
+
+            <Text fontSize="xl" color={textColor}>
+              Welcome to our blog, where we share insights and experiences across technology, law enforcement, cryptocurrency, and gaming.
             </Text>
 
-            <Heading as="h2" size="lg">
-              What I Write About
-            </Heading>
-            <Text color={textColor}>
-              On this blog, I share insights about:
-              • Technology and Programming
-              • Cryptocurrency and Investment
-              • Gaming and Setup Guides
-              • Law Enforcement to Tech Transition
-            </Text>
+            <Divider />
 
-            <Heading as="h2" size="lg">
-              My Mission
-            </Heading>
-            <Text color={textColor}>
-              Through this blog, I aim to bridge different worlds - law enforcement, technology, gaming, and finance - sharing unique perspectives and helping others navigate their own journeys.
-            </Text>
+            <VStack spacing={8} align="start" w="100%">
+              <Heading as="h2" size="xl">
+                Our Authors
+              </Heading>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} w="100%">
+                {authors.map((author) => (
+                  <AuthorCard key={author.name} author={author} />
+                ))}
+              </SimpleGrid>
+            </VStack>
+
+            <Divider />
+
+            <VStack spacing={6} align="start" w="100%">
+              <Heading as="h2" size="lg">
+                Our Mission
+              </Heading>
+              <Text color={textColor}>
+                Through this blog, we aim to bridge different worlds - law enforcement, technology, gaming, and finance - sharing unique perspectives and helping others navigate their own journeys.
+              </Text>
+            </VStack>
           </VStack>
         </VStack>
       </Container>
