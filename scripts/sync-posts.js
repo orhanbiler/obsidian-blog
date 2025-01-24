@@ -6,8 +6,8 @@ const matter = require('gray-matter');
 const OBSIDIAN_DIR = path.join(__dirname, '../ObsidianVault/posts/OrhanBiler.us'); // Where you write in Obsidian
 const PUBLIC_DIR = path.join(__dirname, '../public/posts'); // Where the website reads from
 const ASSETS_DIR = path.join(OBSIDIAN_DIR, 'assets'); // Where images are stored
-const PUBLIC_ASSETS_DIR = path.join(__dirname, '../public/assets'); // Where images will be copied to
 const PUBLIC_STATIC_DIR = path.join(__dirname, '../public/static'); // For static assets
+const PUBLIC_ASSETS_DIR = path.join(PUBLIC_STATIC_DIR, 'assets'); // Where images will be copied to
 
 // Supported media file extensions
 const MEDIA_EXTENSIONS = [
@@ -35,22 +35,12 @@ function isMediaFile(filename) {
   return MEDIA_EXTENSIONS.includes(ext);
 }
 
-function copyMediaFile(filename) {
-  const sourcePath = path.join(ASSETS_DIR, filename);
-  const targetPath = path.join(PUBLIC_ASSETS_DIR, filename);
-  
-  if (fs.existsSync(sourcePath)) {
-    fs.copyFileSync(sourcePath, targetPath);
-    return true;
-  }
-  return false;
-}
-
 function syncAssets() {
-  // Create assets directory if it doesn't exist
-  [PUBLIC_ASSETS_DIR, PUBLIC_STATIC_DIR].forEach(dir => {
+  // Create static assets directory if it doesn't exist
+  [PUBLIC_STATIC_DIR, PUBLIC_ASSETS_DIR].forEach(dir => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
+      console.log(`Created directory: ${dir}`);
     }
   });
 
@@ -62,7 +52,7 @@ function syncAssets() {
         const sourcePath = path.join(ASSETS_DIR, file);
         const targetPath = path.join(PUBLIC_ASSETS_DIR, file);
         fs.copyFileSync(sourcePath, targetPath);
-        console.log(`Copied asset: ${file}`);
+        console.log(`Copied asset: ${file} to ${PUBLIC_ASSETS_DIR}`);
       }
     });
   }
@@ -74,20 +64,18 @@ function processMarkdownContent(content) {
   // Handle Obsidian-style image/media embeds: ![[filename]]
   updatedContent = updatedContent.replace(/!\[\[(.*?)\]\]/g, (match, filename) => {
     const cleanFilename = filename.split('|')[0].trim();
-    if (copyMediaFile(cleanFilename)) {
-      if (isMediaFile(cleanFilename)) {
-        const ext = path.extname(cleanFilename).toLowerCase();
-        const encodedFilename = encodeURIComponent(cleanFilename);
-        // Handle different media types
-        if (ext === '.mp4' || ext === '.webm' || ext === '.ogg') {
-          return `<video controls><source src="/assets/${encodedFilename}" type="video/${ext.slice(1)}"></video>`;
-        } else if (ext === '.mp3' || ext === '.wav') {
-          return `<audio controls><source src="/assets/${encodedFilename}" type="audio/${ext.slice(1)}"></audio>`;
-        } else if (ext === '.pdf') {
-          return `<embed src="/assets/${encodedFilename}" type="application/pdf" width="100%" height="600px" />`;
-        }
-        return `![](/assets/${encodedFilename})`;
+    if (isMediaFile(cleanFilename)) {
+      const ext = path.extname(cleanFilename).toLowerCase();
+      const encodedFilename = encodeURIComponent(cleanFilename);
+      // Handle different media types
+      if (ext === '.mp4' || ext === '.webm' || ext === '.ogg') {
+        return `<video controls><source src="/assets/${encodedFilename}" type="video/${ext.slice(1)}"></video>`;
+      } else if (ext === '.mp3' || ext === '.wav') {
+        return `<audio controls><source src="/assets/${encodedFilename}" type="audio/${ext.slice(1)}"></audio>`;
+      } else if (ext === '.pdf') {
+        return `<embed src="/assets/${encodedFilename}" type="application/pdf" width="100%" height="600px" />`;
       }
+      return `![](/assets/${encodedFilename})`;
     }
     return match;
   });
@@ -98,7 +86,7 @@ function processMarkdownContent(content) {
       // Decode the URL-encoded filename first
       const decodedPath = decodeURIComponent(filepath);
       const filename = path.basename(decodedPath);
-      if (copyMediaFile(filename)) {
+      if (isMediaFile(filename)) {
         const encodedFilename = encodeURIComponent(filename);
         return `![${alt}](/assets/${encodedFilename})`;
       }
@@ -132,7 +120,7 @@ function processMarkdownContent(content) {
 
 function syncAuthors() {
   const authorsDir = path.join(OBSIDIAN_DIR, 'authors');
-  const publicAuthorsDir = path.join(__dirname, '../public/static/authors');
+  const publicAuthorsDir = path.join(PUBLIC_STATIC_DIR, 'authors');
 
   console.log('Syncing authors from:', authorsDir);
   console.log('To:', publicAuthorsDir);
@@ -189,6 +177,13 @@ function syncAuthors() {
     });
   } else {
     console.log('Authors directory not found at:', authorsDir);
+  }
+
+  // Remove the duplicate authors directory in public/authors if it exists
+  const oldAuthorsDir = path.join(__dirname, '../public/authors');
+  if (fs.existsSync(oldAuthorsDir)) {
+    fs.rmSync(oldAuthorsDir, { recursive: true, force: true });
+    console.log('Removed duplicate authors directory from public/authors');
   }
 }
 
