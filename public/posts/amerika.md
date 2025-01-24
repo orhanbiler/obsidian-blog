@@ -1,9 +1,7 @@
 ---
 title: Amerika
 date: 2025-01-23
-tags:
-  - ArmaReforger
-  - BohemiaInteractive
+tags: []
 excerpt: Amerikaya Nasil Geldim
 subtitle: Amerikadaki Anilarim
 author: Orhan Biler
