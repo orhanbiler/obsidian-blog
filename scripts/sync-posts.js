@@ -131,6 +131,9 @@ function syncAuthors() {
     console.log('Created public authors directory');
   }
 
+  // Array to store author data for index.json
+  const authorsList = [];
+
   // Copy author directories if they exist
   if (fs.existsSync(authorsDir)) {
     console.log('Found authors directory');
@@ -150,6 +153,22 @@ function syncAuthors() {
       // Copy all files from author directory
       const files = fs.readdirSync(authorPath);
       console.log(`Files for ${authorDir}:`, files);
+      
+      // Process bio.md to extract author information
+      const bioFile = files.find(file => file.toLowerCase() === 'bio.md');
+      if (bioFile) {
+        const bioContent = fs.readFileSync(path.join(authorPath, bioFile), 'utf8');
+        const { data: frontmatter, content } = matter(bioContent);
+        
+        // Add author to the list
+        authorsList.push({
+          name: frontmatter.name || authorDir,
+          role: frontmatter.role || '',
+          bio: frontmatter.bio || content.split('\n')[0] || '', // Use first line of content if no bio in frontmatter
+          areas: frontmatter.areas || [],
+          social: frontmatter.social || {}
+        });
+      }
       
       files.forEach(file => {
         const sourcePath = path.join(authorPath, file);
@@ -197,6 +216,13 @@ function syncAuthors() {
         }
       });
     });
+
+    // Write index.json with author information
+    fs.writeFileSync(
+      path.join(publicAuthorsDir, 'index.json'),
+      JSON.stringify({ authors: authorsList }, null, 2)
+    );
+    console.log('Generated authors index.json');
   } else {
     console.log('Authors directory not found at:', authorsDir);
   }
