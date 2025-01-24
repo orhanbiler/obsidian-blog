@@ -212,13 +212,9 @@ const About = () => {
           // Format the name for the image path
           const formattedName = author.name.replace(/\s+/g, '');
           
-          console.log('Processing author:', author.name); // Debug log
-          console.log('Bio content:', author.bio); // Debug log
-          console.log('Extracted About Me:', aboutMe); // Debug log
-          
           return {
             ...author,
-            aboutMe: aboutMe || 'No bio available', // Provide a default message if no bio is found
+            aboutMe: aboutMe || author.bio?.split('\n')[0] || 'No bio available', // Fallback to first line of bio if no About Me section
             image: `/static/authors/${formattedName}/${formattedName}.png`
           };
         });

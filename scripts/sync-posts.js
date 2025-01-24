@@ -160,14 +160,21 @@ function syncAuthors() {
         const bioContent = fs.readFileSync(path.join(authorPath, bioFile), 'utf8');
         const { data: frontmatter, content } = matter(bioContent);
         
+        // Process the content to remove the frontmatter and initial heading
+        const processedContent = content
+          .replace(/^---[\s\S]*?---\n*/m, '') // Remove frontmatter
+          .replace(/^#\s+.*?\n+/m, ''); // Remove the initial heading
+        
         // Add author to the list
         authorsList.push({
           name: frontmatter.name || authorDir,
           role: frontmatter.role || '',
-          bio: content || '', // Include the full content of bio.md
+          bio: processedContent.trim(), // Include the processed content
           areas: frontmatter.areas || [],
           social: frontmatter.social || {}
         });
+        
+        console.log(`Processed bio for ${authorDir}:`, processedContent.trim().substring(0, 100) + '...');
       }
       
       files.forEach(file => {
@@ -220,7 +227,7 @@ function syncAuthors() {
     // Write index.json with author information
     fs.writeFileSync(
       path.join(publicAuthorsDir, 'index.json'),
-      JSON.stringify({ authors: authorsList }, null, 2)
+      JSON.stringify(authorsList, null, 2)
     );
     console.log('Generated authors index.json');
   } else {
