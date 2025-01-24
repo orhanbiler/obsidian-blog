@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "title": "Arma Reforger",
+      "subtitle": "Optional secondary title",
+      "date": "2025-01-24T00:00:00.000Z",
+      "slug": "arma-reforger",
+      "excerpt": "How Arma 3 and Arma Reforger changed online gaming for me",
+      "tags": [
+        "ArmaReforger",
+        "PCGaming",
+        "BohemiaInteractive",
+        "MilSim"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/Pasted%20image%2020250119213747.png",
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24T00:00:00.000Z"
+    },
+    {
       "title": "Amerika",
       "subtitle": "Amerikadaki Anilarim",
       "date": "2025-01-23T00:00:00.000Z",
