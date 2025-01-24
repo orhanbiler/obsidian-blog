@@ -5,7 +5,7 @@ tags: [gaming, pc-gaming, tech, how-to, review]
 excerpt: "A comprehensive guide to building your dream gaming setup, from hardware selection to ergonomic considerations."
 subtitle: "From Budget to Enthusiast: Gaming Setup Guide"
 author: Orhan Biler
-banner: "assets/banner.jpg"
+banner: "assets/newyork.jpg"
 draft: false
 language: en
 
