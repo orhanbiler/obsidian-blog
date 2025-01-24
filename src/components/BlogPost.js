@@ -42,8 +42,8 @@ const getAuthorImage = (author) => {
   // Format the author name for the path
   const formattedName = author.split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('');
-  return `/authors/${formattedName}/profile.png`;
+    .join('-');
+  return `/authors/${formattedName}/${formattedName}.png`;
 };
 
 const BlogPost = () => {

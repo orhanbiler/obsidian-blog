@@ -1,7 +1,7 @@
 ---
 name: Orhan Biler
 role: Owner & Main Author
-image: authors/OrhanBiler/profile.png
+image: authors/OrhanBiler/Orhan-Biler.png
 areas:
   - Tech
   - Law Enforcement

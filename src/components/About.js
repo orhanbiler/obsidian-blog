@@ -78,7 +78,7 @@ const About = () => {
     {
       name: 'Orhan Biler',
       role: 'Owner & Main Author',
-      image: '/authors/OrhanBiler/profile.png',
+      image: '/authors/Orhan-Biler/Orhan-Biler.png',
       bio: 'From law enforcement to technology, sharing experiences in programming, cryptocurrency, and gaming.',
       social: {
         github: 'orhanbiler',

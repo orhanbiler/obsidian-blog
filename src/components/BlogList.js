@@ -38,8 +38,8 @@ import { useInView } from 'react-intersection-observer';
 const getAuthorImage = (author) => {
   const formattedName = author.split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('');
-  return `/authors/${formattedName}/profile.png`;
+    .join('-');
+  return `/authors/${formattedName}/${formattedName}.png`;
 };
 
 const BlogPostSkeleton = () => {

@@ -156,6 +156,7 @@ function syncAuthors() {
         
         // Copy the file
         fs.copyFileSync(sourcePath, targetPath);
+        console.log(`Copied author file: ${file} to ${publicAuthorPath}`);
       });
     });
   }
