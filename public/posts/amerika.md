@@ -1,5 +1,5 @@
 ---
-title: Your Post Title
+title: Amerika
 date: 2025-01-23
 tags:
   - ArmaReforger

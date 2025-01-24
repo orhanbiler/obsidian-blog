@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "title": "Your Post Title",
+      "title": "Amerika",
       "subtitle": "Optional secondary title",
       "date": "2025-01-23T00:00:00.000Z",
-      "slug": "your-post-title",
+      "slug": "amerika",
       "excerpt": "A brief summary of your post (150-160 characters recommended)",
       "tags": [
         "ArmaReforger",
