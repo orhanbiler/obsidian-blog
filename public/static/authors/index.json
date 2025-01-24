@@ -45,6 +45,21 @@
         "twitter": "orhanbiler",
         "linkedin": "orhanbiler"
       }
+    },
+    {
+      "name": "Test Subject",
+      "role": "Editor",
+      "bio": "",
+      "areas": [
+        "Teacher",
+        "Love",
+        "Passion"
+      ],
+      "social": {
+        "github": "yourgithub",
+        "twitter": "yourtwitter",
+        "linkedin": "yourlinkedin"
+      }
     }
   ]
 }

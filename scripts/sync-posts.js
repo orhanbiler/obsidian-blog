@@ -164,7 +164,7 @@ function syncAuthors() {
         authorsList.push({
           name: frontmatter.name || authorDir,
           role: frontmatter.role || '',
-          bio: frontmatter.bio || content.split('\n')[0] || '', // Use first line of content if no bio in frontmatter
+          bio: content || '', // Include the full content of bio.md
           areas: frontmatter.areas || [],
           social: frontmatter.social || {}
         });
