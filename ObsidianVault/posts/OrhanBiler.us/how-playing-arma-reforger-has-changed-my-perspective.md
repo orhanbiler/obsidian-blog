@@ -1,13 +1,27 @@
 ---
-title: How Playing Arma Reforger Has Changed My Perspective
-date: 2025-01-19
+title: Arma Reforger
+date: 2025-01-24
 tags:
   - ArmaReforger
   - PCGaming
   - BohemiaInteractive
   - MilSim
-excerpt: A personal reflection on how Arma Reforger has impacted the way I see games and conflict.
-draft: false
+excerpt: A brief summary of your post (150-160 characters recommended)
+draft: true
+subtitle: Optional secondary title
+author: Orhan Biler
+banner: /assets/your-image.jpg
+readingTime: ""
+language: en
+translations: {}
+series: ""
+seriesOrder: 1
+relatedPosts: 
+lastModified: 2025-01-24
+canonical: ""
+keywords: 
+socialImage: /assets/social/your-image.jpg
+twitterCard: summary_large_image
 ---
 
 ### Personal Reflection: A New Perspectivesssss
@@ -75,3 +89,5 @@ Battle it out against an enemy faction to hold key points in fast-paced, tactica
 
 
 Here is the link to the  [game](https://store.steampowered.com/agecheck/app/1874880/).
+
+
