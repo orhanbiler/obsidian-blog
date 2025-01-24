@@ -37,8 +37,7 @@ Ablam ile Amerika'daki ilk resmimiz:
 
 Hayata biraz geç başlamış olsam da Amerika'nın fırsatlarla dolu bir ülke olduğunu bilerek yoluma devam ettim. İngilizce öğrendim, kültürel değişikliklere uyum sağladım, dil engelini aştım derken 3-5 yıl geçti ve bu zamanın nasıl geçtiğini anlamadım bile. Liseden mezun olduktan sonra birçok işte çalıştım. Benzin istasyonundan tutun, boya, badana, inşaat, araba mekaniği gibi birçok farklı işte deneyim kazandım. Bu işlerin hiçbirine kariyer olarak bakmadım.
 
-Dediğim işlerden birini yaparken...  
-![[h1rhqbfb.bmp]]
+
   
 
 New York'tan ayrılmadan 2 yıl önce polis olmaya karar verdim. Polis olma hayalim, zaten lisenin son yıllarında yavaş yavaş şekillenmeye başlamıştı. İnsanlara yardım etme ve problem çözme isteğim, bu mesleğe en iyi şekilde yönelmemi sağladı.
