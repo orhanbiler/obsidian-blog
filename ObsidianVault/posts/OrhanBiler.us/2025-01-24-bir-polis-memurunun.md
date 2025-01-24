@@ -1,5 +1,5 @@
 ---
-title: Türkiye'den Amerika'ya: Bir Polis Memurunun 15 Yıllık Göç Hikayesi
+title: Türkiye'den Amerika'ya Bir Polis Memurunun 15 Yıllık Göç Hikayesi
 date: 2025-01-24
 tags: [Türkiye, Amerika, göç hikayesi, polis memuru, Maryland]
 author: Whisper Transcription
