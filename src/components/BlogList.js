@@ -95,6 +95,124 @@ const FeaturedPostSkeleton = () => {
   );
 };
 
+const BlogPostCard = ({ post }) => {
+  const bgColor = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const mutedText = useColorModeValue('gray.600', 'gray.400');
+
+  return (
+    <Box
+      borderWidth="1px"
+      borderRadius="lg"
+      borderColor={borderColor}
+      bg={bgColor}
+      overflow="hidden"
+      transition="all 0.2s"
+      _hover={{ transform: 'translateY(-4px)', shadow: 'lg' }}
+    >
+      {post.banner && (
+        <Box height="200px" overflow="hidden">
+          <img
+            src={process.env.PUBLIC_URL + post.banner}
+            alt={post.title}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center'
+            }}
+            onError={(e) => {
+              console.error('Error loading banner image:', e);
+              e.target.style.display = 'none';
+            }}
+          />
+        </Box>
+      )}
+
+      <Box p={6}>
+        {/* Language indicator if not English */}
+        {post.language && post.language !== 'en' && (
+          <Tag
+            size="sm"
+            colorScheme="purple"
+            mb={2}
+          >
+            {post.language.toUpperCase()}
+          </Tag>
+        )}
+
+        {/* Series indicator */}
+        {post.series && (
+          <Tag
+            size="sm"
+            colorScheme="orange"
+            mb={2}
+            ml={post.language !== 'en' ? 2 : 0}
+          >
+            {post.series} #{post.seriesOrder}
+          </Tag>
+        )}
+
+        <HStack spacing={2} flexWrap="wrap" mb={3}>
+          {post.tags.map((tag, tagIndex) => (
+            <Tag
+              key={tagIndex}
+              size="md"
+              variant="subtle"
+              colorScheme="teal"
+              cursor="pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedTag(tag.urlFriendly);
+              }}
+            >
+              #{tag.original}
+            </Tag>
+          ))}
+        </HStack>
+
+        <Link to={`/blog/${post.slug}`}>
+          <Heading as="h3" size="md" mb={2} _hover={{ color: 'teal.500' }}>
+            {post.title}
+          </Heading>
+        </Link>
+
+        {post.subtitle && (
+          <Text fontSize="sm" color={mutedText} mb={2}>
+            {post.subtitle}
+          </Text>
+        )}
+
+        <Text noOfLines={2} mb={4} color={mutedText}>
+          {post.excerpt}
+        </Text>
+
+        <HStack spacing={3} align="center">
+          <Avatar
+            size="sm"
+            name={post.author}
+            src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
+          />
+          <Box>
+            <Text fontWeight="medium" fontSize="sm">
+              {post.author}
+            </Text>
+            <HStack spacing={2} color={mutedText} fontSize="sm">
+              <Text>{format(new Date(post.date), 'MMM d, yyyy')}</Text>
+              {post.readingTime && (
+                <>
+                  <Text>•</Text>
+                  <Text>{post.readingTime} min read</Text>
+                </>
+              )}
+            </HStack>
+          </Box>
+        </HStack>
+      </Box>
+    </Box>
+  );
+};
+
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -522,120 +640,8 @@ const BlogList = () => {
         </Box>
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} mb={8}>
-          {currentPosts.map((post, index) => (
-            <Box
-              key={post.slug}
-              borderWidth="1px"
-              borderRadius="lg"
-              borderColor={borderColor}
-              bg={bgColor}
-              overflow="hidden"
-              _hover={{
-                transform: 'translateY(-4px)',
-                boxShadow: 'xl',
-                transition: 'all 0.2s ease-in-out'
-              }}
-            >
-              {post.banner && (
-                <Box
-                  height="200px"
-                  overflow="hidden"
-                  position="relative"
-                >
-                  <img
-                    src={process.env.PUBLIC_URL + post.banner}
-                    alt={post.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                    onError={(e) => {
-                      console.error('Error loading banner image:', e);
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                </Box>
-              )}
-              <Box p={6}>
-                {/* Language indicator if not English */}
-                {post.language && post.language !== 'en' && (
-                  <Tag
-                    size="sm"
-                    colorScheme="purple"
-                    mb={2}
-                  >
-                    {post.language.toUpperCase()}
-                  </Tag>
-                )}
-
-                {/* Series indicator */}
-                {post.series && (
-                  <Tag
-                    size="sm"
-                    colorScheme="orange"
-                    mb={2}
-                    ml={post.language !== 'en' ? 2 : 0}
-                  >
-                    {post.series} #{post.seriesOrder}
-                  </Tag>
-                )}
-
-                <HStack spacing={2} flexWrap="wrap" mb={3}>
-                  {post.tags.map((tag, tagIndex) => (
-                    <Tag
-                      key={tagIndex}
-                      size="md"
-                      variant="subtle"
-                      colorScheme="teal"
-                      cursor="pointer"
-                      onClick={() => setSelectedTag(tag.urlFriendly)}
-                    >
-                      #{tag.original}
-                    </Tag>
-                  ))}
-                </HStack>
-
-                <Link to={`/blog/${post.slug}`}>
-                  <Heading as="h3" size="md" mb={2} _hover={{ color: 'teal.500' }}>
-                    {post.title}
-                  </Heading>
-                </Link>
-
-                {post.subtitle && (
-                  <Text fontSize="sm" color={mutedText} mb={2}>
-                    {post.subtitle}
-                  </Text>
-                )}
-
-                <Text noOfLines={2} mb={4} color={mutedText}>
-                  {post.excerpt}
-                </Text>
-
-                <HStack spacing={3} align="center">
-                  <Avatar
-                    size="sm"
-                    name={post.author}
-                    src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
-                  />
-                  <Box>
-                    <Text fontWeight="medium" fontSize="sm">
-                      {post.author}
-                    </Text>
-                    <HStack spacing={2} color={mutedText} fontSize="sm">
-                      <Text>{format(new Date(post.date), 'MMM d, yyyy')}</Text>
-                      {post.readingTime && (
-                        <>
-                          <Text>•</Text>
-                          <Text>{post.readingTime} min read</Text>
-                        </>
-                      )}
-                    </HStack>
-                  </Box>
-                </HStack>
-              </Box>
-            </Box>
+          {currentPosts.map((post) => (
+            <BlogPostCard key={post.slug} post={post} />
           ))}
         </SimpleGrid>
 
