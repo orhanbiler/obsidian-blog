@@ -1,6 +1,23 @@
 {
   "posts": [
     {
+      "title": "Hello test",
+      "subtitle": "Optional secondary title",
+      "date": "2025-01-24T00:00:00.000Z",
+      "slug": "hello-test",
+      "excerpt": "A brief summary of your post (150-160 characters recommended)",
+      "tags": [
+        "american-education"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/newyork.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24T00:00:00.000Z"
+    },
+    {
       "title": "Building the Ultimate Gaming Setup in 2024",
       "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
       "date": "2024-03-22T00:00:00.000Z",
