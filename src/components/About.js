@@ -285,11 +285,13 @@ const About = () => {
         </VStack>
 
         <SimpleGrid 
-          columns={{ base: 1, md: 2, lg: 3 }} 
+          columns={{ base: 1, md: 2 }} 
           spacing={spacing} 
           px={{ base: 4, md: 8 }}
           mx="auto"
+          maxW={authors.length <= 2 ? "4xl" : "7xl"}
           justifyItems="center"
+          alignItems="start"
         >
           {loading
             ? Array(3).fill(0).map((_, index) => <AuthorCardSkeleton key={index} />)
