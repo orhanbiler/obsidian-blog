@@ -1,0 +1,27 @@
+{
+  "categories": {
+    "technical": [
+      "Web Development",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Programming",
+      "Software Engineering",
+      "Tech"
+    ],
+    "content": [
+      "Tutorial",
+      "Guide",
+      "Review",
+      "How-to"
+    ],
+    "personal": [
+      "Personal",
+      "Career",
+      "Life",
+      "Travel",
+      "Opinion"
+    ]
+  }
+} 
