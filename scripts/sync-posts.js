@@ -7,6 +7,7 @@ const OBSIDIAN_DIR = path.join(__dirname, '../ObsidianVault/posts/OrhanBiler.us'
 const PUBLIC_DIR = path.join(__dirname, '../public/posts'); // Where the website reads from
 const ASSETS_DIR = path.join(OBSIDIAN_DIR, 'assets'); // Where images are stored
 const PUBLIC_ASSETS_DIR = path.join(__dirname, '../public/assets'); // Where images will be copied to
+const PUBLIC_STATIC_DIR = path.join(__dirname, '../public/static'); // For static assets
 
 // Supported media file extensions
 const MEDIA_EXTENSIONS = [
@@ -47,9 +48,11 @@ function copyMediaFile(filename) {
 
 function syncAssets() {
   // Create assets directory if it doesn't exist
-  if (!fs.existsSync(PUBLIC_ASSETS_DIR)) {
-    fs.mkdirSync(PUBLIC_ASSETS_DIR, { recursive: true });
-  }
+  [PUBLIC_ASSETS_DIR, PUBLIC_STATIC_DIR].forEach(dir => {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+  });
 
   // Copy all files from assets directory
   if (fs.existsSync(ASSETS_DIR)) {
@@ -59,6 +62,7 @@ function syncAssets() {
         const sourcePath = path.join(ASSETS_DIR, file);
         const targetPath = path.join(PUBLIC_ASSETS_DIR, file);
         fs.copyFileSync(sourcePath, targetPath);
+        console.log(`Copied asset: ${file}`);
       }
     });
   }
@@ -128,7 +132,7 @@ function processMarkdownContent(content) {
 
 function syncAuthors() {
   const authorsDir = path.join(OBSIDIAN_DIR, 'authors');
-  const publicAuthorsDir = path.join(process.cwd(), 'public/authors');
+  const publicAuthorsDir = path.join(__dirname, '../public/static/authors');
 
   console.log('Syncing authors from:', authorsDir);
   console.log('To:', publicAuthorsDir);
@@ -163,9 +167,24 @@ function syncAuthors() {
         const sourcePath = path.join(authorPath, file);
         const targetPath = path.join(publicAuthorPath, file);
         
-        // Copy the file
-        fs.copyFileSync(sourcePath, targetPath);
-        console.log(`Copied author file: ${file} to ${publicAuthorPath}`);
+        // Handle different file types
+        if (file.toLowerCase().endsWith('.png') || 
+            file.toLowerCase().endsWith('.jpg') || 
+            file.toLowerCase().endsWith('.jpeg')) {
+          // Copy image files directly
+          fs.copyFileSync(sourcePath, targetPath);
+          console.log(`Copied image: ${file} to ${publicAuthorPath}`);
+        } else if (file.toLowerCase().endsWith('.md')) {
+          // Process markdown files
+          const content = fs.readFileSync(sourcePath, 'utf8');
+          const processedContent = processMarkdownContent(content);
+          fs.writeFileSync(targetPath, processedContent);
+          console.log(`Processed and copied markdown: ${file} to ${publicAuthorPath}`);
+        } else {
+          // Copy other files directly
+          fs.copyFileSync(sourcePath, targetPath);
+          console.log(`Copied file: ${file} to ${publicAuthorPath}`);
+        }
       });
     });
   } else {

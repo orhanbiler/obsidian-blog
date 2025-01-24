@@ -43,7 +43,7 @@ const getAuthorImage = (author) => {
   const formattedName = author.split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join('-');
-  return `/authors/${formattedName}/${formattedName}.png`;
+  return `/static/authors/${formattedName}/${formattedName}.png`;
 };
 
 const BlogPost = () => {
@@ -77,6 +77,15 @@ const BlogPost = () => {
   };
 
   const [loading, setLoading] = useState(true);
+
+  // Add a helper function to get the correct banner path
+  const getBannerPath = (bannerPath) => {
+    if (!bannerPath) return null;
+    // If the path already starts with /static, use it as is
+    if (bannerPath.startsWith('/static')) return bannerPath;
+    // Otherwise, prepend /static
+    return `/static${bannerPath.startsWith('/') ? '' : '/'}${bannerPath}`;
+  };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -262,7 +271,7 @@ const BlogPost = () => {
             mb={8}
           >
             <img
-              src={process.env.PUBLIC_URL + post.banner}
+              src={getBannerPath(post.banner)}
               alt={post.title}
               style={{
                 width: '100%',

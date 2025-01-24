@@ -39,7 +39,7 @@ const getAuthorImage = (author) => {
   const formattedName = author.split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join('-');
-  return `/authors/${formattedName}/${formattedName}.png`;
+  return `/static/authors/${formattedName}/${formattedName}.png`;
 };
 
 const BlogPostSkeleton = () => {
