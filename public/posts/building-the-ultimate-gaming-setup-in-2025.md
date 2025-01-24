@@ -14,7 +14,7 @@ banner: assets/newyork.jpg
 draft: false
 language: en
 series: Gaming Guides
-seriesOrder: 1
+seriesOrder: 2
 keywords:
   - gaming setup
   - PC building
