@@ -251,6 +251,33 @@ const BlogPost = () => {
           Back to Blog
         </Button>
 
+        {/* Banner Image */}
+        {post.banner && (
+          <Box
+            position="relative"
+            height="400px"
+            width="100%"
+            overflow="hidden"
+            borderRadius="xl"
+            mb={8}
+          >
+            <img
+              src={process.env.PUBLIC_URL + post.banner}
+              alt={post.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+              onError={(e) => {
+                console.error('Error loading banner image:', e);
+                e.target.style.display = 'none';
+              }}
+            />
+          </Box>
+        )}
+
         {/* Post Header */}
         <Box>
           <Heading 
@@ -327,30 +354,6 @@ const BlogPost = () => {
             </HStack>
           </Flex>
         </Box>
-
-        {/* Banner Image */}
-        {post.banner && (
-          <Box
-            borderRadius="xl"
-            overflow="hidden"
-            mb={8}
-          >
-            <img 
-              src={post.banner} 
-              alt={post.title}
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '500px',
-                objectFit: 'cover'
-              }}
-              onError={(e) => {
-                console.error('Error loading banner image:', e);
-                e.target.style.display = 'none';
-              }}
-            />
-          </Box>
-        )}
 
         {/* Language Selector if translations exist */}
         {post.translations && Object.keys(post.translations).length > 0 && (

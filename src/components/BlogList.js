@@ -29,7 +29,7 @@ import {
   WrapItem,
   Tooltip
 } from '@chakra-ui/react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { SearchIcon } from '@chakra-ui/icons';
 import { getAllPosts, getPostsByTag } from '../utils/blogUtils';
@@ -218,10 +218,13 @@ const BlogList = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
+  const [selectedAuthor, setSelectedAuthor] = useState('');
   const [allTags, setAllTags] = useState([]);
+  const [allAuthors, setAllAuthors] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   const location = useLocation();
+  const navigate = useNavigate();
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const { ref, inView } = useInView({
@@ -303,7 +306,8 @@ const BlogList = () => {
                            tag.urlFriendly.toLowerCase().includes(searchTerm.toLowerCase())
                          );
     const matchesTag = !selectedTag || post.tags.some(tag => tag.urlFriendly === selectedTag);
-    return matchesSearch && matchesTag;
+    const matchesAuthor = !selectedAuthor || post.author === selectedAuthor;
+    return matchesSearch && matchesTag && matchesAuthor;
   });
 
   // Calculate pagination
@@ -315,7 +319,7 @@ const BlogList = () => {
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, selectedTag]);
+  }, [searchTerm, selectedTag, selectedAuthor]);
 
   useEffect(() => {
     if (inView && hasMore && !isLoadingMore) {
@@ -419,6 +423,34 @@ const BlogList = () => {
       </Wrap>
     </Box>
   );
+
+  // Get tag from URL parameters
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tagParam = params.get('tag');
+    if (tagParam) {
+      setSelectedTag(tagParam);
+    }
+  }, [location.search]);
+
+  // Update URL when tag changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (selectedTag) {
+      params.set('tag', selectedTag);
+    } else {
+      params.delete('tag');
+    }
+    navigate({ search: params.toString() }, { replace: true });
+  }, [selectedTag, navigate]);
+
+  // Add this effect to get unique authors
+  useEffect(() => {
+    if (posts.length > 0) {
+      const uniqueAuthors = [...new Set(posts.map(post => post.author))].sort();
+      setAllAuthors(uniqueAuthors);
+    }
+  }, [posts]);
 
   if (loading) {
     return (
@@ -571,10 +603,10 @@ const BlogList = () => {
         {/* Add Tag Cloud before search */}
         <TagCloud />
 
-        {/* Search and Filter Section */}
+        {/* Modified Search and Filter Section */}
         <Box mb={8}>
           <Heading size="lg" mb={4}>
-            {searchTerm || selectedTag ? 'Search Results' : 'All Posts'}
+            {searchTerm || selectedTag || selectedAuthor ? 'Search Results' : 'All Posts'}
           </Heading>
           <Flex gap={4} direction={{ base: 'column', md: 'row' }} mb={4}>
             <InputGroup>
@@ -603,8 +635,22 @@ const BlogList = () => {
                 </option>
               ))}
             </Select>
+            <Select
+              placeholder="Filter by author"
+              value={selectedAuthor}
+              onChange={(e) => setSelectedAuthor(e.target.value)}
+              bg={bgColor}
+              maxW={{ base: "full", md: "200px" }}
+              size="lg"
+            >
+              {allAuthors.map(author => (
+                <option key={author} value={author}>
+                  {author}
+                </option>
+              ))}
+            </Select>
           </Flex>
-          {(searchTerm || selectedTag) && (
+          {(searchTerm || selectedTag || selectedAuthor) && (
             <HStack spacing={2} mb={4}>
               <Text color={mutedText}>
                 Found {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
@@ -626,13 +672,31 @@ const BlogList = () => {
                   </Text>
                 </Tag>
               )}
-              {(searchTerm || selectedTag) && (
+              {selectedAuthor && (
+                <Tag
+                  size="md"
+                  variant="subtle"
+                  colorScheme="purple"
+                  cursor="pointer"
+                  onClick={() => setSelectedAuthor('')}
+                >
+                  {selectedAuthor}
+                  <Text ml={1} as="span" onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedAuthor('');
+                  }}>
+                    ×
+                  </Text>
+                </Tag>
+              )}
+              {(searchTerm || selectedTag || selectedAuthor) && (
                 <Button
                   size="sm"
                   variant="ghost"
                   onClick={() => {
                     setSearchTerm('');
                     setSelectedTag('');
+                    setSelectedAuthor('');
                   }}
                 >
                   Clear filters

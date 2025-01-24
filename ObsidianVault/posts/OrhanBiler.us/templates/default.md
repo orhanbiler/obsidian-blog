@@ -2,13 +2,13 @@
 # Required fields
 title: "Your Post Title" # e.g., "How to Build a Blog with React"
 date: {{date:YYYY-MM-DD}}
-tags: [] # Type # to see available tags (e.g., [tech, life-in-america, cultural-differences])
+tags: [] # Type # to see available tags from Available-Tags.md
+author: "" # Type @ to see available authors from Available-Authors.md
 excerpt: "A brief summary of your post (150-160 characters recommended)" # This appears in blog list and social shares
 
 # Optional fields
 subtitle: "Optional secondary title" # A more detailed explanation of your title
-author: Orhan Biler
-banner: "/assets/your-image.jpg" # Image path relative to public/assets
+banner: "assets/banner.jpg" # Image path relative to public/assets
 draft: true # Set to false when ready to publish
 readingTime: "" # e.g., "5" (in minutes, will be calculated automatically if left empty)
 
