@@ -5,7 +5,7 @@ tags:
   - ArmaReforger
   - BohemiaInteractive
 excerpt: Amerikaya Nasil Geldim
-subtitle: Optional secondary title
+subtitle: Amerikadaki Anilarim
 author: Orhan Biler
 banner: /assets/newyork.jpg
 draft: false
