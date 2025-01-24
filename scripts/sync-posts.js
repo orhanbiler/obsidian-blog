@@ -126,6 +126,28 @@ function processMarkdownContent(content) {
   return updatedContent;
 }
 
+function syncAuthors() {
+  const authorsFile = 'Available-Authors.md';
+  const sourcePath = path.join(OBSIDIAN_DIR, authorsFile);
+  const targetPath = path.join(PUBLIC_DIR, authorsFile);
+
+  if (fs.existsSync(sourcePath)) {
+    // Read and process the authors file
+    const content = fs.readFileSync(sourcePath, 'utf8');
+    const { data, content: markdown } = matter(content);
+    
+    // Skip if it's marked as draft
+    if (data.draft === true) return;
+
+    // Process the content (handle image paths, etc.)
+    const updatedContent = processMarkdownContent(content);
+
+    // Write to public directory
+    fs.writeFileSync(targetPath, updatedContent);
+    console.log(`Synced ${authorsFile} to ${PUBLIC_DIR}`);
+  }
+}
+
 function syncPosts() {
   // Create directories if they don't exist
   [OBSIDIAN_DIR, PUBLIC_DIR].forEach(dir => {
@@ -147,6 +169,9 @@ function syncPosts() {
 
   // Sync assets first
   syncAssets();
+
+  // Sync authors file
+  syncAuthors();
 
   // Read all markdown files from Obsidian directory
   const files = fs.readdirSync(OBSIDIAN_DIR)
