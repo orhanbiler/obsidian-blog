@@ -1,11 +1,26 @@
 {
   "posts": [
     {
-      "title": "Arma Reforger",
+      "title": "Testing again",
       "subtitle": "Optional secondary title",
-      "date": "2025-01-24T00:00:00.000Z",
-      "slug": "arma-reforger",
-      "excerpt": "How Arma 3 and Arma Reforger changed online gaming for me",
+      "date": "2025-01-23T00:00:00.000Z",
+      "slug": "testing-again",
+      "excerpt": "A brief summary of your post (150-160 characters recommended)",
+      "tags": [],
+      "author": "Orhan Biler",
+      "banner": "/assets/your-image.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-23T00:00:00.000Z"
+    },
+    {
+      "title": "How Playing Arma Reforger Has Changed My Perspective",
+      "subtitle": "",
+      "date": "2025-01-19T00:00:00.000Z",
+      "slug": "how-playing-arma-reforger-has-changed-my-perspective",
+      "excerpt": "A personal reflection on how Arma Reforger has impacted the way I see games and conflict.",
       "tags": [
         "ArmaReforger",
         "PCGaming",
@@ -13,27 +28,12 @@
         "MilSim"
       ],
       "author": "Orhan Biler",
-      "banner": "/assets/newyork.jpg",
+      "banner": null,
       "language": "en",
       "translations": {},
       "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-24T00:00:00.000Z"
-    },
-    {
-      "title": "Amerika Thasnk!",
-      "subtitle": "Amerikadaki Anilarim",
-      "date": "2025-01-23T00:00:00.000Z",
-      "slug": "amerika-thasnk",
-      "excerpt": "Amerikaya Nasil Geldim",
-      "tags": [],
-      "author": "Orhan Biler",
-      "banner": "/assets/newyork.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-23T00:00:00.000Z"
+      "seriesOrder": 0,
+      "lastModified": "2025-01-24"
     }
   ]
 }
