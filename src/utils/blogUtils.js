@@ -249,3 +249,9 @@ function calculateRelevanceScore(post1, post2) {
   
   return score;
 }
+
+export const getAuthorImage = (author) => {
+  // Format the author name by removing spaces and capitalizing each word, no hyphens
+  const formattedName = author.replace(/\s+/g, '');
+  return `/static/authors/${formattedName}/${formattedName}.png`;
+};

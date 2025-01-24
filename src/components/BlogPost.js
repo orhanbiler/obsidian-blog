@@ -26,7 +26,7 @@ import { format } from 'date-fns';
 import { marked } from 'marked';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronRightIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import { getPostBySlug, getRelatedPosts } from '../utils/blogUtils';
+import { getPostBySlug, getRelatedPosts, getAuthorImage } from '../utils/blogUtils';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 // Core languages
@@ -37,14 +37,6 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
 import { Helmet } from 'react-helmet-async';
-
-const getAuthorImage = (author) => {
-  // Format the author name for the path - remove spaces but don't add hyphens
-  const formattedName = author.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('');
-  return `/static/authors/${formattedName}/${formattedName}.png`;
-};
 
 const BlogPost = () => {
   const { slug } = useParams();

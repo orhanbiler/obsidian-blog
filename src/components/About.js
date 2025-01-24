@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet-async';
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { getAuthorImage } from '../utils/blogUtils';
 
 const AuthorCard = ({ author }) => {
   const cardBg = useColorModeValue('white', 'gray.800');
@@ -77,13 +78,13 @@ const About = () => {
   const authors = [
     {
       name: 'Orhan Biler',
-      role: 'Owner & Main Author',
-      image: '/static/authors/Orhan-Biler/Orhan-Biler.png',
-      bio: 'From law enforcement to technology, sharing experiences in programming, cryptocurrency, and gaming.',
+      role: 'Software Engineer',
+      bio: 'Former police officer turned software engineer, passionate about building innovative solutions and sharing knowledge through blogging.',
+      image: getAuthorImage('Orhan Biler'),
       social: {
-        github: 'orhanbiler',
-        twitter: 'orhanbiler',
-        linkedin: 'orhanbiler'
+        github: 'https://github.com/orhanbiler',
+        linkedin: 'https://linkedin.com/in/orhanbiler',
+        twitter: 'https://twitter.com/orhanbiler'
       }
     }
   ];
