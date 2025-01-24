@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "title": "Building the Ultimate Gaming Setup in 2025",
+      "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
+      "date": "2024-03-22T00:00:00.000Z",
+      "slug": "building-the-ultimate-gaming-setup-in-2025",
+      "excerpt": "A comprehensive guide to building your dream gaming setup, from hardware selection to ergonomic considerations.",
+      "tags": [
+        "gaming",
+        "pc-gaming",
+        "tech",
+        "how-to",
+        "review"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/newyork.jpg",
+      "language": "en",
+      "translations": {},
+      "series": "Gaming Guides",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24"
+    },
+    {
       "title": "Building the Ultimate Gaming Setup in 2024",
       "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
       "date": "2024-03-22T00:00:00.000Z",
