@@ -1,19 +1,19 @@
 {
   "posts": [
     {
-      "title": "Testing again",
-      "subtitle": "Optional secondary title",
-      "date": "2025-01-23T00:00:00.000Z",
-      "slug": "testing-again",
-      "excerpt": "A brief summary of your post (150-160 characters recommended)",
+      "title": "A",
+      "subtitle": "",
+      "date": "2025-01-24",
+      "slug": "a",
+      "excerpt": "",
       "tags": [],
       "author": "Orhan Biler",
-      "banner": "/assets/your-image.jpg",
+      "banner": null,
       "language": "en",
       "translations": {},
       "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-23T00:00:00.000Z"
+      "seriesOrder": 0,
+      "lastModified": "2025-01-24"
     },
     {
       "title": "How Playing Arma Reforger Has Changed My Perspective",
