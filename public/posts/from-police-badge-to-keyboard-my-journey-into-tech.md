@@ -5,7 +5,7 @@ tags: [career, police-work, tech, personal-growth, career-advice]
 excerpt: "How I successfully transitioned from law enforcement to a career in technology, and the valuable skills that carried over."
 subtitle: "A Police Officer's Guide to Breaking Into Tech"
 author: Orhan Biler
-banner: "assets/banner.jpg"
+banner: "assets/newyork.jpg"
 draft: false
 language: en
 
