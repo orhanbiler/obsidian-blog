@@ -25,6 +25,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { MoonIcon, SunIcon, ChevronDownIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { FaBitcoin, FaGamepad, FaLaptopCode, FaShieldAlt } from 'react-icons/fa';
 
+const NAV_ITEMS = [];
+
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onToggle } = useDisclosure();
@@ -77,56 +79,25 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
             <NavLink to="/blog">Blog</NavLink>
-            
-            {/* Topics Dropdown */}
-            <Menu>
-              <MenuButton
-                as={Button}
-                rightIcon={<ChevronDownIcon />}
-                variant="ghost"
-                _hover={{ bg: hoverBg }}
-              >
-                Topics
-              </MenuButton>
-              <MenuList>
-                <MenuItem icon={<FaLaptopCode />} as={Link} to="/blog?tag=tech">
-                  Tech & Programming
-                </MenuItem>
-                <MenuItem icon={<FaBitcoin />} as={Link} to="/blog?tag=cryptocurrency">
-                  Cryptocurrency
-                </MenuItem>
-                <MenuItem icon={<FaGamepad />} as={Link} to="/blog?tag=gaming">
-                  Gaming
-                </MenuItem>
-                <MenuItem icon={<FaShieldAlt />} as={Link} to="/blog?tag=law-enforcement">
-                  Law Enforcement
-                </MenuItem>
-                <Divider />
-                <MenuItem as={Link} to="/blog/tags">
-                  All Topics
-                </MenuItem>
-              </MenuList>
-            </Menu>
-
             <NavLink to="/about">About</NavLink>
-            
-            {/* Color Mode Toggle */}
+          </HStack>
+
+          {/* Color Mode Toggle and Mobile Menu Button */}
+          <HStack spacing={2}>
             <IconButton
               icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               onClick={toggleColorMode}
               variant="ghost"
               aria-label="Toggle color mode"
             />
+            <IconButton
+              display={{ base: 'flex', md: 'none' }}
+              onClick={onToggle}
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              variant="ghost"
+              aria-label="Toggle navigation"
+            />
           </HStack>
-
-          {/* Mobile Navigation Toggle */}
-          <IconButton
-            display={{ base: 'flex', md: 'none' }}
-            onClick={onToggle}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            variant="ghost"
-            aria-label="Toggle navigation"
-          />
         </Flex>
 
         {/* Mobile Navigation Menu */}
@@ -138,27 +109,6 @@ const Navbar = () => {
             align="stretch"
           >
             <NavLink to="/blog">Blog</NavLink>
-            <Box
-              p={2}
-              rounded="md"
-              _hover={{ bg: hoverBg }}
-            >
-              <Text fontWeight="medium" mb={2}>Topics</Text>
-              <VStack align="stretch" pl={4} spacing={2}>
-                <NavLink to="/blog?tag=tech" icon={FaLaptopCode}>
-                  Tech & Programming
-                </NavLink>
-                <NavLink to="/blog?tag=cryptocurrency" icon={FaBitcoin}>
-                  Cryptocurrency
-                </NavLink>
-                <NavLink to="/blog?tag=gaming" icon={FaGamepad}>
-                  Gaming
-                </NavLink>
-                <NavLink to="/blog?tag=law-enforcement" icon={FaShieldAlt}>
-                  Law Enforcement
-                </NavLink>
-              </VStack>
-            </Box>
             <NavLink to="/about">About</NavLink>
           </VStack>
         </Collapse>
