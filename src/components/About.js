@@ -98,15 +98,6 @@ const About = () => {
 
       <Container maxW="container.lg">
         <VStack spacing={12} align="start">
-          <Image
-            src="/assets/banner.jpg"
-            alt="Blog Banner"
-            borderRadius="lg"
-            w="100%"
-            h="300px"
-            objectFit="cover"
-          />
-
           <VStack spacing={8} align="start" w="100%">
             <Heading as="h1" size="2xl">
               About Us
