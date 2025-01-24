@@ -1,21 +1,6 @@
 {
   "posts": [
     {
-      "title": "Testing again",
-      "subtitle": "Optional secondary title",
-      "date": "2025-01-23T00:00:00.000Z",
-      "slug": "testing-again",
-      "excerpt": "A brief summary of your post (150-160 characters recommended)",
-      "tags": [],
-      "author": "Orhan Biler",
-      "banner": "/assets/your-image.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-23T00:00:00.000Z"
-    },
-    {
       "title": "Building the Ultimate Gaming Setup in 2024",
       "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
       "date": "2024-03-22T00:00:00.000Z",
