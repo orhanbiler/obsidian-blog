@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "title": "Türkiye'den Amerika'ya: 15 Yıllık Bir Göç Hikayesi",
+      "subtitle": "Bir Türk Polisinin Amerika'daki Yaşam Mücadelesi ve Başarısı",
+      "date": "2025-01-24T00:00:00.000Z",
+      "slug": "turkiye-den-amerika-ya-15-y-ll-k-bir-goc-hikayesi",
+      "excerpt": "Türkiye'den Amerika'ya göç eden bir polisin, New York'tan Maryland'a uzanan 15 yıllık serüveni ve bu süreçte deneyimlediği zorluklar ve başarılar.",
+      "tags": [
+        "Amerika",
+        "Türkiye",
+        "göç hikayesi",
+        "polislik",
+        "yaşam hikayesi"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24T00:00:00.000Z"
+    },
+    {
       "title": "Building the Ultimate Gaming Setup in 2025",
       "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
       "date": "2024-03-22T00:00:00.000Z",
