@@ -5,7 +5,7 @@ tags: [cryptocurrency, bitcoin, investing, tutorial, financial-planning]
 excerpt: "A comprehensive guide for beginners looking to enter the cryptocurrency market safely and intelligently."
 subtitle: "Everything You Need to Know Before Your First Crypto Investment"
 author: Orhan Biler
-banner: "assets/banner.jpg"
+banner: "assets/newyork.jpg"
 draft: false
 language: en
 

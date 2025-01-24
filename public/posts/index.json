@@ -16,26 +16,6 @@
       "lastModified": "2025-01-23T00:00:00.000Z"
     },
     {
-      "title": "How Playing Arma Reforger Has Changed My Perspective",
-      "subtitle": "",
-      "date": "2025-01-19T00:00:00.000Z",
-      "slug": "how-playing-arma-reforger-has-changed-my-perspective",
-      "excerpt": "A personal reflection on how Arma Reforger has impacted the way I see games and conflict.",
-      "tags": [
-        "ArmaReforger",
-        "PCGaming",
-        "BohemiaInteractive",
-        "MilSim"
-      ],
-      "author": "Orhan Biler",
-      "banner": null,
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 0,
-      "lastModified": "2025-01-24"
-    },
-    {
       "title": "Building the Ultimate Gaming Setup in 2024",
       "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
       "date": "2024-03-22T00:00:00.000Z",
@@ -49,7 +29,7 @@
         "review"
       ],
       "author": "Orhan Biler",
-      "banner": "assets/banner.jpg",
+      "banner": "assets/newyork.jpg",
       "language": "en",
       "translations": {},
       "series": "Gaming Guides",
@@ -70,7 +50,7 @@
         "financial-planning"
       ],
       "author": "Orhan Biler",
-      "banner": "assets/banner.jpg",
+      "banner": "assets/newyork.jpg",
       "language": "en",
       "translations": {},
       "series": "Crypto Investment Guide",
@@ -91,7 +71,7 @@
         "career-advice"
       ],
       "author": "Orhan Biler",
-      "banner": "assets/banner.jpg",
+      "banner": "assets/newyork.jpg",
       "language": "en",
       "translations": {},
       "series": "Career Transition Stories",
