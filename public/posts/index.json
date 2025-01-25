@@ -1,3 +1,25 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "Noel ve New York City: Bir Tutkunun Hikayesi",
+      "subtitle": "En Sevdiğim Şeyler Arasında Noel ve New York City",
+      "date": "2025-01-24T00:00:00.000Z",
+      "slug": "noel-ve-new-york-city-bir-tutkunun-hikayesi",
+      "excerpt": "Noeli canı gönülden seviyor ve New York Cityyi en çok sevdiğim yerler listesinin zirvesine koyuyorum.",
+      "tags": [
+        "Noel",
+        "New York City",
+        "sevgi",
+        "favori şeyler",
+        "yaşam tarzı"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772581/blog-images/manhattan-city-of-20250124-212924.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24T00:00:00.000Z"
+    }
+  ]
 }
