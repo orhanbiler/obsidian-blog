@@ -1,17 +1,17 @@
 {
   "posts": [
     {
-      "title": "New Yorkta Noel ve Christmas Sevgisi: Manhattanın Büyüleyici Atmosferi",
-      "subtitle": "New Yorkun Kış Mucizesi: Noel Süslemeleri ve Okul Otobüsleri",
+      "title": "Noel ve New York City: Bir Tutkunun Hikayesi",
+      "subtitle": "En Sevdiğim Şeyler Arasında Noel ve New York City",
       "date": "2025-01-24T00:00:00.000Z",
-      "slug": "new-yorkta-noel-ve-christmas-sevgisi-manhattan-n-buyuleyici-atmosferi",
-      "excerpt": "New Yorkun eşsiz güzelliği, Christmas ve Noel kutlamalarının büyüsü birleşince ortaya çıkan manzara adeta bir kartpostalı andırıyor. Manhattanın süslenmiş sokakları ve okul otobüsleri, bu özel zamanı daha da anlamlı kılıyor.",
+      "slug": "noel-ve-new-york-city-bir-tutkunun-hikayesi",
+      "excerpt": "Noeli canı gönülden seviyor ve New York Cityyi en çok sevdiğim yerler listesinin zirvesine koyuyorum.",
       "tags": [
-        "New York",
-        "Christmas",
         "Noel",
-        "Manhattan",
-        "Okul Otobüsleri"
+        "New York City",
+        "sevgi",
+        "favori şeyler",
+        "yaşam tarzı"
       ],
       "author": "Orhan Biler",
       "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772581/blog-images/manhattan-city-of-20250124-212924.jpg",
@@ -20,136 +20,6 @@
       "series": "",
       "seriesOrder": 1,
       "lastModified": "2025-01-24T00:00:00.000Z"
-    },
-    {
-      "title": "Amerika'ya Göçün 15. Yılında Bir Türk Göçmenin Hatıraları",
-      "subtitle": "Bir Türk Göçmenin Gözünden Amerika'ya İlk Adım, 2010'dan Bugüne Değişen Hayatlar",
-      "date": "2025-01-24T00:00:00.000Z",
-      "slug": "amerika-ya-gocun-15-y-l-nda-bir-turk-gocmenin-hat-ralar",
-      "excerpt": "17 yaşında ablasıyla birlikte Türkiye'den Amerika'ya gelen bir göçmenin, 15 yıllık Amerika macerası ve bu süre zarfında geçirdiği değişimler.",
-      "tags": [
-        "Türk",
-        "göçmenler",
-        "Amerikaya",
-        "göç",
-        "hayat",
-        "hikayesi",
-        "kişisel",
-        "deneyim",
-        "değişim"
-      ],
-      "author": "Orhan Biler",
-      "banner": "assets/ablam ve ben.jpg",
-      "language": "tr",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-24T00:00:00.000Z"
-    },
-    {
-      "title": "Catherine ile 15 Yıllık Bir Aşk Hikayesi",
-      "subtitle": "Birlikte Geçen Zamanın Değerini Anlamak",
-      "date": "2025-01-24T00:00:00.000Z",
-      "slug": "catherine-ile-15-y-ll-k-bir-ask-hikayesi",
-      "excerpt": "Catherine ile olan ilişkimiz, 15 yıldır süren bir aşk hikayesinin güzelliğini anlatıyor.",
-      "tags": [
-        "ilişkiler",
-        "aşk",
-        "uzun süreli ilişkiler",
-        "aşk hikayesi",
-        "Catherine"
-      ],
-      "author": "Orhan Biler",
-      "banner": "assets/ablam ve ben.jpg",
-      "language": "tr",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-24T00:00:00.000Z"
-    },
-    {
-      "title": "Building the Ultimate Gaming Setup in 2025",
-      "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
-      "date": "2024-03-22T00:00:00.000Z",
-      "slug": "building-the-ultimate-gaming-setup-in-2025",
-      "excerpt": "A comprehensive guide to building your dream gaming setup, from hardware selection to ergonomic considerations.",
-      "tags": [
-        "gaming",
-        "pc-gaming",
-        "tech",
-        "how-to",
-        "review"
-      ],
-      "author": "Orhan Biler",
-      "banner": "assets/newyork.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "Gaming Guides",
-      "seriesOrder": 2,
-      "lastModified": "2025-01-25"
-    },
-    {
-      "title": "Building the Ultimate Gaming Setup in 2024",
-      "subtitle": "From Budget to Enthusiast: Gaming Setup Guide",
-      "date": "2024-03-22T00:00:00.000Z",
-      "slug": "building-the-ultimate-gaming-setup-in-2024",
-      "excerpt": "A comprehensive guide to building your dream gaming setup, from hardware selection to ergonomic considerations.",
-      "tags": [
-        "gaming",
-        "pc-gaming",
-        "tech",
-        "how-to",
-        "review"
-      ],
-      "author": "Orhan Biler",
-      "banner": "assets/newyork.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "Gaming Guides",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-25"
-    },
-    {
-      "title": "Cryptocurrency Investment 101: A Beginner's Guide",
-      "subtitle": "Everything You Need to Know Before Your First Crypto Investment",
-      "date": "2024-03-21T00:00:00.000Z",
-      "slug": "cryptocurrency-investment-101-a-beginner-s-guide",
-      "excerpt": "A comprehensive guide for beginners looking to enter the cryptocurrency market safely and intelligently.",
-      "tags": [
-        "cryptocurrency",
-        "bitcoin",
-        "investing",
-        "tutorial",
-        "financial-planning"
-      ],
-      "author": "Orhan Biler",
-      "banner": "assets/newyork.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "Crypto Investment Guide",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-25"
-    },
-    {
-      "title": "From Police Badge to Keyboard: My Journey into Tech",
-      "subtitle": "A Police Officer's Guide to Breaking Into Tech",
-      "date": "2024-03-20T00:00:00.000Z",
-      "slug": "from-police-badge-to-keyboard-my-journey-into-tech",
-      "excerpt": "How I successfully transitioned from law enforcement to a career in technology, and the valuable skills that carried over.",
-      "tags": [
-        "career",
-        "police-work",
-        "tech",
-        "personal-growth",
-        "career-advice"
-      ],
-      "author": "Orhan Biler",
-      "banner": "assets/newyork.jpg",
-      "language": "en",
-      "translations": {},
-      "series": "Career Transition Stories",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-25"
     }
   ]
 }
