@@ -1,27 +1,6 @@
 {
   "posts": [
     {
-      "title": "New York City ve Manhattan'ın Büyüleyici Güzelliği",
-      "subtitle": "Büyük Elma'da Keşfedilecek Eşsiz Yerler",
-      "date": "2025-01-24T00:00:00.000Z",
-      "slug": "new-york-city-ve-manhattan-n-buyuleyici-guzelligi",
-      "excerpt": "New York City'nin ve Manhattan'ın göz alıcı güzelliklerini keşfedin. Her köşe, keşfedilecek yeni bir sürprizle dolu.",
-      "tags": [
-        "New York City",
-        "Manhattan",
-        "seyahat",
-        "turizm",
-        "keşif"
-      ],
-      "author": "Orhan Biler",
-      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772581/blog-images/manhattan-city-of-20250124-212924.jpg",
-      "language": "tr",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-24T00:00:00.000Z"
-    },
-    {
       "title": "Amerika'ya Göçün 15. Yılında Bir Türk Göçmenin Hatıraları",
       "subtitle": "Bir Türk Göçmenin Gözünden Amerika'ya İlk Adım, 2010'dan Bugüne Değişen Hayatlar",
       "date": "2025-01-24T00:00:00.000Z",
