@@ -1,5 +1,5 @@
 ---
-title: "Manhattanın Eşsiz Çekiciliği ve New York Citynin Büyüleyici Güzelliği"
+title: "Manhattanın Eşsiz Çekiciliği: ve New York Citynin Büyüleyici Güzelliği"
 date: 2025-01-24
 tags: ['Manhattan', 'New York City', 'Şehir Güzellikleri', 'Gezi Notları', 'Amerika Seyahati']
 author: Orhan Biler
