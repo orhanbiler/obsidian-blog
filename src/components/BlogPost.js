@@ -594,10 +594,11 @@ const BlogPost = () => {
             'img + em': {
               display: 'block',
               textAlign: 'center',
-              marginTop: '0.5rem',
+              marginTop: '0.25rem',
               marginBottom: '2rem',
               color: subtitleColor,
-              fontSize: 'xs'
+              fontSize: '0.75rem',
+              opacity: 0.8
             }
           }}
         />
