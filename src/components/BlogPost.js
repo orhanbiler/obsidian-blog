@@ -507,7 +507,7 @@ const BlogPost = () => {
               color: textColor
             },
             'p': {
-              mb: 6,
+              mb: 2,
               lineHeight: 1.8,
               fontSize: 'lg',
               color: textColor
