@@ -592,9 +592,9 @@ const BlogPost = () => {
               marginTop: '2rem'
             },
             'i, em': {
-              fontSize: '1rem',
+              fontSize: '.9rem',
               color: subtitleColor,
-              opacity: 0.8
+              opacity: 0.9
             },
             'img + em': {
               display: 'block', 
