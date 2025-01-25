@@ -74,25 +74,22 @@ const BlogPost = () => {
   const getBannerPath = (bannerPath) => {
     if (!bannerPath) return null;
     
-    // If it's a full URL, use it as is
-    if (bannerPath.startsWith('http')) return bannerPath;
-    
-    // If the path starts with /static, remove it as it's already in the public folder
-    if (bannerPath.startsWith('/static/')) {
+    // If it's a Cloudinary URL, add auto-format parameter
+    if (bannerPath.includes('cloudinary.com')) {
+      // Check if the URL contains /upload/
+      if (bannerPath.includes('/upload/')) {
+        // Insert f_auto after /upload/
+        return bannerPath.replace('/upload/', '/upload/f_auto,q_auto/');
+      }
       return bannerPath;
     }
     
-    // If the path starts with assets/, prepend /static/
-    if (bannerPath.startsWith('assets/')) {
-      return `/static/${bannerPath}`;
-    }
+    // Handle other cases as before
+    if (bannerPath.startsWith('http')) return bannerPath;
+    if (bannerPath.startsWith('/static/')) return bannerPath;
+    if (bannerPath.startsWith('assets/')) return `/static/${bannerPath}`;
+    if (bannerPath.startsWith('/assets/')) return `/static${bannerPath}`;
     
-    // If the path starts with /assets/, prepend /static
-    if (bannerPath.startsWith('/assets/')) {
-      return `/static${bannerPath}`;
-    }
-    
-    // Default case: assume it's a relative path and prepend /static/
     return `/static/${bannerPath.startsWith('/') ? bannerPath.slice(1) : bannerPath}`;
   };
 
