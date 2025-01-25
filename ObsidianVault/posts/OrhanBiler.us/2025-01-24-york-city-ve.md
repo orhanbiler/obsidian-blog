@@ -1,10 +1,10 @@
 ---
-title: ""New York City ve Manhattan: Büyüleyici Bir Keşif""
+title: "New York City ve Manhattan: Büyüleyici Bir Keşif"
 date: 2025-01-24
 tags: ['New York City', 'Manhattan', 'Seyahat', 'Şehir Keşifleri', 'Turistik Yerler']
 author: Orhan Biler
-excerpt: ""New York City ve Manhattan'ın eşsiz güzelliklerini keşfedin; bu muhteşem şehirlerin büyüsüne kapılın.""
-subtitle: ""Muhteşem şehirlerin eşsiz güzelliklerine bir bakış""
+excerpt: New York City ve Manhattan'ın eşsiz güzelliklerini keşfedin; bu muhteşem şehirlerin büyüsüne kapılın."
+subtitle: Muhteşem şehirlerin eşsiz güzelliklerine bir bakış"
 banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772581/blog-images/manhattan-city-of-20250124-212924.jpg
 draft: false
 readingTime: ""
