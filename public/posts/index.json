@@ -22,6 +22,27 @@
       "lastModified": "2025-01-25T00:00:00.000Z"
     },
     {
+      "title": "Unutulmaz Anılar: Düğün Macerası ve Beklenmedik Misafir",
+      "subtitle": "Düğüne giderken başımıza gelen sıradışı olaylar ve bu durum karşısındaki tepkilerimiz",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "unutulmaz-an-lar-dugun-maceras-ve-beklenmedik-misafir",
+      "excerpt": "Düğün yolunda beklenmedik bir olayla karşılaştık. Arabamızın üstüne düşen ağaç, düğün maceramızın unutulmaz bir parçası oldu.",
+      "tags": [
+        "düğün",
+        "macera",
+        "beklenmedik olaylar",
+        "yaşanmış hikayeler",
+        "otomobil"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
+    },
+    {
       "title": "Ailemle Geçen Unutulmaz Doğum Günü Kutlamaları",
       "subtitle": "Logan ve Orhanın Doğum Günlerinde Suda Kayak Keyfi",
       "date": "2025-01-25T00:00:00.000Z",
@@ -36,6 +57,48 @@
       ],
       "author": "Orhan Biler",
       "banner": "assets/banner.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
+    },
+    {
+      "title": "Düğünde Unutulmaz Anılar: Bir Türk Düğününün Büyüsü",
+      "subtitle": "Düğünler, hayatımızın en güzel anılarından biri olabilir. İşte size unutulmaz bir düğün hikayesi.",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "dugunde-unutulmaz-an-lar-bir-turk-dugununun-buyusu",
+      "excerpt": "Düğüne gittik. Neşeli bir kalabalığın içinde kaybolduk ve hayatımızın en unutulmaz anlarından birini yaşamaya başladık.",
+      "tags": [
+        "Türk düğünleri",
+        "düğün hikayeleri",
+        "unutulmaz anılar",
+        "düğün deneyimleri",
+        "düğünün büyüsü"
+      ],
+      "author": "Orhan Biler",
+      "banner": "/local_images/wedding-flow-hur-officer.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
+    },
+    {
+      "title": "Yeni Yıl Kutlamalarımız ve Çocuklarla Futbol Keyfi",
+      "subtitle": "Yılbaşı ve Noelin çocuklarla kutlanması, ardından da futbol sahasına giderek eğlenceli anılar yaratılması",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "yeni-y-l-kutlamalar-m-z-ve-cocuklarla-futbol-keyfi",
+      "excerpt": "Noel ve Yılbaşı kutlamalarımızın ardından çocuklarla futbol sahasına giderek keyifli bir gün geçirdik.",
+      "tags": [
+        "Yılbaşı",
+        "Noel",
+        "Çocuklar",
+        "Futbol",
+        "Aile Aktiviteleri"
+      ],
+      "author": "Orhan Biler",
+      "banner": "file://C:\\Users\\biler\\OneDrive\\Desktop\\speech to text\\local_images\\ocean city-OC-catherine-ve-son-bubba.jpg",
       "language": "tr",
       "translations": {},
       "series": "",
