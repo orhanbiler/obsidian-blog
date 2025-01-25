@@ -73,10 +73,27 @@ const BlogPost = () => {
   // Add a helper function to get the correct banner path
   const getBannerPath = (bannerPath) => {
     if (!bannerPath) return null;
-    // If the path already starts with /static, use it as is
-    if (bannerPath.startsWith('/static')) return bannerPath;
-    // Otherwise, prepend /static
-    return `/static${bannerPath.startsWith('/') ? '' : '/'}${bannerPath}`;
+    
+    // If it's a full URL, use it as is
+    if (bannerPath.startsWith('http')) return bannerPath;
+    
+    // If the path starts with /static, remove it as it's already in the public folder
+    if (bannerPath.startsWith('/static/')) {
+      return bannerPath;
+    }
+    
+    // If the path starts with assets/, prepend /static/
+    if (bannerPath.startsWith('assets/')) {
+      return `/static/${bannerPath}`;
+    }
+    
+    // If the path starts with /assets/, prepend /static
+    if (bannerPath.startsWith('/assets/')) {
+      return `/static${bannerPath}`;
+    }
+    
+    // Default case: assume it's a relative path and prepend /static/
+    return `/static/${bannerPath.startsWith('/') ? bannerPath.slice(1) : bannerPath}`;
   };
 
   useEffect(() => {
@@ -86,6 +103,13 @@ const BlogPost = () => {
         navigate('/blog');
         return;
       }
+      
+      // Log the banner path for debugging
+      if (fetchedPost.banner) {
+        console.log('Original banner path:', fetchedPost.banner);
+        console.log('Processed banner path:', getBannerPath(fetchedPost.banner));
+      }
+      
       setPost(fetchedPost);
       
       // Fetch related posts
