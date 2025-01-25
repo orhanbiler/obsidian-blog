@@ -1,27 +1,6 @@
 {
   "posts": [
     {
-      "title": "New York City ve Manhattan: Büyüleyici Bir Keşif",
-      "subtitle": "Muhteşem şehirlerin eşsiz güzelliklerine bir bakış\"",
-      "date": "2025-01-24T00:00:00.000Z",
-      "slug": "new-york-city-ve-manhattan-buyuleyici-bir-kesif",
-      "excerpt": "New York City ve Manhattan'ın eşsiz güzelliklerini keşfedin; bu muhteşem şehirlerin büyüsüne kapılın.\"",
-      "tags": [
-        "New York City",
-        "Manhattan",
-        "Seyahat",
-        "Şehir Keşifleri",
-        "Turistik Yerler"
-      ],
-      "author": "Orhan Biler",
-      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772581/blog-images/manhattan-city-of-20250124-212924.jpg",
-      "language": "tr",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-24T00:00:00.000Z"
-    },
-    {
       "title": "Amerika'ya Göçün 15. Yılında Bir Türk Göçmenin Hatıraları",
       "subtitle": "Bir Türk Göçmenin Gözünden Amerika'ya İlk Adım, 2010'dan Bugüne Değişen Hayatlar",
       "date": "2025-01-24T00:00:00.000Z",
