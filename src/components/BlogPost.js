@@ -174,28 +174,24 @@ const BlogPost = () => {
     }
   };
 
-  // Add related tags calculation
+  // Remove the separate Tags section and modify the Related Topics section
   const getRelatedTags = () => {
-    if (!post || !relatedPosts.length) return [];
+    const relatedTags = new Map();
     
-    // Get all tags from related posts
-    const relatedTags = relatedPosts
-      .flatMap(p => p.tags)
-      .filter(tag => !post.tags.some(t => t.urlFriendly === tag.urlFriendly));
-    
-    // Count occurrences and remove duplicates
-    const tagCount = {};
-    relatedTags.forEach(tag => {
-      tagCount[tag.urlFriendly] = (tagCount[tag.urlFriendly] || 0) + 1;
+    // Get tags from related posts
+    relatedPosts.forEach(relatedPost => {
+      relatedPost.tags.forEach(tag => {
+        if (!post.tags.includes(tag)) {  // Only include tags not in current post
+          relatedTags.set(tag, (relatedTags.get(tag) || 0) + 1);
+        }
+      });
     });
-    
-    return Object.entries(tagCount)
-      .map(([urlFriendly, count]) => ({
-        ...relatedTags.find(t => t.urlFriendly === urlFriendly),
-        count
-      }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 10); // Show top 10 related tags
+
+    // Convert to array and sort by frequency
+    return Array.from(relatedTags.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)  // Limit to top 5 related tags
+      .map(([tag]) => tag);  // Only return the tag names, not the counts
   };
 
   if (loading) {
@@ -403,77 +399,26 @@ const BlogPost = () => {
           </Box>
         )}
 
-        {/* Enhanced Tag Section */}
-        <Box mb={8}>
-          <VStack spacing={4} align="stretch">
-            {/* Current Post Tags */}
-            <Box>
-              <Text fontSize="sm" color={subtitleColor} mb={2}>Tags:</Text>
-              <Wrap spacing={2}>
-                {post.tags.map((tag, index) => (
-                  <WrapItem key={index}>
-                    <Tag
-                      colorScheme="teal"
-                      variant="solid"
-                      size="md"
-                      borderRadius="full"
-                      cursor="pointer"
-                      onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
-                      _hover={{
-                        transform: 'translateY(-1px)',
-                        shadow: 'sm'
-                      }}
-                    >
-                      <Text as="span" fontWeight="bold" mr={1}>
-                        #
-                      </Text>
-                      {tag.original}
-                    </Tag>
-                  </WrapItem>
-                ))}
-              </Wrap>
-            </Box>
-
-            {/* Related Tags */}
-            {getRelatedTags().length > 0 && (
-              <Box>
-                <Text fontSize="sm" color={subtitleColor} mb={2}>Related Topics:</Text>
-                <Wrap spacing={2}>
-                  {getRelatedTags().map((tag, index) => (
-                    <WrapItem key={index}>
-                      <Tooltip 
-                        label={`${tag.count} related ${tag.count === 1 ? 'post' : 'posts'}`}
-                        hasArrow
-                      >
-                        <Tag
-                          colorScheme="teal"
-                          variant="subtle"
-                          size="md"
-                          borderRadius="full"
-                          cursor="pointer"
-                          onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
-                          _hover={{
-                            transform: 'translateY(-1px)',
-                            shadow: 'sm'
-                          }}
-                          transition="all 0.2s"
-                        >
-                          <Text as="span" fontWeight="bold" mr={1}>
-                            #
-                          </Text>
-                          {tag.original}
-                          <Text as="span" ml={2} fontSize="xs" opacity={0.8}>
-                            {tag.count}
-                          </Text>
-                        </Tag>
-                      </Tooltip>
-                    </WrapItem>
-                  ))}
-                </Wrap>
-              </Box>
-            )}
-          </VStack>
-        </Box>
+        {/* Modify the Related Topics section */}
+        {getRelatedTags().length > 0 && (
+          <Box mt={8}>
+            <Text fontSize="sm" color={subtitleColor} mb={2}>Related Topics</Text>
+            <Wrap spacing={2}>
+              {getRelatedTags().map((tag, index) => (
+                <Tag
+                  key={index}
+                  size="md"
+                  variant="subtle"
+                  colorScheme="teal"
+                  cursor="pointer"
+                  onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
+                >
+                  {tag}
+                </Tag>
+              ))}
+            </Wrap>
+          </Box>
+        )}
 
         {/* Post Content */}
         <Box
