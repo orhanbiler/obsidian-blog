@@ -588,7 +588,7 @@ const BlogPost = () => {
               maxWidth: '100%',
               height: 'auto',
               boxShadow: 'lg',
-              marginBottom: 0,
+              marginBottom: '-2rem',
               marginTop: '2rem'
             },
             'img + em': {
