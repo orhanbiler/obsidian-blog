@@ -597,7 +597,7 @@ const BlogPost = () => {
               marginTop: '0.5rem',
               marginBottom: '2rem',
               color: subtitleColor,
-              fontSize: 'xm'
+              fontSize: 'xs'
             }
           }}
         />
