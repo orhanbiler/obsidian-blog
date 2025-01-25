@@ -584,17 +584,17 @@ const BlogPost = () => {
             },
             'img': {
               borderRadius: 'xl',
-              my: 8,
               display: 'block',
-              margin: '2rem auto',
               maxWidth: '100%',
               height: 'auto',
-              boxShadow: 'lg'
+              boxShadow: 'lg',
+              marginBottom: 0,
+              marginTop: '2rem'
             },
             'img + em': {
               display: 'block',
               textAlign: 'center',
-              marginTop: '-2rem',
+              marginTop: '0.5rem',
               marginBottom: '2rem',
               color: subtitleColor,
               fontSize: 'sm'
