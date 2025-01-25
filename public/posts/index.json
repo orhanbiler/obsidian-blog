@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "title": "Christmas Kutlamalarımız Ailem ve Ben",
+      "subtitle": "Birlikte geçirdiğimiz keyifli bir Noel",
+      "date": "2025-01-24T00:00:00.000Z",
+      "slug": "christmas-kutlamalar-m-z-ailem-ve-ben",
+      "excerpt": "Ailemle birlikte Christmas'ı keyifli ve anlamlı bir şekilde kutladık.",
+      "tags": [
+        "Noel kutlamaları",
+        "Aile",
+        "Bayramlar",
+        "Mutluluk",
+        "Aile Birlikteliği"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772634/blog-images/my-family-and-20250124-213017.png",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24T00:00:00.000Z"
+    },
+    {
       "title": "New York City ve Manhattan'ın Büyüleyici Cazibesi",
       "subtitle": "Metropolün Kalbinde Bir Gezintiye Davet",
       "date": "2025-01-24T00:00:00.000Z",
