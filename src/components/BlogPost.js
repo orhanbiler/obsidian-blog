@@ -590,6 +590,14 @@ const BlogPost = () => {
               maxWidth: '100%',
               height: 'auto',
               boxShadow: 'lg'
+            },
+            'img + em': {
+              display: 'block',
+              textAlign: 'center',
+              marginTop: '-2rem',
+              marginBottom: '2rem',
+              color: subtitleColor,
+              fontSize: 'sm'
             }
           }}
         />
