@@ -507,7 +507,7 @@ const BlogPost = () => {
               color: textColor
             },
             'p': {
-              mb: 6,
+              mb: 10,
               lineHeight: 1.8,
               fontSize: 'lg',
               color: textColor
@@ -591,8 +591,13 @@ const BlogPost = () => {
               marginBottom: '-2rem',
               marginTop: '2rem'
             },
+            'i, em': {
+              fontSize: '1rem',
+              color: subtitleColor,
+              opacity: 0.8
+            },
             'img + em': {
-              display: 'block',
+              display: 'block', 
               textAlign: 'center',
               marginTop: '0.25rem',
               marginBottom: '2rem',
@@ -600,6 +605,7 @@ const BlogPost = () => {
               fontSize: '0.75rem',
               opacity: 0.8
             }
+            
           }}
         />
 
