@@ -313,12 +313,13 @@ const BlogList = () => {
   // Calculate pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = filteredPosts.slice(0, indexOfLastPost);
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
+    setHasMore(true);
   }, [searchTerm, selectedTag, selectedAuthor]);
 
   useEffect(() => {
@@ -334,25 +335,12 @@ const BlogList = () => {
     const nextPage = currentPage + 1;
 
     try {
-      let newPosts;
-      if (selectedTag) {
-        const result = await getPostsByTag(selectedTag, nextPage, postsPerPage);
-        newPosts = result.posts;
-        setHasMore(nextPage < result.totalPages);
-      } else {
-        // Handle regular post loading
-        const startIndex = (nextPage - 1) * postsPerPage;
-        const endIndex = startIndex + postsPerPage;
-        newPosts = filteredPosts.slice(startIndex, endIndex);
-        setHasMore(endIndex < filteredPosts.length);
-      }
+      const startIndex = (nextPage - 1) * postsPerPage;
+      const endIndex = startIndex + postsPerPage;
+      const hasMorePosts = endIndex < filteredPosts.length;
 
-      if (newPosts.length > 0) {
-        setCurrentPage(nextPage);
-        setPosts(prev => [...prev, ...newPosts]);
-      } else {
-        setHasMore(false);
-      }
+      setCurrentPage(nextPage);
+      setHasMore(hasMorePosts);
     } catch (error) {
       console.error('Error loading more posts:', error);
     } finally {
