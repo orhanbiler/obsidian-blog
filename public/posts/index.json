@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "title": "New York City ve Manhattan'ın Büyüleyici Cazibesi",
+      "subtitle": "Metropolün Kalbinde Bir Gezintiye Davet",
+      "date": "2025-01-24T00:00:00.000Z",
+      "slug": "new-york-city-ve-manhattan-n-buyuleyici-cazibesi",
+      "excerpt": "New York City ve Manhattan'ın büyüleyici cazibesi, bu metropol şehrin enerjik ve dinamik atmosferini keşfedin.",
+      "tags": [
+        "New York City",
+        "Manhattan",
+        "Şehir Gezisi",
+        "Metropol Atmosferi",
+        "Amerika Seyahati"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737772581/blog-images/manhattan-city-of-20250124-212924.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-24T00:00:00.000Z"
+    },
+    {
       "title": "Amerika'ya Göçün 15. Yılında Bir Türk Göçmenin Hatıraları",
       "subtitle": "Bir Türk Göçmenin Gözünden Amerika'ya İlk Adım, 2010'dan Bugüne Değişen Hayatlar",
       "date": "2025-01-24T00:00:00.000Z",
@@ -65,7 +86,7 @@
       "translations": {},
       "series": "Gaming Guides",
       "seriesOrder": 2,
-      "lastModified": "2025-01-24"
+      "lastModified": "2025-01-25"
     },
     {
       "title": "Building the Ultimate Gaming Setup in 2024",
@@ -86,7 +107,7 @@
       "translations": {},
       "series": "Gaming Guides",
       "seriesOrder": 1,
-      "lastModified": "2025-01-24"
+      "lastModified": "2025-01-25"
     },
     {
       "title": "Cryptocurrency Investment 101: A Beginner's Guide",
@@ -107,7 +128,7 @@
       "translations": {},
       "series": "Crypto Investment Guide",
       "seriesOrder": 1,
-      "lastModified": "2025-01-24"
+      "lastModified": "2025-01-25"
     },
     {
       "title": "From Police Badge to Keyboard: My Journey into Tech",
@@ -128,7 +149,7 @@
       "translations": {},
       "series": "Career Transition Stories",
       "seriesOrder": 1,
-      "lastModified": "2025-01-24"
+      "lastModified": "2025-01-25"
     }
   ]
 }
