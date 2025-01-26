@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Catherine Biler",
+    "role": "Editor",
+    "bio": "## About Me\nWrite a brief introduction about yourself, your background, and what you bring to the blog. This is your chance to connect with readers and share your unique perspective.\n\n## Expertise\n- Area of Expertise 1\n- Area of Expertise 2\n- Area of Expertise 3\n- Area of Expertise 4\n- Area of Expertise 5\n\n## Writing Focus\nDescribe what topics you'll be writing about and what readers can expect from your articles. Share your approach to content creation and any specific areas you'll be focusing on.",
+    "areas": [
+      "Teacher",
+      "Love",
+      "Passion"
+    ],
+    "social": {
+      "github": "yourgithub",
+      "twitter": "yourtwitter",
+      "linkedin": "yourlinkedin"
+    }
+  },
+  {
+    "name": "Orhan Biler",
+    "role": "Owner & Main Author",
+    "bio": "## About Me\nFrom law enforcement to technology, I've had quite a journey. I now focus on sharing my experiences and knowledge in software development, cryptocurrency, and gaming. My unique background gives me a different perspective on technology and its applications.\n\n## Expertise\n- Software Development\n- Law Enforcement Technology\n- Cryptocurrency & Blockchain\n- Gaming & Setup Optimization\n- Technical Writing\n\n## Writing Focus\nI write about the intersection of technology with various fields, drawing from my diverse background to provide unique insights. My articles range from technical tutorials to personal experiences in career transition.",
+    "areas": [
+      "Tech",
+      "Law Enforcement",
+      "Cryptocurrency",
+      "Gaming"
+    ],
+    "social": {
+      "github": "orhanbiler",
+      "twitter": "orhanbiler",
+      "linkedin": "orhanbiler"
+    }
+  }
+]

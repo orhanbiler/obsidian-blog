@@ -29,10 +29,10 @@ import {
   WrapItem,
   Tooltip
 } from '@chakra-ui/react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { SearchIcon } from '@chakra-ui/icons';
-import { getAllPosts, getPostsByTag } from '../utils/blogUtils';
+import { getAllPosts, getPostsByTag, getAuthorImage } from '../utils/blogUtils';
 import { useInView } from 'react-intersection-observer';
 
 const BlogPostSkeleton = () => {
@@ -191,7 +191,7 @@ const BlogPostCard = ({ post, setSelectedTag }) => {
           <Avatar
             size="sm"
             name={post.author}
-            src={`/assets/authors/${post.author.replace(' ', '-')}.png`}
+            src={getAuthorImage(post.author)}
           />
           <Box>
             <Text fontWeight="medium" fontSize="sm">
@@ -218,10 +218,13 @@ const BlogList = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
+  const [selectedAuthor, setSelectedAuthor] = useState('');
   const [allTags, setAllTags] = useState([]);
+  const [allAuthors, setAllAuthors] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   const location = useLocation();
+  const navigate = useNavigate();
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const { ref, inView } = useInView({
@@ -303,19 +306,21 @@ const BlogList = () => {
                            tag.urlFriendly.toLowerCase().includes(searchTerm.toLowerCase())
                          );
     const matchesTag = !selectedTag || post.tags.some(tag => tag.urlFriendly === selectedTag);
-    return matchesSearch && matchesTag;
+    const matchesAuthor = !selectedAuthor || post.author === selectedAuthor;
+    return matchesSearch && matchesTag && matchesAuthor;
   });
 
   // Calculate pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = filteredPosts.slice(0, indexOfLastPost);
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, selectedTag]);
+    setHasMore(true);
+  }, [searchTerm, selectedTag, selectedAuthor]);
 
   useEffect(() => {
     if (inView && hasMore && !isLoadingMore) {
@@ -330,25 +335,12 @@ const BlogList = () => {
     const nextPage = currentPage + 1;
 
     try {
-      let newPosts;
-      if (selectedTag) {
-        const result = await getPostsByTag(selectedTag, nextPage, postsPerPage);
-        newPosts = result.posts;
-        setHasMore(nextPage < result.totalPages);
-      } else {
-        // Handle regular post loading
-        const startIndex = (nextPage - 1) * postsPerPage;
-        const endIndex = startIndex + postsPerPage;
-        newPosts = filteredPosts.slice(startIndex, endIndex);
-        setHasMore(endIndex < filteredPosts.length);
-      }
+      const startIndex = (nextPage - 1) * postsPerPage;
+      const endIndex = startIndex + postsPerPage;
+      const hasMorePosts = endIndex < filteredPosts.length;
 
-      if (newPosts.length > 0) {
-        setCurrentPage(nextPage);
-        setPosts(prev => [...prev, ...newPosts]);
-      } else {
-        setHasMore(false);
-      }
+      setCurrentPage(nextPage);
+      setHasMore(hasMorePosts);
     } catch (error) {
       console.error('Error loading more posts:', error);
     } finally {
@@ -420,6 +412,34 @@ const BlogList = () => {
     </Box>
   );
 
+  // Get tag from URL parameters
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tagParam = params.get('tag');
+    if (tagParam) {
+      setSelectedTag(tagParam);
+    }
+  }, [location.search]);
+
+  // Update URL when tag changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (selectedTag) {
+      params.set('tag', selectedTag);
+    } else {
+      params.delete('tag');
+    }
+    navigate({ search: params.toString() }, { replace: true });
+  }, [selectedTag, navigate]);
+
+  // Add this effect to get unique authors
+  useEffect(() => {
+    if (posts.length > 0) {
+      const uniqueAuthors = [...new Set(posts.map(post => post.author))].sort();
+      setAllAuthors(uniqueAuthors);
+    }
+  }, [posts]);
+
   if (loading) {
     return (
       <Box>
@@ -465,8 +485,8 @@ const BlogList = () => {
         <meta name="author" content="Orhan Biler" />
       </Helmet>
 
-      {/* Hero Section with Featured Post - Always visible */}
-      {featuredPost && (
+      {/* Hero Section with Featured Post - Only show when no filters are active */}
+      {!searchTerm && !selectedTag && !selectedAuthor && featuredPost && (
         <Box bg={secondaryBg} py={16} mb={8}>
           <Container maxW="container.xl">
             <Grid templateColumns={{ base: '1fr', lg: '1.2fr 0.8fr' }} gap={8} alignItems="center">
@@ -543,7 +563,7 @@ const BlogList = () => {
                   <Avatar
                     size="md"
                     name={featuredPost.author}
-                    src={`/assets/authors/${featuredPost.author.replace(' ', '-')}.png`}
+                    src={getAuthorImage(featuredPost.author)}
                   />
                   <Box>
                     <Text fontWeight="bold">{featuredPost.author}</Text>
@@ -571,10 +591,10 @@ const BlogList = () => {
         {/* Add Tag Cloud before search */}
         <TagCloud />
 
-        {/* Search and Filter Section */}
+        {/* Modified Search and Filter Section */}
         <Box mb={8}>
           <Heading size="lg" mb={4}>
-            {searchTerm || selectedTag ? 'Search Results' : 'All Posts'}
+            {searchTerm || selectedTag || selectedAuthor ? 'Search Results' : 'All Posts'}
           </Heading>
           <Flex gap={4} direction={{ base: 'column', md: 'row' }} mb={4}>
             <InputGroup>
@@ -603,8 +623,22 @@ const BlogList = () => {
                 </option>
               ))}
             </Select>
+            <Select
+              placeholder="Filter by author"
+              value={selectedAuthor}
+              onChange={(e) => setSelectedAuthor(e.target.value)}
+              bg={bgColor}
+              maxW={{ base: "full", md: "200px" }}
+              size="lg"
+            >
+              {allAuthors.map(author => (
+                <option key={author} value={author}>
+                  {author}
+                </option>
+              ))}
+            </Select>
           </Flex>
-          {(searchTerm || selectedTag) && (
+          {(searchTerm || selectedTag || selectedAuthor) && (
             <HStack spacing={2} mb={4}>
               <Text color={mutedText}>
                 Found {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
@@ -626,13 +660,31 @@ const BlogList = () => {
                   </Text>
                 </Tag>
               )}
-              {(searchTerm || selectedTag) && (
+              {selectedAuthor && (
+                <Tag
+                  size="md"
+                  variant="subtle"
+                  colorScheme="purple"
+                  cursor="pointer"
+                  onClick={() => setSelectedAuthor('')}
+                >
+                  {selectedAuthor}
+                  <Text ml={1} as="span" onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedAuthor('');
+                  }}>
+                    ×
+                  </Text>
+                </Tag>
+              )}
+              {(searchTerm || selectedTag || selectedAuthor) && (
                 <Button
                   size="sm"
                   variant="ghost"
                   onClick={() => {
                     setSearchTerm('');
                     setSelectedTag('');
+                    setSelectedAuthor('');
                   }}
                 >
                   Clear filters

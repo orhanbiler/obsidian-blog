@@ -23,21 +23,18 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "favicons": "^7.2.0",
-    "favicons-webpack-plugin": "^6.0.1",
     "nodemon": "^3.1.9",
     "react-app-rewired": "^2.2.1",
     "sharp": "^0.33.5"
   },
   "scripts": {
     "start": "npm run sync-posts && react-app-rewired start",
-    "build": "npm run ensure-posts && npm run generate-favicons && react-app-rewired build",
+    "build": "npm run ensure-posts && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "sync-posts": "node scripts/sync-posts.js",
     "ensure-posts": "node scripts/ensure-posts.js",
-    "watch-posts": "nodemon --watch ObsidianVault/posts -e md scripts/sync-posts.js",
-    "generate-favicons": "node scripts/generate-favicons.js"
+    "watch-posts": "nodemon --watch ObsidianVault/posts -e md scripts/sync-posts.js"
   },
   "eslintConfig": {
     "extends": [

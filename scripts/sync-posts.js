@@ -6,7 +6,8 @@ const matter = require('gray-matter');
 const OBSIDIAN_DIR = path.join(__dirname, '../ObsidianVault/posts/OrhanBiler.us'); // Where you write in Obsidian
 const PUBLIC_DIR = path.join(__dirname, '../public/posts'); // Where the website reads from
 const ASSETS_DIR = path.join(OBSIDIAN_DIR, 'assets'); // Where images are stored
-const PUBLIC_ASSETS_DIR = path.join(__dirname, '../public/assets'); // Where images will be copied to
+const PUBLIC_STATIC_DIR = path.join(__dirname, '../public/static'); // For static assets
+const PUBLIC_ASSETS_DIR = path.join(PUBLIC_STATIC_DIR, 'assets'); // Where images will be copied to
 
 // Supported media file extensions
 const MEDIA_EXTENSIONS = [
@@ -34,22 +35,14 @@ function isMediaFile(filename) {
   return MEDIA_EXTENSIONS.includes(ext);
 }
 
-function copyMediaFile(filename) {
-  const sourcePath = path.join(ASSETS_DIR, filename);
-  const targetPath = path.join(PUBLIC_ASSETS_DIR, filename);
-  
-  if (fs.existsSync(sourcePath)) {
-    fs.copyFileSync(sourcePath, targetPath);
-    return true;
-  }
-  return false;
-}
-
 function syncAssets() {
-  // Create assets directory if it doesn't exist
-  if (!fs.existsSync(PUBLIC_ASSETS_DIR)) {
-    fs.mkdirSync(PUBLIC_ASSETS_DIR, { recursive: true });
-  }
+  // Create static assets directory if it doesn't exist
+  [PUBLIC_STATIC_DIR, PUBLIC_ASSETS_DIR].forEach(dir => {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+      console.log(`Created directory: ${dir}`);
+    }
+  });
 
   // Copy all files from assets directory
   if (fs.existsSync(ASSETS_DIR)) {
@@ -59,6 +52,7 @@ function syncAssets() {
         const sourcePath = path.join(ASSETS_DIR, file);
         const targetPath = path.join(PUBLIC_ASSETS_DIR, file);
         fs.copyFileSync(sourcePath, targetPath);
+        console.log(`Copied asset: ${file} to ${PUBLIC_ASSETS_DIR}`);
       }
     });
   }
@@ -70,20 +64,18 @@ function processMarkdownContent(content) {
   // Handle Obsidian-style image/media embeds: ![[filename]]
   updatedContent = updatedContent.replace(/!\[\[(.*?)\]\]/g, (match, filename) => {
     const cleanFilename = filename.split('|')[0].trim();
-    if (copyMediaFile(cleanFilename)) {
-      if (isMediaFile(cleanFilename)) {
-        const ext = path.extname(cleanFilename).toLowerCase();
-        const encodedFilename = encodeURIComponent(cleanFilename);
-        // Handle different media types
-        if (ext === '.mp4' || ext === '.webm' || ext === '.ogg') {
-          return `<video controls><source src="/assets/${encodedFilename}" type="video/${ext.slice(1)}"></video>`;
-        } else if (ext === '.mp3' || ext === '.wav') {
-          return `<audio controls><source src="/assets/${encodedFilename}" type="audio/${ext.slice(1)}"></audio>`;
-        } else if (ext === '.pdf') {
-          return `<embed src="/assets/${encodedFilename}" type="application/pdf" width="100%" height="600px" />`;
-        }
-        return `![](/assets/${encodedFilename})`;
+    if (isMediaFile(cleanFilename)) {
+      const ext = path.extname(cleanFilename).toLowerCase();
+      const encodedFilename = encodeURIComponent(cleanFilename);
+      // Handle different media types
+      if (ext === '.mp4' || ext === '.webm' || ext === '.ogg') {
+        return `<video controls><source src="/assets/${encodedFilename}" type="video/${ext.slice(1)}"></video>`;
+      } else if (ext === '.mp3' || ext === '.wav') {
+        return `<audio controls><source src="/assets/${encodedFilename}" type="audio/${ext.slice(1)}"></audio>`;
+      } else if (ext === '.pdf') {
+        return `<embed src="/assets/${encodedFilename}" type="application/pdf" width="100%" height="600px" />`;
       }
+      return `![](/assets/${encodedFilename})`;
     }
     return match;
   });
@@ -94,7 +86,7 @@ function processMarkdownContent(content) {
       // Decode the URL-encoded filename first
       const decodedPath = decodeURIComponent(filepath);
       const filename = path.basename(decodedPath);
-      if (copyMediaFile(filename)) {
+      if (isMediaFile(filename)) {
         const encodedFilename = encodeURIComponent(filename);
         return `![${alt}](/assets/${encodedFilename})`;
       }
@@ -126,6 +118,130 @@ function processMarkdownContent(content) {
   return updatedContent;
 }
 
+function syncAuthors() {
+  const authorsDir = path.join(OBSIDIAN_DIR, 'authors');
+  const publicAuthorsDir = path.join(PUBLIC_STATIC_DIR, 'authors');
+
+  console.log('Syncing authors from:', authorsDir);
+  console.log('To:', publicAuthorsDir);
+
+  // Create public authors directory if it doesn't exist
+  if (!fs.existsSync(publicAuthorsDir)) {
+    fs.mkdirSync(publicAuthorsDir, { recursive: true });
+    console.log('Created public authors directory');
+  }
+
+  // Array to store author data for index.json
+  const authorsList = [];
+
+  // Copy author directories if they exist
+  if (fs.existsSync(authorsDir)) {
+    console.log('Found authors directory');
+    const authors = fs.readdirSync(authorsDir);
+    console.log('Found authors:', authors);
+    
+    authors.forEach(authorDir => {
+      const authorPath = path.join(authorsDir, authorDir);
+      const publicAuthorPath = path.join(publicAuthorsDir, authorDir);
+      
+      // Create author directory in public if it doesn't exist
+      if (!fs.existsSync(publicAuthorPath)) {
+        fs.mkdirSync(publicAuthorPath, { recursive: true });
+        console.log('Created directory for author:', authorDir);
+      }
+
+      // Copy all files from author directory
+      const files = fs.readdirSync(authorPath);
+      console.log(`Files for ${authorDir}:`, files);
+      
+      // Process bio.md to extract author information
+      const bioFile = files.find(file => file.toLowerCase() === 'bio.md');
+      if (bioFile) {
+        const bioContent = fs.readFileSync(path.join(authorPath, bioFile), 'utf8');
+        const { data: frontmatter, content } = matter(bioContent);
+        
+        // Process the content to remove the frontmatter and initial heading
+        const processedContent = content
+          .replace(/^---[\s\S]*?---\n*/m, '') // Remove frontmatter
+          .replace(/^#\s+.*?\n+/m, ''); // Remove the initial heading
+        
+        // Add author to the list
+        authorsList.push({
+          name: frontmatter.name || authorDir,
+          role: frontmatter.role || '',
+          bio: processedContent.trim(), // Include the processed content
+          areas: frontmatter.areas || [],
+          social: frontmatter.social || {}
+        });
+        
+        console.log(`Processed bio for ${authorDir}:`, processedContent.trim().substring(0, 100) + '...');
+      }
+      
+      files.forEach(file => {
+        const sourcePath = path.join(authorPath, file);
+        const targetPath = path.join(publicAuthorPath, file);
+        
+        // Handle different file types
+        if (file.toLowerCase().endsWith('.png') || 
+            file.toLowerCase().endsWith('.jpg') || 
+            file.toLowerCase().endsWith('.jpeg')) {
+          // Copy image files directly
+          fs.copyFileSync(sourcePath, targetPath);
+          console.log(`Copied author image: ${file} to ${publicAuthorPath}`);
+          
+          // Also copy to the author's name-based path for the profile image
+          const authorName = authorDir; // This is already in the correct format (e.g., OrhanBiler)
+          const ext = path.extname(file);
+          const newFileName = `${authorName}${ext}`;
+          const authorImagePath = path.join(publicAuthorPath, newFileName);
+          
+          // Only copy if the target file doesn't exist or is different
+          if (!fs.existsSync(authorImagePath) || 
+              !fs.readFileSync(sourcePath).equals(fs.readFileSync(authorImagePath))) {
+            fs.copyFileSync(sourcePath, authorImagePath);
+            console.log(`Copied author image as: ${newFileName} to ${publicAuthorPath}`);
+          }
+          
+          // Remove any old hyphenated versions if they exist
+          const hyphenatedName = authorDir.split(/(?=[A-Z])/).join('-');
+          const oldFileName = `${hyphenatedName}${ext}`;
+          const oldFilePath = path.join(publicAuthorPath, oldFileName);
+          if (fs.existsSync(oldFilePath)) {
+            fs.unlinkSync(oldFilePath);
+            console.log(`Removed old hyphenated author image: ${oldFileName}`);
+          }
+        } else if (file.toLowerCase().endsWith('.md')) {
+          // Process markdown files
+          const content = fs.readFileSync(sourcePath, 'utf8');
+          const processedContent = processMarkdownContent(content);
+          fs.writeFileSync(targetPath, processedContent);
+          console.log(`Processed and copied markdown: ${file} to ${publicAuthorPath}`);
+        } else {
+          // Copy other files directly
+          fs.copyFileSync(sourcePath, targetPath);
+          console.log(`Copied file: ${file} to ${publicAuthorPath}`);
+        }
+      });
+    });
+
+    // Write index.json with author information
+    fs.writeFileSync(
+      path.join(publicAuthorsDir, 'index.json'),
+      JSON.stringify(authorsList, null, 2)
+    );
+    console.log('Generated authors index.json');
+  } else {
+    console.log('Authors directory not found at:', authorsDir);
+  }
+
+  // Remove the duplicate authors directory in public/authors if it exists
+  const oldAuthorsDir = path.join(__dirname, '../public/authors');
+  if (fs.existsSync(oldAuthorsDir)) {
+    fs.rmSync(oldAuthorsDir, { recursive: true, force: true });
+    console.log('Removed duplicate authors directory from public/authors');
+  }
+}
+
 function syncPosts() {
   // Create directories if they don't exist
   [OBSIDIAN_DIR, PUBLIC_DIR].forEach(dir => {
@@ -147,6 +263,9 @@ function syncPosts() {
 
   // Sync assets first
   syncAssets();
+
+  // Sync authors
+  syncAuthors();
 
   // Read all markdown files from Obsidian directory
   const files = fs.readdirSync(OBSIDIAN_DIR)

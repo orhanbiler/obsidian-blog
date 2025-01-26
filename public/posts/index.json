@@ -1,54 +1,112 @@
 {
   "posts": [
     {
-      "title": "Available-Tags",
-      "subtitle": "",
-      "date": "2025-01-24",
-      "slug": "available-tags",
-      "excerpt": "",
-      "tags": [],
+      "title": "Aileyle Birlikte Sıcacık Bir Noel Kutlaması",
+      "subtitle": "Christmasın Türkiyedeki Yansımaları: Birlikte Paylaşılan Mutluluk Anları",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "aileyle-birlikte-s-cac-k-bir-noel-kutlamas",
+      "excerpt": "Aileyle birlikte geçirilen bir Christmas günü, her ne kadar Türkiyede resmi bir kutlama olmasa da, insanların yüzünde tebessüm yaratmanın keyfini yaşadık.",
+      "tags": [
+        "Aile",
+        "Noel kutlaması",
+        "Mutluluk",
+        "Türkiye'deki Christmas",
+        "Hediye"
+      ],
       "author": "Orhan Biler",
-      "banner": null,
-      "language": "en",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 0,
-      "lastModified": "2025-01-24"
-    },
-    {
-      "title": "Testing again",
-      "subtitle": "Optional secondary title",
-      "date": "2025-01-23T00:00:00.000Z",
-      "slug": "testing-again",
-      "excerpt": "A brief summary of your post (150-160 characters recommended)",
-      "tags": [],
-      "author": "Orhan Biler",
-      "banner": "/assets/your-image.jpg",
-      "language": "en",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851280/aile-family-noel-christmas-hepberaber-together-20240125_wnigwp.jpg",
+      "language": "tr",
       "translations": {},
       "series": "",
       "seriesOrder": 1,
-      "lastModified": "2025-01-23T00:00:00.000Z"
+      "lastModified": "2025-01-25T00:00:00.000Z"
     },
     {
-      "title": "How Playing Arma Reforger Has Changed My Perspective",
-      "subtitle": "",
-      "date": "2025-01-19T00:00:00.000Z",
-      "slug": "how-playing-arma-reforger-has-changed-my-perspective",
-      "excerpt": "A personal reflection on how Arma Reforger has impacted the way I see games and conflict.",
+      "title": "'Evin Yenilenmesi: Catherine ile Keyifli Bir Yardımlaşma Deneyimi'",
+      "subtitle": "'Sıradan bir ev yenileme sürecinin unutulmaz anıları'",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "evin-yenilenmesi-catherine-ile-keyifli-bir-yard-mlasma-deneyimi",
+      "excerpt": "'Yerleri yenilerken ve laminat döşerken, Catherine'in yardımına nasıl güldüğümüzü anlatan samimi bir hikaye.'",
       "tags": [
-        "ArmaReforger",
-        "PCGaming",
-        "BohemiaInteractive",
-        "MilSim"
+        "ev yenileme",
+        "dostluk",
+        "yardımlaşma",
+        "keyifli anılar",
+        "laminat döşeme"
       ],
       "author": "Orhan Biler",
-      "banner": null,
-      "language": "en",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851298/tadilat-renovation-zemin-floor-diy-20240125_x4qkir.jpg",
+      "language": "tr",
       "translations": {},
       "series": "",
-      "seriesOrder": 0,
-      "lastModified": "2025-01-24"
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
+    },
+    {
+      "title": "Eski Hatıraların Peşinde: Bir Ev Gezisi Anısı",
+      "subtitle": "Geçmişe Dönüş: Çocukluk Evini Ziyaret Etmek ve Anıları Canlandırmak",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "eski-hat-ralar-n-pesinde-bir-ev-gezisi-an-s",
+      "excerpt": "Geçmişe bir yolculuk yaparak kız arkadaşımın çocukluk evini ziyaret ettiğimiz ve nostaljik anılarına ortak olduğumuz bir güne dair hikaye.",
+      "tags": [
+        "çocukluk",
+        "evi",
+        "nostalji",
+        "anılar",
+        "eski",
+        "eşyalar",
+        "duygusal",
+        "anlar"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851284/catherine-ev-house-nostalji-nostalgia-20240125_a0egfw.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
+    },
+    {
+      "title": "Amerika'da Türk Göçmen Olarak Hayatım: New York'tan Washington DC'ye",
+      "subtitle": "15 yıllık Amerika deneyimimde yaşadıklarım, öğrendiklerim ve büyüdüğüm yerler",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "amerika-da-turk-gocmen-olarak-hayat-m-new-york-tan-washington-dc-ye",
+      "excerpt": "Amerika'ya ilk geldiğimden beri geçen 15 yıl boyunca, New York'tan Washington DC'ye uzanan bir yolculukta hayatımın nasıl şekillendiğini anlattığım bir öykü.",
+      "tags": [
+        "Amerika'da yaşam",
+        "Türk göçmen hikayesi",
+        "Amerikan hayatı",
+        "Polis akademisi",
+        "Aile hayatı"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851288/manhattan-sehir-city-newyork-banner-20240125_y9xdcl.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
+    },
+    {
+      "title": "Catherine ve Ben: Nostaljik Bir Geziye Yolculuk",
+      "subtitle": "Çocukluk Evine Dönüş: Anılar ve Duygusal Bağlar",
+      "date": "2025-01-25T00:00:00.000Z",
+      "slug": "catherine-ve-ben-nostaljik-bir-geziye-yolculuk",
+      "excerpt": "Catherineın çocukluk evine yapılan nostaljik bir ziyaretin, duygusal anıları ve eski günleri hatırlatan bir parkın hikayesini anlatıyor.",
+      "tags": [
+        "Catherine",
+        "çocukluk evi",
+        "nostalji",
+        "duygusal anılar",
+        "park"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851290/catherine-fnaf-oyun-game-pose-20240125_f35rrg.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-25T00:00:00.000Z"
     }
   ]
 }

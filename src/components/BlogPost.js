@@ -26,7 +26,7 @@ import { format } from 'date-fns';
 import { marked } from 'marked';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronRightIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import { getPostBySlug, getRelatedPosts } from '../utils/blogUtils';
+import { getPostBySlug, getRelatedPosts, getAuthorImage } from '../utils/blogUtils';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 // Core languages
@@ -37,14 +37,6 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
 import { Helmet } from 'react-helmet-async';
-
-const getAuthorImage = (author) => {
-  // Replace spaces with hyphens and ensure proper capitalization
-  const formattedName = author.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('-');
-  return `/assets/authors/${formattedName}.png`;
-};
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -78,6 +70,29 @@ const BlogPost = () => {
 
   const [loading, setLoading] = useState(true);
 
+  // Add a helper function to get the correct banner path
+  const getBannerPath = (bannerPath) => {
+    if (!bannerPath) return null;
+    
+    // If it's a Cloudinary URL, add auto-format parameter
+    if (bannerPath.includes('cloudinary.com')) {
+      // Check if the URL contains /upload/
+      if (bannerPath.includes('/upload/')) {
+        // Insert f_auto after /upload/
+        return bannerPath.replace('/upload/', '/upload/f_auto,q_auto/');
+      }
+      return bannerPath;
+    }
+    
+    // Handle other cases as before
+    if (bannerPath.startsWith('http')) return bannerPath;
+    if (bannerPath.startsWith('/static/')) return bannerPath;
+    if (bannerPath.startsWith('assets/')) return `/static/${bannerPath}`;
+    if (bannerPath.startsWith('/assets/')) return `/static${bannerPath}`;
+    
+    return `/static/${bannerPath.startsWith('/') ? bannerPath.slice(1) : bannerPath}`;
+  };
+
   useEffect(() => {
     const fetchPost = async () => {
       const fetchedPost = await getPostBySlug(slug);
@@ -85,6 +100,13 @@ const BlogPost = () => {
         navigate('/blog');
         return;
       }
+      
+      // Log the banner path for debugging
+      if (fetchedPost.banner) {
+        console.log('Original banner path:', fetchedPost.banner);
+        console.log('Processed banner path:', getBannerPath(fetchedPost.banner));
+      }
+      
       setPost(fetchedPost);
       
       // Fetch related posts
@@ -152,28 +174,26 @@ const BlogPost = () => {
     }
   };
 
-  // Add related tags calculation
+  // Remove the separate Tags section and modify the Related Topics section
   const getRelatedTags = () => {
-    if (!post || !relatedPosts.length) return [];
+    const relatedTags = new Map();
     
-    // Get all tags from related posts
-    const relatedTags = relatedPosts
-      .flatMap(p => p.tags)
-      .filter(tag => !post.tags.some(t => t.urlFriendly === tag.urlFriendly));
-    
-    // Count occurrences and remove duplicates
-    const tagCount = {};
-    relatedTags.forEach(tag => {
-      tagCount[tag.urlFriendly] = (tagCount[tag.urlFriendly] || 0) + 1;
+    // Get tags from related posts
+    relatedPosts.forEach(relatedPost => {
+      relatedPost.tags.forEach(tag => {
+        // Check if the tag is not in current post's tags by comparing urlFriendly
+        if (!post.tags.some(currentTag => currentTag.urlFriendly === tag.urlFriendly)) {
+          const key = JSON.stringify(tag); // Use stringified tag object as key
+          relatedTags.set(key, (relatedTags.get(key) || 0) + 1);
+        }
+      });
     });
-    
-    return Object.entries(tagCount)
-      .map(([urlFriendly, count]) => ({
-        ...relatedTags.find(t => t.urlFriendly === urlFriendly),
-        count
-      }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 10); // Show top 10 related tags
+
+    // Convert to array and sort by frequency
+    return Array.from(relatedTags.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)  // Limit to top 5 related tags
+      .map(([tagStr]) => JSON.parse(tagStr));  // Parse the stringified tag object
   };
 
   if (loading) {
@@ -251,6 +271,33 @@ const BlogPost = () => {
           Back to Blog
         </Button>
 
+        {/* Banner Image */}
+        {post.banner && (
+          <Box
+            position="relative"
+            height="400px"
+            width="100%"
+            overflow="hidden"
+            borderRadius="xl"
+            mb={8}
+          >
+            <img
+              src={getBannerPath(post.banner)}
+              alt={post.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+              onError={(e) => {
+                console.error('Error loading banner image:', e);
+                e.target.style.display = 'none';
+              }}
+            />
+          </Box>
+        )}
+
         {/* Post Header */}
         <Box>
           <Heading 
@@ -311,7 +358,7 @@ const BlogPost = () => {
                   size="md"
                   borderRadius="full"
                   cursor="pointer"
-                  onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
+                  onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
                   _hover={{
                     transform: 'translateY(-1px)',
                     shadow: 'sm'
@@ -327,30 +374,6 @@ const BlogPost = () => {
             </HStack>
           </Flex>
         </Box>
-
-        {/* Banner Image */}
-        {post.banner && (
-          <Box
-            borderRadius="xl"
-            overflow="hidden"
-            mb={8}
-          >
-            <img 
-              src={post.banner} 
-              alt={post.title}
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '500px',
-                objectFit: 'cover'
-              }}
-              onError={(e) => {
-                console.error('Error loading banner image:', e);
-                e.target.style.display = 'none';
-              }}
-            />
-          </Box>
-        )}
 
         {/* Language Selector if translations exist */}
         {post.translations && Object.keys(post.translations).length > 0 && (
@@ -378,78 +401,29 @@ const BlogPost = () => {
           </Box>
         )}
 
-        {/* Enhanced Tag Section */}
-        <Box mb={8}>
-          <VStack spacing={4} align="stretch">
-            {/* Current Post Tags */}
-            <Box>
-              <Text fontSize="sm" color={subtitleColor} mb={2}>Tags:</Text>
-              <Wrap spacing={2}>
-                {post.tags.map((tag, index) => (
-                  <WrapItem key={index}>
-                    <Tag
-                      colorScheme="teal"
-                      variant="solid"
-                      size="md"
-                      borderRadius="full"
-                      cursor="pointer"
-                      onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
-                      _hover={{
-                        transform: 'translateY(-1px)',
-                        shadow: 'sm'
-                      }}
-                      transition="all 0.2s"
-                    >
-                      <Text as="span" fontWeight="bold" mr={1}>
-                        #
-                      </Text>
-                      {tag.original}
-                    </Tag>
-                  </WrapItem>
-                ))}
-              </Wrap>
-            </Box>
-
-            {/* Related Tags */}
-            {getRelatedTags().length > 0 && (
-              <Box>
-                <Text fontSize="sm" color={subtitleColor} mb={2}>Related Topics:</Text>
-                <Wrap spacing={2}>
-                  {getRelatedTags().map((tag, index) => (
-                    <WrapItem key={index}>
-                      <Tooltip 
-                        label={`${tag.count} related ${tag.count === 1 ? 'post' : 'posts'}`}
-                        hasArrow
-                      >
-                        <Tag
-                          colorScheme="teal"
-                          variant="subtle"
-                          size="md"
-                          borderRadius="full"
-                          cursor="pointer"
-                          onClick={() => navigate('/blog', { state: { selectedTag: tag.urlFriendly } })}
-                          _hover={{
-                            transform: 'translateY(-1px)',
-                            shadow: 'sm'
-                          }}
-                          transition="all 0.2s"
-                        >
-                          <Text as="span" fontWeight="bold" mr={1}>
-                            #
-                          </Text>
-                          {tag.original}
-                          <Text as="span" ml={2} fontSize="xs" opacity={0.8}>
-                            {tag.count}
-                          </Text>
-                        </Tag>
-                      </Tooltip>
-                    </WrapItem>
-                  ))}
-                </Wrap>
-              </Box>
-            )}
-          </VStack>
-        </Box>
+        {/* Modify the Related Topics section */}
+        {getRelatedTags().length > 0 && (
+          <Box mt={8}>
+            <Text fontSize="sm" color={subtitleColor} mb={2}>Related Topics</Text>
+            <Wrap spacing={2}>
+              {getRelatedTags().map((tag, index) => (
+                <Tag
+                  key={index}
+                  size="md"
+                  variant="subtle"
+                  colorScheme="teal"
+                  cursor="pointer"
+                  onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
+                >
+                  <Text as="span" fontWeight="bold" mr={1}>
+                    #
+                  </Text>
+                  {tag.original}
+                </Tag>
+              ))}
+            </Wrap>
+          </Box>
+        )}
 
         {/* Post Content */}
         <Box
@@ -480,7 +454,7 @@ const BlogPost = () => {
               color: textColor
             },
             'p': {
-              mb: 6,
+              mb: 10,
               lineHeight: 1.8,
               fontSize: 'lg',
               color: textColor
@@ -557,13 +531,28 @@ const BlogPost = () => {
             },
             'img': {
               borderRadius: 'xl',
-              my: 8,
               display: 'block',
-              margin: '2rem auto',
               maxWidth: '100%',
               height: 'auto',
-              boxShadow: 'lg'
+              boxShadow: 'lg',
+              marginBottom: '-2rem',
+              marginTop: '2rem'
+            },
+            'i, em': {
+              fontSize: '.9rem',
+              color: subtitleColor,
+              opacity: 0.9
+            },
+            'img + em': {
+              display: 'block', 
+              textAlign: 'center',
+              marginTop: '0.25rem',
+              marginBottom: '2rem',
+              color: subtitleColor,
+              fontSize: '0.75rem',
+              opacity: 0.8
             }
+            
           }}
         />
 
