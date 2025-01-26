@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "title": "2025-01-25-türk-göçmen-olarak",
+      "subtitle": "",
+      "date": "2025-01-26",
+      "slug": "2025-01-25-turk-gocmen-olarak",
+      "excerpt": "",
+      "tags": [],
+      "author": "Orhan Biler",
+      "banner": null,
+      "language": "en",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 0,
+      "lastModified": "2025-01-26"
+    },
+    {
+      "title": "Evi Temizlerken Baba ve Catherine: Hayatın Renkleri",
+      "subtitle": "Evinizdeki sevgi ve düzenin hikayesi: Baba ve Catherine örneği",
+      "date": "2025-01-26T00:00:00.000Z",
+      "slug": "evi-temizlerken-baba-ve-catherine-hayat-n-renkleri",
+      "excerpt": "Babanın konuşmaları ve Catherinein temizlik sevgisi sayesinde evin içindeki huzur ve düzenin hikâyesi. Bu öykü, evin içindeki sevgi ve düzenin nasıl oluşturulduğunu anlatıyor.",
+      "tags": [
+        "ev temizliği",
+        "aile dinamikleri",
+        "sevgi dolu ev",
+        "düzen",
+        "baba ve çocuk ilişkisi"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851290/catherine-fnaf-oyun-game-pose-20240125_f35rrg.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-26T00:00:00.000Z"
+    },
+    {
       "title": "Aileyle Birlikte Sıcacık Bir Noel Kutlaması",
       "subtitle": "Christmasın Türkiyedeki Yansımaları: Birlikte Paylaşılan Mutluluk Anları",
       "date": "2025-01-25T00:00:00.000Z",
@@ -60,27 +96,6 @@
       ],
       "author": "Orhan Biler",
       "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851284/catherine-ev-house-nostalji-nostalgia-20240125_a0egfw.jpg",
-      "language": "tr",
-      "translations": {},
-      "series": "",
-      "seriesOrder": 1,
-      "lastModified": "2025-01-25T00:00:00.000Z"
-    },
-    {
-      "title": "Amerika'da Türk Göçmen Olarak Hayatım: New York'tan Washington DC'ye",
-      "subtitle": "15 yıllık Amerika deneyimimde yaşadıklarım, öğrendiklerim ve büyüdüğüm yerler",
-      "date": "2025-01-25T00:00:00.000Z",
-      "slug": "amerika-da-turk-gocmen-olarak-hayat-m-new-york-tan-washington-dc-ye",
-      "excerpt": "Amerika'ya ilk geldiğimden beri geçen 15 yıl boyunca, New York'tan Washington DC'ye uzanan bir yolculukta hayatımın nasıl şekillendiğini anlattığım bir öykü.",
-      "tags": [
-        "Amerika'da yaşam",
-        "Türk göçmen hikayesi",
-        "Amerikan hayatı",
-        "Polis akademisi",
-        "Aile hayatı"
-      ],
-      "author": "Orhan Biler",
-      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851288/manhattan-sehir-city-newyork-banner-20240125_y9xdcl.jpg",
       "language": "tr",
       "translations": {},
       "series": "",
