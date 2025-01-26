@@ -1,21 +1,34 @@
 ---
 title: "Eski Hatıraların Peşinde: Bir Ev Gezisi Anısı"
 date: 2025-01-25
-tags: ['çocukluk evi', 'nostalji', 'anılar', 'eski eşyalar', 'duygusal anlar']
+tags:
+  - çocukluk
+  - evi
+  - nostalji
+  - anılar
+  - eski
+  - eşyalar
+  - duygusal
+  - anlar
 author: Orhan Biler
-excerpt: "Geçmişe bir yolculuk yaparak kız arkadaşımın çocukluk evini ziyaret ettiğimiz ve nostaljik anılarına ortak olduğumuz bir güne dair hikaye."
+excerpt: Geçmişe bir yolculuk yaparak kız arkadaşımın çocukluk evini ziyaret ettiğimiz ve nostaljik anılarına ortak olduğumuz bir güne dair hikaye.
 subtitle: "Geçmişe Dönüş: Çocukluk Evini Ziyaret Etmek ve Anıları Canlandırmak"
-banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851287/ekmek-bread-eksi-maya-sourdough-ev-yapimi-20240125_zs1lgd.jpg
+banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851284/catherine-ev-house-nostalji-nostalgia-20240125_a0egfw.jpg
 draft: false
 readingTime: ""
 language: tr
 translations: {}
 series: ""
 seriesOrder: 1
-relatedPosts: []
+relatedPosts: 
 lastModified: 2025-01-25
 canonical: ""
-keywords: ['çocukluk evi', 'nostalji', 'anılar', 'eski eşyalar', 'duygusal anlar']
+keywords:
+  - çocukluk evi
+  - nostalji
+  - anılar
+  - eski eşyalar
+  - duygusal anlar
 socialImage: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851287/ekmek-bread-eksi-maya-sourdough-ev-yapimi-20240125_zs1lgd.jpg
 twitterCard: summary_large_image
 ---
