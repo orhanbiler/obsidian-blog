@@ -181,8 +181,10 @@ const BlogPost = () => {
     // Get tags from related posts
     relatedPosts.forEach(relatedPost => {
       relatedPost.tags.forEach(tag => {
-        if (!post.tags.includes(tag)) {  // Only include tags not in current post
-          relatedTags.set(tag, (relatedTags.get(tag) || 0) + 1);
+        // Check if the tag is not in current post's tags by comparing urlFriendly
+        if (!post.tags.some(currentTag => currentTag.urlFriendly === tag.urlFriendly)) {
+          const key = JSON.stringify(tag); // Use stringified tag object as key
+          relatedTags.set(key, (relatedTags.get(key) || 0) + 1);
         }
       });
     });
@@ -191,7 +193,7 @@ const BlogPost = () => {
     return Array.from(relatedTags.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)  // Limit to top 5 related tags
-      .map(([tag]) => tag);  // Only return the tag names, not the counts
+      .map(([tagStr]) => JSON.parse(tagStr));  // Parse the stringified tag object
   };
 
   if (loading) {
@@ -413,7 +415,10 @@ const BlogPost = () => {
                   cursor="pointer"
                   onClick={() => navigate(`/blog?tag=${tag.urlFriendly}`)}
                 >
-                  {tag}
+                  <Text as="span" fontWeight="bold" mr={1}>
+                    #
+                  </Text>
+                  {tag.original}
                 </Tag>
               ))}
             </Wrap>
