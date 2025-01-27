@@ -23,11 +23,11 @@ twitterCard: summary_large_image
 2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi. Ablam birkaç sene boyunca Türkiye ile Amerika arasında mekik dokudu ve sonunda Türkiye'de bir yaşam kurmaya karar verdi. Ben ise Amerika'da kalmayı seçtim ve 2013 yılında lise diplomasını aldım.
 
 
-![2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851280/aile-family-ben-me-birlikte-together-20240125_wkyq9k.jpg)
+![2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737956597/pcxgbykvlag0uttrsf3w.jpg)
 *2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi.*
 
 
-12. sınıfta geçirdiğim süre, hem akademik hem de zihinsel anlamda oldukça zorlu oldu. Full time bir işte çalışmaya başlamıştım ve bu durum yaşamımı oldukça etkiledi. Okul çıkışı işe koşuyor, işten eve dönüyor ve gece yarısına doğru uykuya dalıyordum. Sabahın köründe ise tekrar işe gitmek üzere uyanıyordum. Bu tempoyu bir yıl boyunca sürdürdüm. Geriye dönüp baktığımda, belki de bu kadar yoğun çalışmama gerek olmadığını düşünüyorum.
+12.sınıfta geçirdiğim süre, hem akademik hem de zihinsel anlamda oldukça zorlu oldu. Full time bir işte çalışmaya başlamıştım ve bu durum yaşamımı oldukça etkiledi. Okul çıkışı işe koşuyor, işten eve dönüyor ve gece yarısına doğru uykuya dalıyordum. Sabahın köründe ise tekrar işe gitmek üzere uyanıyordum. Bu tempoyu bir yıl boyunca sürdürdüm. Geriye dönüp baktığımda, belki de bu kadar yoğun çalışmama gerek olmadığını düşünüyorum.
 
 
 ![12.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851291/orhan-okul-school-oglum-son-20240125_lu7v2f.jpg)
