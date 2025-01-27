@@ -1,30 +1,41 @@
 ---
 title: "Baltimore’da Polis Olmanın Hikayesi: New Yorktan Baltimoreya"
 date: 2025-01-27
-tags: ['Baltimore', 'Polis Olma Süreci', 'Psikoloji Testi', 'İntihara eğilim', 'İş Hayatı']
+tags:
+  - Baltimore
+  - Polis
+  - Olma
+  - Süreci
+  - Psikoloji
+  - Testi
+  - İntihara
+  - eğilim
+  - İş
+  - Hayatı
 author: Orhan Biler
-excerpt: "New Yorktaki işinden ayrılan bir adamın, Baltimoreda polis olma sürecini anlatan ilgi çekici bir hikaye. Kendini öldürme, ilişkiler ve psikoloji testleri ile dolu bu yolculuk, sonunda başarıya ulaşıyor."
-subtitle: "Bir New York’lu Temizlik Görevlisinden Baltimore’lu Polise Dönüşüm"
-banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg
+excerpt: New Yorktaki işinden ayrılan bir adamın, Baltimoreda polis olma sürecini anlatan ilgi çekici bir hikaye. Kendini öldürme, ilişkiler ve psikoloji testleri ile dolu bu yolculuk, sonunda başarıya ulaşıyor.
+subtitle: Bir New York’lu Temizlik Görevlisinden Baltimore’lu Polise Dönüşüm
+banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737966062/academy-akademi-police-polis-baltimore_city-training-egitim_dtbo3x.jpg
 draft: false
 readingTime: ""
 language: tr
 translations: {}
 series: ""
 seriesOrder: 1
-relatedPosts: []
+relatedPosts: 
 lastModified: 2025-01-27
 canonical: ""
-keywords: ['Baltimore', 'Polis Olma Süreci', 'Psikoloji Testi', 'İntihara eğilim', 'İş Hayatı']
+keywords:
+  - Baltimore
+  - Polis Olma Süreci
+  - Psikoloji Testi
+  - İntihara eğilim
+  - İş Hayatı
 socialImage: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg
 twitterCard: summary_large_image
 ---
 
 New York'ta işime devam ederken, hastane temizliği gibi işlerle meşgul olduğum bir sırada, Baltimore City'de polis olma sürecinde 3-4 aşama ilerlemiş olduğumu fark ettim. Bu sürecin önemli aşamalarından biri psikoloji testiydi. Pratt Street üzerinde bir psikoloji doktoruna giderek, bana çeşitli sorular sordu. Soruların çoğu intihara eğilimli olup olmadığım ve aile içi ilişkilerim hakkındaydı. Bütün bu sorulara en iyi yanıtları verdiğime inanarak testi tamamladım ve umduğum gibi, bir iki hafta sonra olumlu yanıtı aldım. 
-
-
-
-*New York'ta işime devam ederken, hastane temizliği gibi işlerle meşgul olduğum bir sırada, Baltimore City'de polis olma sürecinde 3-4 aşama ilerlemiş olduğumu fark ettim.
 
 
 Sonrasında sağlık kontrolünden geçtim; gözlerim, kulaklarım kontrol edildi. Sağlık raporunu da elde ettikten sonra, hem heyecanlı hem de endişeli bir şekilde New York'a geri döndüm. Bu süre zarfında, devam eden iletişimimi detektifle sürdürerek beklemeye başladım. 
