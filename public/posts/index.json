@@ -1,3 +1,25 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "Türkiye Hakkında Engin Bilgiye Sahip Bir Blog Nasıl Hazırlanır?",
+      "subtitle": "Kendi Blogunuzu Oluştururken İzlemeniz Gereken Adımlar ve Türkiye Hakkında İlginç İçerikler",
+      "date": "2025-01-26T00:00:00.000Z",
+      "slug": "turkiye-hakk-nda-engin-bilgiye-sahip-bir-blog-nas-l-haz-rlan-r",
+      "excerpt": "Kendinize ait bir blog oluşturmayı mı düşünüyorsunuz? Türkiye hakkında engin bilgiye sahip bir blog hazırlamak için izlemeniz gereken adımları ve ilginç içerik önerilerini keşfedin.",
+      "tags": [
+        "blog oluşturma",
+        "Türkiye",
+        "içerik oluşturma",
+        "blog yazma",
+        "Türkiye hakkında bilgi"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-26T00:00:00.000Z"
+    }
+  ]
 }
