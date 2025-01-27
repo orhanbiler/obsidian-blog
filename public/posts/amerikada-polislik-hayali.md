@@ -1,21 +1,34 @@
 ---
-title: "Amerikada Bir Türkün Hayat Hikayesi: Sürekli Değişen Meslekler ve Polislik Hayali"
+title: Amerikada Polislik Hayali
 date: 2025-01-27
-tags: ['Amerika', 'göçmen hikayeleri', 'yaşam deneyimleri', 'polislik hayali', 'meslekler']
+tags:
+  - Amerika
+  - göçmen
+  - hikayeleri
+  - yaşam
+  - deneyimleri
+  - polislik
+  - hayali
+  - meslekler
 author: Orhan Biler
-excerpt: "Amerikaya göç eden bir Türkün yaşadığı zorluklar, sürdürmekte olduğu meslekler ve polislik hayalini gerçekleştirme çabası; bir göçmenin Amerikan rüyasının gerçek yüzü."
-subtitle: "Bir Amerikan hayalinin gerçekleşmesi sürecinde karşılaşılan zorluklar ve edinilen tecrübeler"
-banner: assets/banner.jpg
+excerpt: Amerikaya göç eden bir Türkün yaşadığı zorluklar, sürdürmekte olduğu meslekler ve polislik hayalini gerçekleştirme çabası; bir göçmenin Amerikan rüyasının gerçek yüzü.
+subtitle: Bir Amerikan hayalinin gerçekleşmesi sürecinde karşılaşılan zorluklar ve edinilen tecrübeler
+banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851288/manhattan-sehir-city-newyork-banner-20240125_y9xdcl.jpg
 draft: false
-readingTime: ""
+readingTime: 
 language: tr
 translations: {}
 series: ""
 seriesOrder: 1
-relatedPosts: []
+relatedPosts: 
 lastModified: 2025-01-27
 canonical: ""
-keywords: ['Amerika', 'göçmen hikayeleri', 'yaşam deneyimleri', 'polislik hayali', 'meslekler']
+keywords:
+  - Amerika
+  - göçmen hikayeleri
+  - yaşam deneyimleri
+  - polislik hayali
+  - meslekler
 socialImage: /assets/social/transcription.jpg
 twitterCard: summary_large_image
 ---
