@@ -32,7 +32,7 @@ twitterCard: summary_large_image
 
 Farklı işlerde çalışmaya başladım. Aslında üniversiteye gitmeyi planlıyordum, ancak maddi durumum el vermedi ve çalışmak zorunda kaldım. Üstelik, etrafımda beni üniversiteye gitmeye teşvik eden kimse de yoktu. Bu durum üzerine, kendimi tamamen iş hayatına verdim ve haftada 40-50 saat, farklı işlerde çalıştım. Bir dönem bir HES benzin istasyonunda, ardından bir Mobil benzin istasyonunda kasiyerlik yaptım. Babamla bir süre inşaat ve boya işlerinde çalıştım. Daha sonra bir mekanik atölyesinde 1-2 ay geçirdim. FedEx'te kurye olarak görev yaptıktan sonra, bir hastanede temizlik görevlisi olarak işe başladım ve gece vardiyasında tam zamanlı çalıştım.
 
-![Fedex]([https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737957796/uvd3bum7yeczxpl2a1ix.jpg](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737957796/uvd3bum7yeczxpl2a1ix.jpg))
+![Fedex](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737957796/uvd3bum7yeczxpl2a1ix.jpg)
 
 
 
