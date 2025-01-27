@@ -23,7 +23,7 @@ language: tr
 translations: {}
 series: Amerika'da Polis Olmak
 seriesOrder: 2
-relatedPosts: 
+relatedPosts: Amerikada Polislik Hayali 1. Part
 lastModified: 2025-01-27
 canonical: ""
 keywords:
