@@ -42,4 +42,5 @@ Sonrasında sağlık kontrolünden geçtim; gözlerim, kulaklarım kontrol edild
 
 Nihayet bir gün telefonum çaldı. Perşembe günü aradıklarını öğrendim ancak telefonu açamadım. Daha sonra onları geri aradım ve bana iş teklifi yaptılar. Yıllık 50 bin dolar vereceklerini ve polis akademisinin pazartesi günü başlayacağını söylediler. Bu fırsatı kaçırmamam gerektiğini biliyordum. Bu nedenle, Perşembe günü işimi bıraktım ve Cumartesi ve Pazar günlerini kullanarak internet üzerindeki forumlardan kiralık bir oda buldum. Sonrasında, bir valiz dolusu eşyam ve arabamla, cebimdeki 600 doları alarak Baltimore yolculuğuma başladım.
 
-![Baltimore City Police Cruiser]([https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737966066/Baltimore-Police-Department-Chevy-Caprice-Scheme_ejenhp.jpg](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737966066/Baltimore-Police-Department-Chevy-Caprice-Scheme_ejenhp.jpg))
+![Baltimore City Police Cruiser](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737966066/Baltimore-Police-Department-Chevy-Caprice-Scheme_ejenhp.jpg)
+*Baltimore City Police Cruiser*
