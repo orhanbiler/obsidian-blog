@@ -2,7 +2,7 @@
 title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2. Part"
 date: 2025-01-27
 tags:
-  - Amerika'da
+  - Amerika
   - polis
   - olmak
   - Baltimore
