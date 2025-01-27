@@ -20,8 +20,8 @@ draft: false
 readingTime: ""
 language: tr
 translations: {}
-series: ""
-seriesOrder: 1
+series: Amerika'da Polis Olmak
+seriesOrder: 3
 relatedPosts: 
 lastModified: 2025-01-27
 canonical: ""
