@@ -50,6 +50,27 @@
       "series": "Amerika'da Polis Olmak",
       "seriesOrder": 2,
       "lastModified": "2025-01-27T00:00:00.000Z"
+    },
+    {
+      "title": "Baltimore’da Polis Olmanın Hikayesi: New Yorktan Baltimoreya",
+      "subtitle": "Bir New York’lu Temizlik Görevlisinden Baltimore’lu Polise Dönüşüm",
+      "date": "2025-01-27T00:00:00.000Z",
+      "slug": "baltimore-da-polis-olman-n-hikayesi-new-yorktan-baltimoreya",
+      "excerpt": "New Yorktaki işinden ayrılan bir adamın, Baltimoreda polis olma sürecini anlatan ilgi çekici bir hikaye. Kendini öldürme, ilişkiler ve psikoloji testleri ile dolu bu yolculuk, sonunda başarıya ulaşıyor.",
+      "tags": [
+        "Baltimore",
+        "Polis Olma Süreci",
+        "Psikoloji Testi",
+        "İntihara eğilim",
+        "İş Hayatı"
+      ],
+      "author": "Orhan Biler",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-27T00:00:00.000Z"
     }
   ]
 }
