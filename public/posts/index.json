@@ -84,14 +84,17 @@
       "slug": "yapay-zekada-yeni-bir-ad-m-deepsik-ai-r1-api-incelemesi",
       "excerpt": "Yeni çıkan DeepSik AI R1 API sistem, yapay zeka dünyasını sallıyor. OpenAInin modeline rakip olan bu yeni sistem, hem uygun fiyatı hem de açık kaynak olmasıyla dikkat çekiyor.",
       "tags": [
-        "Yapay Zeka",
-        "DeepSik AI",
+        "Yapay",
+        "Zeka",
+        "DeepSik",
+        "AI",
         "OpenAI",
         "API",
-        "Açık Kaynak"
+        "Açık",
+        "Kaynak"
       ],
       "author": "Orhan Biler",
-      "banner": "assets/banner.jpg",
+      "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1738004828/deepseek-r1-price-en_kgwqne.jpg",
       "language": "tr",
       "translations": {},
       "series": "",
