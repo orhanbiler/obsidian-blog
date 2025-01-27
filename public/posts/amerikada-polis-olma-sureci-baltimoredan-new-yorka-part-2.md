@@ -1,5 +1,5 @@
 ---
-title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2. Part"
+title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka Part 2"
 date: 2025-01-27
 tags:
   - Amerika
