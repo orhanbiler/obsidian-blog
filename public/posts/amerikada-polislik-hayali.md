@@ -33,7 +33,7 @@ socialImage: /assets/social/transcription.jpg
 twitterCard: summary_large_image
 ---
 
-2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi. Ablam birkaç sene boyunca Türkiye ile Amerika arasında mekik dokudu ve sonunda Türkiye'de bir yaşam kurmaya karar verdi. Ben ise Amerika'da kalmayı seçtim ve 2013 yılında lise diplomasını aldım.
+2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi. Ablam birkaç sene boyunca Türkiye ile Amerika arasında mekik dokudu ve sonunda Türkiye'de bir yaşam kurmaya karar verdi. Ben ise Amerika'da kalmayı seçtim ve 2013 yılında lise diplomamı aldım.
 
 
 ![2010 yılında, ablamla birlikte Amerika'ya ilk adımımızı attığımızda heyecanımız tarifsizdi.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737956597/pcxgbykvlag0uttrsf3w.jpg)
@@ -53,6 +53,6 @@ Hayatım boyunca pek çok değişiklik yaşadım, fakat bunların detaylarına �
 
 
 
-Polislik için NYPD.'ye başvurmuştum. Ancak, iki yıl bekledikten sonra çağrıldığım psikoloji testini geçemediğimi öğrendim. Yaklaşık üç yıl boyunca bu süreç devam ettikten sonra, New York'ta bu işin olmayacağını anladım ve Baltimore City'de şansımı denemeye karar verdim. Burada sivil hizmet sınavına (Civil Service Exam) girdim ve bu sınavı rahatlıkla geçtim. Hatta, beklediğimden daha kolay oldu ve sonucu 20 dakika içinde öğrendim.
+Polislik için NYPD.'ye başvurmuştum. Ancak, iki yıl bekledikten sonra çağrıldığım psikoloji testini geçemediğimi öğrendim. Yaklaşık üç yıl boyunca bu süreç devam ettikten sonra, New York'ta bu işin olmayacağını anladım ve Maryland eyaletinde Baltimore City'de şansımı denemeye karar verdim. Burada sivil hizmet sınavına (Civil Service Exam) girdim ve bu sınavı rahatlıkla geçtim. Hatta, beklediğimden daha kolay oldu ve sonucu 20 dakika içinde öğrendim.
 
-Şimdilik bu kadarlık bir paylaşımda bulunmak istedim. Bir sonraki blog yazımda görüşmek üzere, sağlıcakla kalın.
+Bir
