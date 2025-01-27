@@ -1,5 +1,5 @@
 ---
-title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2.Part"
+title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2. Part"
 date: 2025-01-27
 tags:
   - Amerika'da
@@ -21,9 +21,9 @@ draft: false
 readingTime: ""
 language: tr
 translations: {}
-series: ""
+series: Amerika'da Polis Olmak
 seriesOrder: 2
-relatedPosts: 
+relatedPosts: Amerikada Polislik Hayali 1. Part
 lastModified: 2025-01-27
 canonical: ""
 keywords:

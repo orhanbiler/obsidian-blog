@@ -18,9 +18,9 @@ draft: false
 readingTime: 
 language: tr
 translations: {}
-series: ""
+series: Amerika'da Polis Olmak
 seriesOrder: 1
-relatedPosts: 
+relatedPosts: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2. Part"
 lastModified: 2025-01-27
 canonical: ""
 keywords:
