@@ -1,10 +1,21 @@
 ---
-title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka"
+title: "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2.Part"
 date: 2025-01-27
-tags: ["Amerika'da polis olmak", 'Baltimore City', 'New York', 'göçmen deneyimi', 'polislik süreci']
+tags:
+  - Amerika'da
+  - polis
+  - olmak
+  - Baltimore
+  - City
+  - New
+  - York
+  - göçmen
+  - deneyimi
+  - polislik
+  - süreci
 author: Orhan Biler
-excerpt: "Avrupalı bir göçmenin Amerikada polis olma sürecini anlatan birinci elden deneyimler. Baltimore City Civil Service testini geçme ve sürecin zorlukları hakkında ayrıntılı bir bakış."
-subtitle: "Bir Türkün Amerikadaki Polislik Yolculuğu"
+excerpt: Avrupalı bir göçmenin Amerikada polis olma sürecini anlatan birinci elden deneyimler. Baltimore City Civil Service testini geçme ve sürecin zorlukları hakkında ayrıntılı bir bakış.
+subtitle: Bir Türkün Amerikadaki Polislik Yolculuğu
 banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg
 draft: false
 readingTime: ""
@@ -12,10 +23,15 @@ language: tr
 translations: {}
 series: ""
 seriesOrder: 2
-relatedPosts: []
+relatedPosts: 
 lastModified: 2025-01-27
 canonical: ""
-keywords: ["Amerika'da polis olmak", 'Baltimore City', 'New York', 'göçmen deneyimi', 'polislik süreci']
+keywords:
+  - Amerika'da polis olmak
+  - Baltimore City
+  - New York
+  - göçmen deneyimi
+  - polislik süreci
 socialImage: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg
 twitterCard: summary_large_image
 ---
