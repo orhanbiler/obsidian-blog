@@ -1,5 +1,5 @@
 ---
-title: "Baltimore’da Polis Olmanın Hikayesi: New Yorktan Baltimoreya"
+title: Baltimore’da Polis Olmanın Hikayesi
 date: 2025-01-27
 tags:
   - Baltimore
