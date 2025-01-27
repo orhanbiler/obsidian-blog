@@ -76,6 +76,27 @@
       "series": "Amerika'da Polis Olmak",
       "seriesOrder": 3,
       "lastModified": "2025-01-27T00:00:00.000Z"
+    },
+    {
+      "title": "Yapay Zekada Yeni Bir Adım: DeepSik AI R1 API İncelemesi",
+      "subtitle": "Yapay zeka alanında nasıl bir devrim yarattığını keşfedelim.",
+      "date": "2025-01-27T00:00:00.000Z",
+      "slug": "yapay-zekada-yeni-bir-ad-m-deepsik-ai-r1-api-incelemesi",
+      "excerpt": "Yeni çıkan DeepSik AI R1 API sistem, yapay zeka dünyasını sallıyor. OpenAInin modeline rakip olan bu yeni sistem, hem uygun fiyatı hem de açık kaynak olmasıyla dikkat çekiyor.",
+      "tags": [
+        "Yapay Zeka",
+        "DeepSik AI",
+        "OpenAI",
+        "API",
+        "Açık Kaynak"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-27T00:00:00.000Z"
     }
   ]
 }
