@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "title": "Amerikada Polislik Hayali",
+      "title": "Amerikada Polislik Hayali 1. Part",
       "subtitle": "Bir Amerikan hayalinin gerçekleşmesi sürecinde karşılaşılan zorluklar ve edinilen tecrübeler",
       "date": "2025-01-27T00:00:00.000Z",
-      "slug": "amerikada-polislik-hayali",
+      "slug": "amerikada-polislik-hayali-1-part",
       "excerpt": "Amerikaya göç eden bir Türkün yaşadığı zorluklar, sürdürmekte olduğu meslekler ve polislik hayalini gerçekleştirme çabası; bir göçmenin Amerikan rüyasının gerçek yüzü.",
       "tags": [
         "Amerika",
@@ -25,17 +25,23 @@
       "lastModified": "2025-01-27T00:00:00.000Z"
     },
     {
-      "title": "Amerikada Polis Olma Süreci: Baltimoredan New Yorka",
+      "title": "Amerikada Polis Olma Süreci: Baltimoredan New Yorka 2.Part",
       "subtitle": "Bir Türkün Amerikadaki Polislik Yolculuğu",
       "date": "2025-01-27T00:00:00.000Z",
-      "slug": "amerikada-polis-olma-sureci-baltimoredan-new-yorka",
+      "slug": "amerikada-polis-olma-sureci-baltimoredan-new-yorka-2-part",
       "excerpt": "Avrupalı bir göçmenin Amerikada polis olma sürecini anlatan birinci elden deneyimler. Baltimore City Civil Service testini geçme ve sürecin zorlukları hakkında ayrıntılı bir bakış.",
       "tags": [
-        "Amerika'da polis olmak",
-        "Baltimore City",
-        "New York",
-        "göçmen deneyimi",
-        "polislik süreci"
+        "Amerika'da",
+        "polis",
+        "olmak",
+        "Baltimore",
+        "City",
+        "New",
+        "York",
+        "göçmen",
+        "deneyimi",
+        "polislik",
+        "süreci"
       ],
       "author": "Orhan Biler",
       "banner": "https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg",
