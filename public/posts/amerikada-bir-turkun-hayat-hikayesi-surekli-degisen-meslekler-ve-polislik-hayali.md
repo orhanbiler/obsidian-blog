@@ -30,19 +30,12 @@ twitterCard: summary_large_image
 12.sınıfta geçirdiğim süre, hem akademik hem de zihinsel anlamda oldukça zorlu oldu. Full time bir işte çalışmaya başlamıştım ve bu durum yaşamımı oldukça etkiledi. Okul çıkışı işe koşuyor, işten eve dönüyor ve gece yarısına doğru uykuya dalıyordum. Sabahın köründe ise tekrar işe gitmek üzere uyanıyordum. Bu tempoyu bir yıl boyunca sürdürdüm. Geriye dönüp baktığımda, belki de bu kadar yoğun çalışmama gerek olmadığını düşünüyorum.
 
 
-![12.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851291/orhan-okul-school-oglum-son-20240125_lu7v2f.jpg)
-*12.*
-
-
-Mezuniyetimin ardından, farklı işlerde çalışmaya başladım. Aslında üniversiteye gitmeyi planlıyordum, ancak maddi durumum el vermedi ve çalışmak zorunda kaldım. Üstelik, etrafımda beni üniversiteye gitmeye teşvik eden kimse de yoktu. Bu durum üzerine, kendimi tamamen iş hayatına verdim ve haftada 40-50 saat, farklı işlerde çalıştım. Bir dönem bir HES benzin istasyonunda, ardından bir Mobil benzin istasyonunda kasiyerlik yaptım. Babamla bir süre inşaat ve boya işlerinde çalıştım. Daha sonra bir mekanik atölyesinde 1-2 ay geçirdim. FedEx'te kurye olarak görev yaptıktan sonra, bir hastanede temizlik görevlisi olarak işe başladım ve gece vardiyasında tam zamanlı çalıştım.
+![12.](https://res.cloudinary.com/dn0ruu farklı işlerde çalışmaya başladım. Aslında üniversiteye gitmeyi planlıyordum, ancak maddi durumum el vermedi ve çalışmak zorunda kaldım. Üstelik, etrafımda beni üniversiteye gitmeye teşvik eden kimse de yoktu. Bu durum üzerine, kendimi tamamen iş hayatına verdim ve haftada 40-50 saat, farklı işlerde çalıştım. Bir dönem bir HES benzin istasyonunda, ardından bir Mobil benzin istasyonunda kasiyerlik yaptım. Babamla bir süre inşaat ve boya işlerinde çalıştım. Daha sonra bir mekanik atölyesinde 1-2 ay geçirdim. FedEx'te kurye olarak görev yaptıktan sonra, bir hastanede temizlik görevlisi olarak işe başladım ve gece vardiyasında tam zamanlı çalıştım.
 
 Hayatım boyunca pek çok değişiklik yaşadım, fakat bunların detaylarına şimdilik girmek istemiyorum. Belki başka bir zaman, başka bir paylaşımda bu detayları anlatabilirim. Ancak şunu belirtmeliyim ki, lise yıllarından bu yana kafamda olan polis olma hayalim hiçbir zaman değişmedi. Doğruyu söylemeye düşkün bir insanım ve aynı zamanda insanlara yardım etmekten keyif alıyorum. Bu iki özelliğimin birleştiği meslek dalı ise benim için polislik oldu.
 
 
-![Hayatım boyunca pek çok değişiklik yaşadım, fakat bunların detaylarına şimdilik girmek istemiyorum.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg)
-*Hayatım boyunca pek çok değişiklik yaşadım, fakat bunların detaylarına şimdilik girmek istemiyorum.*
 
-
-Polislik için M.I.P.'ye başvurmuştum. Ancak, iki yıl bekledikten sonra çağrıldığım psikoloji testini geçemediğimi öğrendim. Yaklaşık üç yıl boyunca bu süreç devam ettikten sonra, New York'ta bu işin olmayacağını anladım ve Baltimore City'de şansımı denemeye karar verdim. Burada sivil hizmet sınavına (Civil Service Exam) girdim ve bu sınavı rahatlıkla geçtim. Hatta, beklediğimden daha kolay oldu ve sonucu 20 dakika içinde öğrendim.
+Polislik için NYPD.'ye başvurmuştum. Ancak, iki yıl bekledikten sonra çağrıldığım psikoloji testini geçemediğimi öğrendim. Yaklaşık üç yıl boyunca bu süreç devam ettikten sonra, New York'ta bu işin olmayacağını anladım ve Baltimore City'de şansımı denemeye karar verdim. Burada sivil hizmet sınavına (Civil Service Exam) girdim ve bu sınavı rahatlıkla geçtim. Hatta, beklediğimden daha kolay oldu ve sonucu 20 dakika içinde öğrendim.
 
 Şimdilik bu kadarlık bir paylaşımda bulunmak istedim. Bir sonraki blog yazımda görüşmek üzere, sağlıcakla kalın.
