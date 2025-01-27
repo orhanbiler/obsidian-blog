@@ -23,8 +23,8 @@ twitterCard: summary_large_image
 New York'ta işime devam ederken, hastane temizliği gibi işlerle meşgul olduğum bir sırada, Baltimore City'de polis olma sürecinde 3-4 aşama ilerlemiş olduğumu fark ettim. Bu sürecin önemli aşamalarından biri psikoloji testiydi. Pratt Street üzerinde bir psikoloji doktoruna giderek, bana çeşitli sorular sordu. Soruların çoğu intihara eğilimli olup olmadığım ve aile içi ilişkilerim hakkındaydı. Bütün bu sorulara en iyi yanıtları verdiğime inanarak testi tamamladım ve umduğum gibi, bir iki hafta sonra olumlu yanıtı aldım. 
 
 
-![New York'ta işime devam ederken, hastane temizliği gibi işlerle meşgul olduğum bir sırada, Baltimore City'de polis olma sürecinde 3-4 aşama ilerlemiş olduğumu fark ettim.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851281/aile-family-dogumgunu-birthday-catherine-20240125_juend2.jpg)
-*New York'ta işime devam ederken, hastane temizliği gibi işlerle meşgul olduğum bir sırada, Baltimore City'de polis olma sürecinde 3-4 aşama ilerlemiş olduğumu fark ettim.*
+
+*New York'ta işime devam ederken, hastane temizliği gibi işlerle meşgul olduğum bir sırada, Baltimore City'de polis olma sürecinde 3-4 aşama ilerlemiş olduğumu fark ettim.
 
 
 Sonrasında sağlık kontrolünden geçtim; gözlerim, kulaklarım kontrol edildi. Sağlık raporunu da elde ettikten sonra, hem heyecanlı hem de endişeli bir şekilde New York'a geri döndüm. Bu süre zarfında, devam eden iletişimimi detektifle sürdürerek beklemeye başladım. 
