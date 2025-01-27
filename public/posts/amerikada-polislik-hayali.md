@@ -53,6 +53,6 @@ Hayatım boyunca pek çok değişiklik yaşadım, fakat bunların detaylarına �
 
 
 
-Polislik için NYPD.'ye başvurmuştum. Ancak, iki yıl bekledikten sonra çağrıldığım psikoloji testini geçemediğimi öğrendim. Yaklaşık üç yıl boyunca bu süreç devam ettikten sonra, New York'ta bu işin olmayacağını anladım ve Maryland eyaletinde Baltimore City'de şansımı denemeye karar verdim. Burada sivil hizmet sınavına (Civil Service Exam) girdim ve bu sınavı rahatlıkla geçtim. Hatta, beklediğimden daha kolay oldu ve sonucu 20 dakika içinde öğrendim.
+Polislik için NYPD'ye başvurmuştum. Ancak, iki yıl bekledikten sonra çağrıldığım psikoloji testini geçemediğimi öğrendim. Yaklaşık üç yıl boyunca bu süreç devam ettikten sonra, New York'ta bu işin olmayacağını anladım ve Maryland eyaletinde Baltimore City'de şansımı denemeye karar verdim. Burada sivil hizmet sınavına (Civil Service Exam) girdim ve bu sınavı rahatlıkla geçtim. Hatta, beklediğimden daha kolay oldu ve sonucu 20 dakika içinde öğrendim.
 
 Amerika’daki ilk günlerimden polislik hayalime kadar uzanan bu yolculuğun henüz tamamlanmadığını söyleyebilirim. 2. bölümde daha fazla detaya ve sonraki adımlarıma değineceğim. Takipte kalın!
