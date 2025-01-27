@@ -1,5 +1,5 @@
 ---
-title: "Baltimore’da Polis Olmanın Hikayesi: New Yorktan Baltimoreya"
+title: Baltimore’da Polis Olmanın Hikayesi
 date: 2025-01-27
 tags:
   - Baltimore
@@ -20,8 +20,8 @@ draft: false
 readingTime: ""
 language: tr
 translations: {}
-series: ""
-seriesOrder: 1
+series: Amerika'da Polis Olmak
+seriesOrder: 3
 relatedPosts: 
 lastModified: 2025-01-27
 canonical: ""
