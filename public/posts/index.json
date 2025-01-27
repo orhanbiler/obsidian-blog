@@ -1,3 +1,25 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "Amerikada Bir Türkün Hayat Hikayesi: Sürekli Değişen Meslekler ve Polislik Hayali",
+      "subtitle": "Bir Amerikan hayalinin gerçekleşmesi sürecinde karşılaşılan zorluklar ve edinilen tecrübeler",
+      "date": "2025-01-27T00:00:00.000Z",
+      "slug": "amerikada-bir-turkun-hayat-hikayesi-surekli-degisen-meslekler-ve-polislik-hayali",
+      "excerpt": "Amerikaya göç eden bir Türkün yaşadığı zorluklar, sürdürmekte olduğu meslekler ve polislik hayalini gerçekleştirme çabası; bir göçmenin Amerikan rüyasının gerçek yüzü.",
+      "tags": [
+        "Amerika",
+        "göçmen hikayeleri",
+        "yaşam deneyimleri",
+        "polislik hayali",
+        "meslekler"
+      ],
+      "author": "Orhan Biler",
+      "banner": "assets/banner.jpg",
+      "language": "tr",
+      "translations": {},
+      "series": "",
+      "seriesOrder": 1,
+      "lastModified": "2025-01-27T00:00:00.000Z"
+    }
+  ]
 }
