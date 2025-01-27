@@ -1,5 +1,5 @@
 ---
-title: Amerikada Polislik Hayali 1. Part
+title: Amerikada Polislik Hayali Part 1
 date: 2025-01-27
 tags:
   - Amerika

@@ -1,5 +1,5 @@
 ---
-title: Baltimore’da Polis Olmanın Hikayesi
+title: Baltimore’da Polis Olmanın Hikayesi Part 3
 date: 2025-01-27
 tags:
   - Baltimore
