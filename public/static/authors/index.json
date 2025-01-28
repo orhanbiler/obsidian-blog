@@ -2,7 +2,7 @@
   {
     "name": "Catherine Biler",
     "role": "Editor",
-    "bio": "## About Me\nWrite a brief introduction about yourself, your background, and what you bring to the blog. This is your chance to connect with readers and share your unique perspective.\n\n## Expertise\n- Area of Expertise 1\n- Area of Expertise 2\n- Area of Expertise 3\n- Area of Expertise 4\n- Area of Expertise 5\n\n## Writing Focus\nDescribe what topics you'll be writing about and what readers can expect from your articles. Share your approach to content creation and any specific areas you'll be focusing on.",
+    "bio": "# Catherine Biler\r\n\r\n## About Me\r\nWrite a brief introduction about yourself, your background, and what you bring to the blog. This is your chance to connect with readers and share your unique perspective.\r\n\r\n## Expertise\r\n- Area of Expertise 1\r\n- Area of Expertise 2\r\n- Area of Expertise 3\r\n- Area of Expertise 4\r\n- Area of Expertise 5\r\n\r\n## Writing Focus\r\nDescribe what topics you'll be writing about and what readers can expect from your articles. Share your approach to content creation and any specific areas you'll be focusing on.",
     "areas": [
       "Teacher",
       "Love",
@@ -17,7 +17,7 @@
   {
     "name": "Orhan Biler",
     "role": "Owner & Main Author",
-    "bio": "## About Me\nFrom law enforcement to technology, I've had quite a journey. I now focus on sharing my experiences and knowledge in software development, cryptocurrency, and gaming. My unique background gives me a different perspective on technology and its applications.\n\n## Expertise\n- Software Development\n- Law Enforcement Technology\n- Cryptocurrency & Blockchain\n- Gaming & Setup Optimization\n- Technical Writing\n\n## Writing Focus\nI write about the intersection of technology with various fields, drawing from my diverse background to provide unique insights. My articles range from technical tutorials to personal experiences in career transition.",
+    "bio": "# Orhan Biler\r\n\r\n## About Me\r\nFrom law enforcement to technology, I've had quite a journey. I now focus on sharing my experiences and knowledge in software development, cryptocurrency, and gaming. My unique background gives me a different perspective on technology and its applications.\r\n\r\n## Expertise\r\n- Software Development\r\n- Law Enforcement Technology\r\n- Cryptocurrency & Blockchain\r\n- Gaming & Setup Optimization\r\n- Technical Writing\r\n\r\n## Writing Focus\r\nI write about the intersection of technology with various fields, drawing from my diverse background to provide unique insights. My articles range from technical tutorials to personal experiences in career transition.",
     "areas": [
       "Tech",
       "Law Enforcement",
