@@ -19,7 +19,6 @@ import {
   Flex,
   SimpleGrid,
   Wrap,
-  Tooltip
 } from '@chakra-ui/react';
 import { format } from 'date-fns';
 import { marked } from 'marked';
