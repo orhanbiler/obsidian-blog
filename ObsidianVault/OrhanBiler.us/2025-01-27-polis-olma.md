@@ -36,15 +36,27 @@ socialImage: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis
 twitterCard: summary_large_image
 ---
 
-Baltimore City Civil Service testini başarıyla tamamladıktan sonra New York'a geri döndüm. Ancak belirtmeliyim ki, bu süreçte, Baltimore City'de polis olma hedefim için, New York'tan Baltimore'a 6-7 kez belge götürmem gerekti. Bu da benim için oldukça meşakkatli oldu. Bu zorlu sürecin ardından, testi geçtiğimi öğrenince, New York'a dönüş yaptım ve hayatıma kaldığım yerden devam ettim. 
+**New York-Baltimore Arası Meşakkatli Yolculuk:**  
+Baltimore City sivil hizmet sınavını geçtiğimde, her şeyin yoluna gireceğini düşünmüştüm. Ama işler pek öyle olmadı. **New York’tan Baltimore’a tam 6-7 kez belge götürüp getirmek zorunda kaldım.** Her seferinde otobüslerde, trenlerde geçen saatler, üst üste yapılan masraflar… Adeta “Bu işin sınavı mı zor, yoksa bu yolculuklar mı?” diye sorguladığım anlar oldu. Sonunda New York’a döndüğümde, bir hastanede temizlik işine devam ediyordum. Hayat, rutinine geri dönmüş gibiydi.
 
 
 ![Baltimore City Civil Service testini başarıyla tamamladıktan sonra New York'a geri döndüm.](https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851288/manhattan-sehir-city-newyork-banner-20240125_y9xdcl.jpg)
 *Baltimore City Civil Service testini başarıyla tamamladıktan sonra New York'a geri döndüm.*
 
 
-O sıralar bir hastanede temizlik işlerine bakıyordum. İşime devam ederken, 6 ay sonra bir gün e-posta hesabımı kontrol etmeye karar verdim. Çünkü süreçle ilgili haber bekliyordum ve henüz bir geri dönüş olmamıştı. Kontrollerim sırasında spam klasörüme baktığımda, Baltimore City'nin bana 2 haftalık bir süre verdiğini öğrendim. Eğer bu süre zarfında geri dönüş yapmazsam, süreçten çıkarılacağımı belirtmişlerdi. Bu durumdan oldukça endişelendim ve hemen onlara geri dönüş yaptım. Spam klasörüne düştüğü için e-postalarını göremediğimi belirttim ve özür diledim. Neyse ki, durumu anladılar ve süreci sürdürme izni verdiler. 
 
-Sonrasında, bana Physical Agility Test için bir tarih verdiler. Bu süre zarfında, test için gerekli olan hazırlıkları yaptım. Şınav çekme ve mekik çekme egzersizlerine başladım. YouTube'dan bu konuda bilgi veren videolar izledim. Test günü geldiğinde, sınavı başarıyla tamamladım. Bu testte, size 1 dakika veriliyor ve bu süre zarfında en az 27 şınav ve 33 mekik çekmeniz gerekiyor. Ayrıca, 1,5 mil koşmanız gerekiyor ve bu koşu için verilen süre 16 dakika. 
+**Spam Klasöründeki Kritik E-posta:** 
+Test sonucunu öğrendikten sonra, “Artık her şey tamam” dedim. Aylar geçti, hiç haber gelmedi. **6 ay sonra bir gün**, içime doğdu sanki. E-posta hesabımı kontrol ettim. Gelen kutusu bomboştu. Sonra **spam klasörüne** baktım… Ve orada, Baltimore City’den gelen bir e-posta! **“2 hafta içinde dönüş yapmazsanız, süreçten çıkarılacaksınız”** yazıyordu. Kalbim yerinden çıkacak gibi attı. Hemen aradım, spam’e düştüğünü anlattım. Neyse ki anlayış gösterdiler ve “Devam edebilirsiniz” dediler. O gün, **spam klasörüne bakmanın önemini ömür boyu unutmayacağım!**
 
-Bu süreçleri başarıyla tamamladıktan sonra, Baltimore Physical Agility Test'i geçtiğimi öğrendim. Böylece, polislik sürecinde bir sonraki adıma geçebilecektim. Ancak bu süreç, 1-2 haftada tamamlanacak türden bir süreç değil, özellikle kaliteli ve sağlam bir departmanda yer almayı hedefliyorsanız. Bu yolculuğumun devamını bir sonraki blog yazımda anlatacağım. Görüşmek üzere.
+
+
+**Fiziksel Teste Hazırlık ve Ter Dökülen Günler:**  
+Sonraki adım **Physical Agility Test**’ti. İhtiyacım olan şeyler netti: **1 dakikada 27 şınav, 33 mekik ve 1,5 mili 16 dakikada koşmak.** Antrenmanlara başladım. Her sabah parkur koşuları, akşamları YouTube’dan izlediğim videolarla şınav-mekik çalışmaları… Bazen “Yapamayacağım” diye düşündüm, ama **“Baltimore’a bu kadar emek verdikten sonra pes mi edeceğim?”** diye tekrar motive oldum.
+
+
+**Test Günü ve Zafer Anı:**  
+Test günü geldiğinde, ellerim terliyordu. Başlama düdüğü çaldığında, tüm gücümü topladım. **Şınavlar, mekikler…** Nefes nefese kaldım ama sayıları tutturdum. Sonra koşuya geçtim. Ayakkabılarım asfalta vururken, “Yapmalıyım” diye tekrarladım. **1,5 mili 15 dakika 45 saniyede bitirdiğimde**, yüzümdeki gülümseme her şeyi anlatıyordu. **Geçmiştim!**
+
+
+**Sonraki Adımlar ve Sürprizler:**  
+Ancak polislik süreci, “1-2 haftada tamamlanır” dediğiniz türden bir şey değil. Özellikle iyi bir departman hedefliyorsanız, sabır ve emek şart. Baltimore’da eğitim, mülakatlar ve beklenmedik engeller… Tüm bunları bir sonraki yazıda anlatacağım. Çünkü bu hikâyede **“azim”**, her satırın altında yatan gizli kahraman.
