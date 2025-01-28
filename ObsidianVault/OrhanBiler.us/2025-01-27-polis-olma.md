@@ -16,7 +16,7 @@ tags:
 author: Orhan Biler
 excerpt: Avrupalı bir göçmenin Amerikada polis olma sürecini anlatan birinci elden deneyimler. Baltimore City Civil Service testini geçme ve sürecin zorlukları hakkında ayrıntılı bir bakış.
 subtitle: Bir Türkün Amerikadaki Polislik Yolculuğu
-banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737851295/polis-police-egitim-training-oceancity-sahil-20240125_bhui8m.jpg
+banner: https://res.cloudinary.com/dn0ruuuu9/image/upload/v1737966066/Baltimore-Police-Department-Chevy-Caprice-Scheme_ejenhp.jpg
 draft: false
 readingTime: ""
 language: tr
