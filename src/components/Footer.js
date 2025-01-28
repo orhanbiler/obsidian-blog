@@ -9,7 +9,6 @@ import {
   Icon,
   Divider,
   VStack,
-  HStack
 } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
